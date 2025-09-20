@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PortfolioView from "@/views/PortfolioView.vue";
-// importa altre view...
+import AboutView from "@/views/AboutView.vue";
 
 const routes = [
   // altre rotte ...
+  {
+    path: "/about",
+    name: "About",
+    component: AboutView,
+  },
   {
     path: "/portfolio",
     name: "Portfolio",
