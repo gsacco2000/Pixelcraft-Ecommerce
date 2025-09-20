@@ -1,17 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import PortfolioView from "@/views/PortfolioView.vue";
+// importa altre view...
 
 const routes = [
+  // altre rotte ...
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/portfolio",
+    name: "Portfolio",
+    component: PortfolioView,
   },
 ];
 
