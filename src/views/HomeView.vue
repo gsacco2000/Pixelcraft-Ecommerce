@@ -78,7 +78,7 @@
             <div class="project h-100 d-flex flex-column align-items-center">
               <div class="project-image-wrapper w-100 mb-3">
                 <img
-                  src="/img.home/portfolio.tabli.jpg"
+                  src="/img.portfolio/portfolio.tabli.jpg"
                   alt="Tablì Lavazza"
                   class="img-fluid rounded"
                 />
@@ -94,7 +94,7 @@
             <div class="project h-100 d-flex flex-column align-items-center">
               <div class="project-image-wrapper w-100 mb-3">
                 <img
-                  src="/img.home/portfolio.abbonamentoMusei.jpg"
+                  src="/img.portfolio/portfolio.abbonamentoMusei.jpg"
                   alt="Abbonamento Musei"
                   class="img-fluid rounded"
                 />
@@ -112,7 +112,7 @@
             <div class="project h-100 d-flex flex-column align-items-center">
               <div class="project-image-wrapper w-100 mb-3">
                 <img
-                  src="/img.home/portfolio.laVenariaReale.jpg"
+                  src="/img.portfolio/portfolio.laVenariaReale.jpg"
                   alt="La Venaria Reale"
                   class="img-fluid rounded"
                 />
@@ -132,7 +132,7 @@
           <div class="col-12 col-md-4">
             <div class="articolo">
               <img
-                src="/img.home/journalarticolo_identitavisiva.png"
+                src="/img.journal/journalarticolo_identitavisiva.png"
                 alt="Montagna innevata"
                 class="img-fluid rounded mb-2"
               />
@@ -143,16 +143,16 @@
               <h3 class="fw-bold lh-base">
                 Un'identità visiva per la montagna che cambia
               </h3>
-              <router-link to="#" class="button mt-auto"
-                >Continua a leggere</router-link
-              >
+              <router-link to="#" class="button mt-auto">
+                Continua a leggere
+              </router-link>
             </div>
           </div>
 
           <div class="col-12 col-md-4">
             <div class="articolo">
               <img
-                src="/img.home/journalarticolo_nuovenarrazioni.png"
+                src="/img.journal/journalarticolo_nuovenarrazioni.png"
                 alt="Ragazza in montagna"
                 class="img-fluid rounded mb-2"
               />
@@ -164,27 +164,29 @@
                 Narrazioni per il turismo lento: laboratorio tra grafica e
                 territorio
               </h3>
-              <router-link to="#" class="button mt-auto"
-                >Continua a leggere</router-link
-              >
+              <router-link to="#" class="button mt-auto">
+                Continua a leggere
+              </router-link>
             </div>
           </div>
 
           <div class="col-12 col-md-4">
             <div class="articolo">
               <img
-                src="/img.home/journalarticolo_packaging.png"
+                src="/img.journal/journalarticolo_packaging.png"
                 alt="Packaging"
                 class="img-fluid rounded mb-2"
               />
-              <p class="genere"><span class="design">DESIGN</span></p>
+              <p class="genere">
+                <span class="design">DESIGN</span>
+              </p>
               <p class="info mb-2">APRIL 04 2025 | JESSICA SCANO</p>
               <h3 class="fw-bold lh-base">
                 Packaging narrativo: sperimentazione in Val Varaita
               </h3>
-              <router-link to="#" class="button mt-auto"
-                >Continua a leggere</router-link
-              >
+              <router-link to="#" class="button mt-auto">
+                Continua a leggere
+              </router-link>
             </div>
           </div>
         </section>
