@@ -8,16 +8,6 @@
   <div id="app"><ProductList /></div>
 </template>
 
-<script>
-import ProductList from "./components/productList.vue";
-
-export default {
-  components: {
-    ProductList,
-  },
-};
-</script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

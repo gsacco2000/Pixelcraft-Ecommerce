@@ -1,80 +1,83 @@
-<template>
-  <div class="container mt-4">
-    <h1 class="mb-4 text-center">Prodotti</h1>
-    <div class="row">
-      <div class="col-md-4 mb-3" v-for="product in products" :key="product.id">
-        <div class="card h-100">
-          <img class="card-img-top" :src="product.image" :alt="product.name" />
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="text-primary fw-bold">{{ product.price }} €</p>
-            <button class="btn btn-success mt-auto">
-              Aggiungi al carrello
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
+import ProductCard from "./productCard.vue";
+
 export default {
+  components: {
+    ProductCard,
+  },
   data() {
     return {
       products: [
         {
           id: 1,
-          name: "Maglietta",
-          description: "Maglietta cotone",
+          name: "Poster 1",
           price: 19.99,
-          image: "https://via.placeholder.com/300x200",
+          oldPrice: 25.0,
+          discount: 20,
+          isNew: true,
+          image:
+            "https://i.pinimg.com/736x/56/0f/e7/560fe772b95eab5e57f1187c7a6b47fa.jpg",
         },
         {
           id: 2,
-          name: "Smartphone",
-          description: "Ultimo modello smartphone",
-          price: 299.99,
-          image: "https://via.placeholder.com/300x200",
+          name: "Poster 2",
+          price: 29.99,
+          oldPrice: null,
+          discount: 0,
+          isNew: false,
+          image:
+            "https://i.pinimg.com/736x/6c/8b/85/6c8b852b64001dc6d9b04c01ec7d6ad7.jpg",
         },
         {
           id: 3,
-          name: "Romanzo",
-          description: "Libro bestseller",
-          price: 9.99,
-          image: "https://via.placeholder.com/300x200",
+          name: "Poster 3",
+          price: 29.99,
+          oldPrice: null,
+          discount: 0,
+          isNew: false,
+          image:
+            "https://i.pinimg.com/736x/e1/6d/3b/e16d3b318668fa5e3a3f5df2b7061a60.jpg",
         },
         {
           id: 4,
-          name: "Felpa",
-          description: "Felpa con cappuccio",
-          price: 39.99,
-          image: "https://via.placeholder.com/300x200",
-        },
-        {
-          id: 5,
-          name: "Cuffie",
-          description: "Cuffie bluetooth",
-          price: 59.99,
-          image: "https://via.placeholder.com/300x200",
-        },
-        {
-          id: 6,
-          name: "Zaino",
-          description: "Zaino da viaggio",
-          price: 79.99,
-          image: "https://via.placeholder.com/300x200",
+          name: "Poster 4",
+          price: 29.99,
+          oldPrice: null,
+          discount: 0,
+          isNew: false,
+          image:
+            "https://i.pinimg.com/1200x/73/64/3b/73643b4eeaddecb13a175ce693aa921b.jpg",
         },
       ],
     };
   },
+  methods: {
+    handleAddToCart(productId) {
+      console.log("Aggiungi al carrello prodotto id:", productId);
+      // Qui puoi implementare la logica di aggiunta al carrello
+    },
+    handleToggleFavorite(productId) {
+      console.log("Toggle preferito prodotto id:", productId);
+      // Qui puoi salvare o togliere il prodotto dai preferiti
+    },
+  },
 };
 </script>
 
-<style scoped>
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-</style>
+<template>
+  <div class="container mt-4">
+    <div class="row">
+      <div
+        class="col-12 col-sm-6 col-md-3 mb-3"
+        v-for="product in products"
+        :key="product.id"
+      >
+        <ProductCard
+          :product="product"
+          @add-to-cart="handleAddToCart"
+          @toggle-favorite="handleToggleFavorite"
+        />
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,21 +1,16 @@
 <template>
-  <div class="Catalog">
-    <h1>Pagina catalogo</h1>
+  <div>
+    <h1>I nostri prodotti</h1>
+    <ProductList />
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "CatalogView",
-});
-</script>
+import ProductList from "../components/productList.vue";
 
-<script setup>
-import { onMounted } from "vue";
-onMounted(() => {
-  //prendi i dati da api
-
-  console.log("MOUNTED");
-});
+export default {
+  components: {
+    ProductList,
+  },
+};
 </script>
