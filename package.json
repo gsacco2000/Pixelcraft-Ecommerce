@@ -9,7 +9,10 @@
     "format": "prettier --write \"src/**/*.{js,vue,css,scss,html}\""
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
     "core-js": "^3.8.3",
+    "pinia": "^3.0.3",
+    "tailwindcss": "^4.1.13",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
