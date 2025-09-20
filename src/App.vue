@@ -2,10 +2,21 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/shop">Shop</router-link>
+    <router-link to="/catalog">Catalog</router-link>
   </nav>
   <router-view />
+  <div id="app"><ProductList /></div>
 </template>
+
+<script>
+import ProductList from "./components/productList.vue";
+
+export default {
+  components: {
+    ProductList,
+  },
+};
+</script>
 
 <style>
 #app {
