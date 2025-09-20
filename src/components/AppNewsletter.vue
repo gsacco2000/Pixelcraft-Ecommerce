@@ -87,5 +87,54 @@ export default {
 </script>
 
 <style scoped>
-/* Inserisci qui eventuali stili personalizzati */
+/* KEEP IN TOUCH SECTION - FORM DI CONTATTO */
+.keep-in-touch {
+  background: var(--skin-color);
+  color: var(--background);
+  border-radius: 0;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--background);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  height: 3rem;
+}
+
+.form-control::placeholder {
+  color: #545454;
+}
+
+.btn-outline-light {
+  border: 2px solid var(--background);
+  color: var(--background);
+  font-weight: 700;
+  border-radius: 8px;
+  background: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+  background: var(--light_blue);
+  border-color: var(--light_blue);
+  color: var(--nav-bg);
+}
+
+.pixel {
+  color: var(--text);
+  font-style: italic;
+}
 </style>
