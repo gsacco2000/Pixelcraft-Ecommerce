@@ -379,37 +379,6 @@ nav ul.nav-links.active ~ .close-menu {
   }
 }
 
-/* footer */
-.footer {
-  background-color: #151515;
-  color: var(--skin-color);
-  letter-spacing: 0;
-}
-
-.footer strong {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.footer-social i {
-  margin: 0 0.5rem;
-  font-size: 1.3rem;
-  color: var(--skin-color);
-  transition: color 0.3s;
-  vertical-align: middle;
-}
-
-.footer-support-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: font-style 0.3s;
-}
-
-.footer-support-link:hover {
-  font-style: italic;
-}
-
 @media (max-width: 767.98px) {
   .footer strong {
     display: block;
