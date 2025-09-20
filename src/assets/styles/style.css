@@ -8,7 +8,6 @@
   --nav-bg: #003554;
   --text: #051923;
 
-
   --font-family: 'Montserrat', Arial, sans-serif;
   --font-p: 1rem;
 
@@ -19,15 +18,13 @@
   --line-height: 1.6;
 }
 
-
-/* TEMA SCURO CON CLIC SU ICONA*/
+/* TEMA SCURO CON CLIC SU ICONA */
 body.dark {
   --background: #151515;
   --text: #e9e9e9;
 }
 
-
-/* RESET*/
+/* RESET */
 * {
   margin: 0;
   box-sizing: border-box;
@@ -56,10 +53,6 @@ p {
   font-weight: 400;
 }
 
-
-
-
-
 /* HEADER */
 header {
   background: var(--skin-color);
@@ -80,22 +73,20 @@ i {
   padding-bottom: var(--padding-small);
 }
 
-.icon_nav i{
-  color:white;
+.icon_nav i {
+  color: white;
 }
-
-
 
 /* NAV */
 nav {
- background: var(--background);
+  background: var(--background);
   padding: var(--padding-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  }
-  
+}
+
 nav img {
   max-height: 30px;
 }
@@ -111,7 +102,7 @@ body.dark .logo-light {
 body.dark .logo-dark {
   display: inline; /* mostra logo scuro quando tema scuro attivo */
 }
-  
+
 /* Menu links base (mobile) nascosto, perché menu hamburger */
 nav ul.nav-links {
   display: none;
@@ -124,10 +115,10 @@ nav ul.nav-links {
   background: var(--background);
   width: 100%;
   padding: 1rem 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  
-/* Centrare verticale e orizzontale le voci */
+
+  /* Centrare verticale e orizzontale le voci */
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -136,12 +127,12 @@ nav ul.nav-links {
 nav ul.nav-links.active {
   display: flex;
 }
-  
+
 nav ul.nav-links li {
   margin: 0.5rem 0;
   width: 100%;
 }
-  
+
 nav ul.nav-links li a {
   color: var(--text);
   text-decoration: none;
@@ -152,12 +143,11 @@ nav ul.nav-links li a {
   position: relative; /* per ::after */
   transition: color 0.3s ease;
 }
-  
+
 nav ul.nav-links li a:hover,
 nav ul.nav-links li a:focus {
-   color: var(--skin-color);
+  color: var(--skin-color);
 }
-  
 
 nav ul.nav-links li a::after {
   content: "";
@@ -170,7 +160,6 @@ nav ul.nav-links li a::after {
   transition: width 0.3s ease;
   transform: translateX(-50%);
   width: 0;
-
 }
 
 nav ul.nav-links li a:hover::after,
@@ -178,9 +167,10 @@ nav ul.nav-links li a:focus::after,
 nav ul.nav-links li a.active::after {
   width: 40%;
 }
-  
+
 /* Icone hamburger e close visibili di base (mobile) */
-.burger-menu, .close-menu {
+.burger-menu,
+.close-menu {
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--text);
@@ -188,13 +178,13 @@ nav ul.nav-links li a.active::after {
   background: none;
   border: none;
   transition: opacity 0.3s ease;
-      }
-  
+}
+
 nav ul.nav-links.active ~ .burger-menu {
   display: none !important;
   opacity: 0;
 }
-  
+
 /* Close icon nascosto di base (mobile) */
 .close-menu {
   display: none;
@@ -203,13 +193,12 @@ nav ul.nav-links.active ~ .burger-menu {
   right: 15px;
   z-index: 1100;
 }
-  
 
 /* Quando menu attivo, mostra close */
-  nav ul.nav-links.active ~ .close-menu {
+nav ul.nav-links.active ~ .close-menu {
   display: block;
 }
-  
+
 @media (min-width: 768px) {
   nav ul.nav-links {
     display: flex !important;
@@ -222,19 +211,20 @@ nav ul.nav-links.active ~ .burger-menu {
     justify-content: flex-end;
     list-style: none; /* Togli i pallini anche su desktop */
   }
-  
-/* Nascondi hamburger e close-menu */
-  .burger-menu, .close-menu {
+
+  /* Nascondi hamburger e close-menu */
+  .burger-menu,
+  .close-menu {
     display: none !important;
-    }
-  
-/* Link stile desktop */
+  }
+
+  /* Link stile desktop */
   nav ul.nav-links li a {
     position: relative;
     padding: 5px 0;
   }
-  
-/* Desktop: linea piena larga al 100%, posizionata a bottom 0, left 0 */
+
+  /* Desktop: linea piena larga al 100%, posizionata a bottom 0, left 0 */
   nav ul.nav-links li a::after {
     left: 0;
     width: 0;
@@ -246,13 +236,11 @@ nav ul.nav-links.active ~ .burger-menu {
   nav ul.nav-links li a.active::after {
     width: 100%;
   }
-  
+
   nav ul.nav-links li {
     margin: 0; /* azzera margini su desktop */
   }
 }
-
-
 
 /* === HERO MOBILE-FIRST === */
 .hero {
@@ -291,7 +279,7 @@ nav ul.nav-links.active ~ .burger-menu {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; /* da center a flex-start */
-  text-align: left;        /* da center a left */
+  text-align: left; /* da center a left */
   gap: 1rem;
   padding: 40px 30px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -318,7 +306,6 @@ nav ul.nav-links.active ~ .burger-menu {
   }
 }
 
-
 /* BOTTONE GENERICO */
 .button {
   background-color: var(--skin-color);
@@ -333,8 +320,6 @@ nav ul.nav-links.active ~ .burger-menu {
   text-align: center;
   text-decoration: none;
 }
-
-
 
 /* KEEP IN TOUCH SECTION - FORM DI CONTATTO */
 .keep-in-touch {
@@ -382,7 +367,7 @@ nav ul.nav-links.active ~ .burger-menu {
   color: var(--nav-bg);
 }
 
-.pixel{
+.pixel {
   color: var(--text);
   font-style: italic;
 }
@@ -393,10 +378,6 @@ nav ul.nav-links.active ~ .burger-menu {
     margin-bottom: 2rem;
   }
 }
-
-
-
-
 
 /* footer */
 .footer {
@@ -424,6 +405,7 @@ nav ul.nav-links.active ~ .burger-menu {
   font-weight: 600;
   transition: font-style 0.3s;
 }
+
 .footer-support-link:hover {
   font-style: italic;
 }

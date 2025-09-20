@@ -1,7 +1,5 @@
 <template>
   <div>
-    <AppNavBar />
-
     <main>
       <!-- Hero con slideshow -->
       <section class="hero">
@@ -92,22 +90,16 @@
       <!-- Newsletter -->
       <AppNewsletter />
     </main>
-
-    <AppFooter />
   </div>
 </template>
 
 <script>
-import AppNavBar from "@/components/AppNavBar.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
-import AppFooter from "@/components/AppFooter.vue";
 
 export default {
   name: "PortfolioView",
   components: {
-    AppNavBar,
     AppNewsletter,
-    AppFooter,
   },
   data() {
     return {
