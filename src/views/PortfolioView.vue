@@ -1,7 +1,5 @@
 <template>
   <div>
-    <AppNavBar />
-
     <main>
       <!-- Hero con slideshow -->
       <section class="hero">
@@ -80,8 +78,9 @@
                   :href="project.link"
                   :aria-label="'vai al progetto ' + project.title"
                   class="text-decoration-none"
-                  >{{ project.title }}</a
                 >
+                  {{ project.title }}
+                </a>
                 <span v-else class="fw-bold fs-5">{{ project.title }}</span>
               </div>
             </div>
@@ -92,22 +91,16 @@
       <!-- Newsletter -->
       <AppNewsletter />
     </main>
-
-    <AppFooter />
   </div>
 </template>
 
 <script>
-import AppNavBar from "@/components/AppNavBar.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
-import AppFooter from "@/components/AppFooter.vue";
 
 export default {
   name: "PortfolioView",
   components: {
-    AppNavBar,
     AppNewsletter,
-    AppFooter,
   },
   data() {
     return {
@@ -184,6 +177,24 @@ export default {
       ],
     };
   },
+  mounted() {
+    const projects = this.$el.querySelectorAll(".project");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(projects).indexOf(entry.target);
+            const delay = (index % 3) * 100 + Math.floor(index / 3) * 150;
+            entry.target.style.transitionDelay = `${delay}ms`;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    projects.forEach((project) => observer.observe(project));
+  },
 };
 </script>
 
@@ -201,7 +212,7 @@ export default {
 
 /* Ogni progetto */
 .project {
-  height: 100%; /* Estende tutta l'altezza della colonna bootstrap */
+  height: 100%;
   opacity: 0;
   transform: translateY(40px) scale(0.94);
   transition: opacity 1s ease, transform 1s ease;
@@ -215,7 +226,7 @@ export default {
 
 /* Wrapper immagine e overlay */
 .project-image-wrapper {
-  position: relative; /* Per overlay posizionato correttamente */
+  position: relative;
   overflow: hidden;
   border-radius: 0.3rem;
 }

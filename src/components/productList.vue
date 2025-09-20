@@ -1,10 +1,26 @@
+<template>
+  <div class="container mt-4">
+    <div class="row g-4">
+      <div
+        v-for="product in products"
+        :key="product.id"
+        class="col-12 col-sm-6 col-md-4 col-lg-3"
+      >
+        <ProductCard
+          :product="product"
+          @add-to-cart="handleAddToCart"
+          @toggle-favorite="handleToggleFavorite"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 import ProductCard from "./productCard.vue";
 
 export default {
-  components: {
-    ProductCard,
-  },
+  components: { ProductCard },
   data() {
     return {
       products: [
@@ -54,30 +70,10 @@ export default {
   methods: {
     handleAddToCart(productId) {
       console.log("Aggiungi al carrello prodotto id:", productId);
-      // Qui puoi implementare la logica di aggiunta al carrello
     },
     handleToggleFavorite(productId) {
       console.log("Toggle preferito prodotto id:", productId);
-      // Qui puoi salvare o togliere il prodotto dai preferiti
     },
   },
 };
 </script>
-
-<template>
-  <div class="container mt-4">
-    <div class="row">
-      <div
-        class="col-12 col-sm-6 col-md-3 mb-3"
-        v-for="product in products"
-        :key="product.id"
-      >
-        <ProductCard
-          :product="product"
-          @add-to-cart="handleAddToCart"
-          @toggle-favorite="handleToggleFavorite"
-        />
-      </div>
-    </div>
-  </div>
-</template>
