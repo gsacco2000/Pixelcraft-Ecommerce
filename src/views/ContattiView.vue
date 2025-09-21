@@ -6,7 +6,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="img/img.contact/contact.hero.jpg"
+              src="/img.contact/contact.hero.jpg"
               alt="persone che fanno brainstorming"
             />
             <div class="carousel-caption custom-blur-caption">
