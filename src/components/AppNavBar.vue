@@ -44,34 +44,34 @@
         :class="{ active: menuOpen }"
       >
         <li>
-          <router-link to="/" aria-label="Vai alla homepage" class="active">
-            Home
-          </router-link>
+          <router-link to="/" aria-label="Vai alla homepage" class="active"
+            >Home</router-link
+          >
         </li>
         <li>
-          <router-link to="/about" aria-label="Vai alla pagina about">
-            About
-          </router-link>
+          <router-link to="/about" aria-label="Vai alla pagina about"
+            >About</router-link
+          >
         </li>
         <li>
-          <router-link to="/portfolio" aria-label="Vai alla pagina portfolio">
-            Portfolio
-          </router-link>
+          <router-link to="/portfolio" aria-label="Vai alla pagina portfolio"
+            >Portfolio</router-link
+          >
         </li>
         <li>
-          <router-link to="/journal" aria-label="Vai alla pagina journal">
-            Journal
-          </router-link>
+          <router-link to="/journal" aria-label="Vai alla pagina journal"
+            >Journal</router-link
+          >
         </li>
         <li>
-          <router-link to="/shop" aria-label="Vai alla pagina shop">
-            Shop
-          </router-link>
+          <router-link to="/shop" aria-label="Vai alla pagina shop"
+            >Shop</router-link
+          >
         </li>
         <li>
-          <router-link to="/contatti" aria-label="Vai alla pagina contatti">
-            Contatti
-          </router-link>
+          <router-link to="/contatti" aria-label="Vai alla pagina contatti"
+            >Contatti</router-link
+          >
         </li>
       </ul>
 
