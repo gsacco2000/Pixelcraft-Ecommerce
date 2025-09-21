@@ -2,7 +2,7 @@
   <div class="container mt-4">
     <div class="row g-4">
       <div
-        v-for="product in products"
+        v-for="product in newProducts"
         :key="product.id"
         class="col-12 col-sm-6 col-md-4 col-lg-3"
       >
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ProductCard from "./productCard.vue";
+import ProductCard from "./productCard";
 
 export default {
   components: { ProductCard },
@@ -26,52 +26,64 @@ export default {
       products: [
         {
           id: 1,
-          name: "Poster 1",
+          name: "Poster K-food",
           price: 19.99,
           oldPrice: 25.0,
           discount: 20,
           isNew: true,
-          image:
-            "https://i.pinimg.com/736x/56/0f/e7/560fe772b95eab5e57f1187c7a6b47fa.jpg",
+          image: "/img.shop/shop.poster1.jpeg",
         },
         {
           id: 2,
-          name: "Poster 2",
+          name: "Poster no novità",
           price: 29.99,
           oldPrice: null,
           discount: 0,
           isNew: false,
-          image:
-            "https://i.pinimg.com/736x/6c/8b/85/6c8b852b64001dc6d9b04c01ec7d6ad7.jpg",
+          image: "https://i.pinimg.com/736x/6c/8b/85/6c8b85fbadadf58269",
         },
         {
           id: 3,
-          name: "Poster 3",
+          name: "Tee Graphic Doodle",
           price: 29.99,
           oldPrice: null,
           discount: 0,
-          isNew: false,
-          image:
-            "https://i.pinimg.com/736x/e1/6d/3b/e16d3b318668fa5e3a3f5df2b7061a60.jpg",
+          isNew: true,
+          image: "/img.shop/shop.shirt1.jpeg",
         },
         {
           id: 4,
-          name: "Poster 4",
+          name: "Tazze Line",
           price: 29.99,
           oldPrice: null,
           discount: 0,
-          isNew: false,
-          image:
-            "https://i.pinimg.com/1200x/73/64/3b/73643b4eeaddecb13a175ce693aa921b.jpg",
+          isNew: true,
+          image: "/img.shop/shop.cup1.jpeg",
+        },
+        {
+          id: 5,
+          name: "Tote Barbie vibes",
+          price: 19.99,
+          oldPrice: 25.0,
+          discount: 5,
+          isNew: true,
+          image: "/img.shop/shop.tote1.jpeg",
         },
       ],
     };
   },
+  computed: {
+    newProducts() {
+      return this.products.filter((p) => p.isNew);
+    },
+  },
   methods: {
     handleAddToCart(productId) {
+      // gestione aggiunta al carrello
       console.log("Aggiungi al carrello prodotto id:", productId);
     },
     handleToggleFavorite(productId) {
+      // gestione preferiti
       console.log("Toggle preferito prodotto id:", productId);
     },
   },
