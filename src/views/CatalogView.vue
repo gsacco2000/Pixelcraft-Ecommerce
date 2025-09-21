@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroCatalog />
-    <h1>I nostri prodotti</h1>
+    <h2>Le novità del mese di Settembre</h2>
     <ProductList />
   </div>
 </template>
