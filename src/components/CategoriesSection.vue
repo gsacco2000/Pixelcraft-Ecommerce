@@ -23,25 +23,25 @@ export default {
           name: "posters",
           label: "poster",
           count: 17,
-          img: "https://i.pinimg.com/736x/56/0f/e7/560fe772b95eab5e57f1187c7a6b47fa.jpg",
+          img: "/img.shop/cat.poster.png",
         },
         {
           name: "tote bag",
           label: "tote",
           count: 6,
-          img: "https://i.pinimg.com/736x/6c/8b/85/6c8b852b64001dc6d9b04c01ec7d6ad7.jpg",
+          img: "/img.shop/cat.tote.jpeg",
         },
         {
           name: "cup",
           label: "cup",
           count: 4,
-          img: "https://i.pinimg.com/736x/e1/6d/3b/e16d3b318668fa5e3a3f5df2b7061a60.jpg",
+          img: "/img.shop/cat.cup.jpeg",
         },
         {
           name: "t-shirt",
           label: "tee",
           count: 10,
-          img: "https://i.pinimg.com/736x/56/0f/e7/560fe772b95eab5e57f1187c7a6b47fa.jpg",
+          img: "/img.shop/cat.tee.jpeg",
         },
       ],
     };
@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 .categories-section {
-  background: #faf9f7;
+  background: white;
   text-align: center;
   padding: 2rem 1rem 3rem;
 }
@@ -101,6 +101,10 @@ export default {
   font-weight: 600;
   margin-top: 0.2rem;
   margin-bottom: 0.3rem;
+}
+.category-label:hover {
+  font-style: italic;
+  color: var(--skin-color);
 }
 .category-count {
   font-size: 0.95rem;
