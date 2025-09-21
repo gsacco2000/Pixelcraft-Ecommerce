@@ -135,6 +135,71 @@
         </div>
       </div>
     </div>
+
+    <section class="keep-in-touch w-100 py-5">
+      <div class="container" style="max-width: 1200px">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-md-6 text-section">
+            <h2 class="fw-bold">
+              Costruiamo esperienze<br />
+              che lasciano il segno,<br />
+              <span class="pixel">un pixel alla volta.</span>
+            </h2>
+            <h3 class="subtitle mt-3 mb-4">Iscriviti alla nostra newsletter</h3>
+          </div>
+          <div class="col-12 col-md-6">
+            <form
+              class="form-section bg-light bg-opacity-10 rounded-4 p-4"
+              method="post"
+            >
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Nome"
+                    autocomplete="given-name"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="surname"
+                    name="surname"
+                    required
+                    placeholder="Cognome"
+                    autocomplete="family-name"
+                  />
+                </div>
+                <div class="col-12">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="Email"
+                    autocomplete="email"
+                  />
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-light fw-bold py-2 px-4"
+                  >
+                    Iscriviti
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
