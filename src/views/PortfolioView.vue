@@ -73,14 +73,14 @@
                 </div>
               </div>
               <div class="project-title fs-5">
-                <a
+                <router-link
                   v-if="project.link"
-                  :href="project.link"
+                  :to="project.link"
                   :aria-label="'vai al progetto ' + project.title"
                   class="text-decoration-none"
                 >
                   {{ project.title }}
-                </a>
+                </router-link>
                 <span v-else class="fw-bold fs-5">{{ project.title }}</span>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default {
           alt: "ISI Foundation",
           description:
             "Un sistema grafico dinamico per il rebranding di un centro di ricerca scientifica.",
-          link: "case_isifoundation.html",
+          link: "/case/isifoundation", // modificato in route Vue SPA
         },
         {
           title: "Open Sound Festival",
@@ -119,7 +119,7 @@ export default {
           alt: "Open Sound Festival",
           description:
             "Una campagna manifesto per un’esperienza di land music.",
-          link: "case_musicsound.html",
+          link: "/case/musicsound", // meglio usare route Vue o lasciare null
         },
         {
           title: "Tablì Lavazza",
@@ -207,8 +207,6 @@ export default {
   padding-bottom: var(--padding-large, 3rem);
   padding-left: var(--padding-small, 1rem);
 }
-
-/* Griglia portfolio gestita da Bootstrap: elimina il CSS griglia custom */
 
 /* Ogni progetto */
 .project {

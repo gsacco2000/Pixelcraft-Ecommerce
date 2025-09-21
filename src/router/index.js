@@ -13,7 +13,20 @@ const routes = [
     path: "/shop",
     name: "Shop",
     component: () =>
-      import(/* webpackChunkName: "shop" */ "@/views/CatalogView.vue"),
+      import(
+        /* webpackChunkName: "shop" */
+        "@/views/CatalogView.vue"
+      ),
+  },
+
+  {
+    path: "/case/isifoundation",
+    name: "CaseIsifoundation",
+    component: () =>
+      import(
+        /* webpackChunkName: "caseisifoundation" */
+        "@/views/CaseIsifoundation.vue"
+      ),
   },
 ];
 
