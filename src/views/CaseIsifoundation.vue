@@ -59,7 +59,7 @@
         </div>
       </section>
 
-      <!-- KPI Section: usando griglia Bootstrap -->
+      <!-- KPI Section -->
       <section class="kpi-section mb-5">
         <h2 class="mb-4">Risultati del progetto</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-center">
@@ -91,6 +91,7 @@
       </section>
     </main>
 
+    <!-- Sezione Progetti correlati con animazione fade-in -->
     <section
       class="portfolio-section mx-auto p-3 p-md-5"
       style="max-width: 1200px"
@@ -201,14 +202,24 @@ export default {
     if (kpiSection) {
       observer.observe(kpiSection);
     }
-  },
-  methods: {
-    toggleMenu() {
-      // Implementa qui se serve
-    },
-    setActiveStyle() {
-      // Implementa qui se serve
-    },
+
+    // Fade-in animazione progetti correlati
+    const projects = this.$el.querySelectorAll(".project");
+    const projObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(projects).indexOf(entry.target);
+            const delay = (index % 3) * 100 + Math.floor(index / 3) * 150;
+            entry.target.style.transitionDelay = `${delay}ms`;
+            entry.target.classList.add("visible");
+            projObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    projects.forEach((project) => projObserver.observe(project));
   },
 };
 </script>
@@ -305,12 +316,87 @@ export default {
   color: #333;
 }
 
-.portfolio-header {
+.portfolio-section {
   max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem 1rem;
+  background: var(--background);
+  border-radius: 0.3rem;
+  color: var(--text);
 }
 
-.text-section h2,
-.text-section h3 {
-  margin: 0;
+.portfolio-header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Progetti animazione fade-in */
+.project {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.project.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.3rem;
+}
+
+.project img {
+  width: 100%;
+  display: block;
+  height: auto;
+  transition: all 0.3s ease;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.overlay div {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.project-image-wrapper:hover .overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-image-wrapper:hover img {
+  transform: scale(1.1);
+  filter: blur(2px) brightness(0.8);
+}
+
+.project-title {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
 </style>
