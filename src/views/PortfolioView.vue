@@ -99,9 +99,7 @@ import AppNewsletter from "@/components/AppNewsletter.vue";
 
 export default {
   name: "PortfolioView",
-  components: {
-    AppNewsletter,
-  },
+  components: { AppNewsletter },
   data() {
     return {
       projects: [
@@ -111,7 +109,7 @@ export default {
           alt: "ISI Foundation",
           description:
             "Un sistema grafico dinamico per il rebranding di un centro di ricerca scientifica.",
-          link: "/case/isifoundation", // modificato in route Vue SPA
+          link: "/case/isifoundation",
         },
         {
           title: "Open Sound Festival",
@@ -119,7 +117,7 @@ export default {
           alt: "Open Sound Festival",
           description:
             "Una campagna manifesto per un’esperienza di land music.",
-          link: "/case/musicsound", // meglio usare route Vue o lasciare null
+          link: "/case/musicsound",
         },
         {
           title: "Tablì Lavazza",
@@ -178,6 +176,17 @@ export default {
     };
   },
   mounted() {
+    // SLIDESHOW ANIMAZIONE
+    const slides = this.$el.querySelectorAll(".slide");
+    let current = 0;
+    function showNextSlide() {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }
+    setInterval(showNextSlide, 3000);
+
+    // FADE-IN PROGETTI
     const projects = this.$el.querySelectorAll(".project");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -198,47 +207,56 @@ export default {
 };
 </script>
 
-<style scoped>
-.portfolio-header {
-  text-align: left;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: var(--padding-large, 3rem);
-  padding-bottom: var(--padding-large, 3rem);
-  padding-left: var(--padding-small, 1rem);
+<style>
+.slideshow {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-/* Ogni progetto */
+.slide {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.slide.active {
+  opacity: 1;
+  border: 2px solid var(--skin-color);
+}
+
 .project {
-  height: 100%;
   opacity: 0;
-  transform: translateY(40px) scale(0.94);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Quando diventa visibile */
 .project.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
-/* Wrapper immagine e overlay */
+/* altri stili per .project-image-wrapper, overlay, project-title ecc */
 .project-image-wrapper {
   position: relative;
   overflow: hidden;
   border-radius: 0.3rem;
 }
 
-/* Immagine progetto */
 .project img {
   width: 100%;
   display: block;
   height: auto;
   transition: all 0.3s ease;
   border-radius: 0.3rem;
+  object-fit: cover;
 }
 
-/* Overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -251,7 +269,7 @@ export default {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--padding-small, 1rem);
+  padding: 1rem;
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
@@ -263,7 +281,6 @@ export default {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* Hover overlay e zoom immagine */
 .project-image-wrapper:hover .overlay {
   opacity: 1;
   transform: scale(1);
@@ -274,7 +291,6 @@ export default {
   filter: blur(2px) brightness(0.8);
 }
 
-/* Titolo progetto */
 .project-title,
 .project-title a {
   color: var(--text);
