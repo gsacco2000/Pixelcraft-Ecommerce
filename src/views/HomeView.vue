@@ -260,6 +260,35 @@
 <script>
 export default {
   name: "HomeView",
+  mounted() {
+    // SLIDESHOW HOMEPAGE - home
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+    function showNextSlide() {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }
+    setInterval(showNextSlide, 3000);
+
+    // ANIMAZIONE FADE-IN DEI PROGETTI - portfolio
+    const projects = document.querySelectorAll(".project");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(projects).indexOf(entry.target);
+            const delay = (index % 3) * 100 + Math.floor(index / 3) * 150;
+            entry.target.style.transitionDelay = `${delay}ms`;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    projects.forEach((project) => observer.observe(project));
+  },
 };
 </script>
 
@@ -528,6 +557,18 @@ export default {
 
 .keep-in-touch {
   background: var(--skin-color);
+}
+
+/* Progetti animazione fade-in */
+.project {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.project.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Extra: Utility for Bootstrap text color */
