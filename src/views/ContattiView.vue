@@ -15,7 +15,7 @@
                 Hai un progetto in mente o vuoi semplicemente conoscerci meglio?
                 <br />
                 Siamo pronti ad ascoltarti e costruire insieme qualcosa di
-                ⏎···············
+                straordinario.
               </p>
               <router-link class="button btn btn-primary" to="/portfolio">
                 Scopri i nostri lavori
@@ -43,23 +43,27 @@
           <form @submit.prevent="invioForm" class="needs-validation" novalidate>
             <div class="mb-3 mt-3 campo form-floating border p-2 rounded">
               <input
-                v-model="form.nome"
+                v-model.trim="form.nome"
                 type="text"
                 class="form-control"
                 id="nome"
                 name="nome"
-                required
                 placeholder=" "
+                :class="{ 'is-invalid': errors.nome }"
               />
               <label for="nome">Ciao! Come ti chiami? *</label>
+              <div class="invalid-feedback" v-if="errors.nome">
+                {{ errors.nome }}
+              </div>
             </div>
+
             <div class="mb-3 mt-3 campo form-floating border p-2 rounded">
               <select
                 v-model="form.oggetto"
                 class="form-select"
                 id="oggetto"
                 name="oggetto"
-                required
+                :class="{ 'is-invalid': errors.oggetto }"
               >
                 <option value="" disabled>Seleziona</option>
                 <option value="collaborazione">Vi racconto la mia idea</option>
@@ -67,19 +71,27 @@
                 <option value="altro">Altro</option>
               </select>
               <label for="oggetto">Cosa ti porta qui? *</label>
+              <div class="invalid-feedback" v-if="errors.oggetto">
+                {{ errors.oggetto }}
+              </div>
             </div>
+
             <div class="mb-3 mt-3 campo form-floating border p-2 rounded">
               <textarea
-                v-model="form.messaggio"
+                v-model.trim="form.messaggio"
                 class="form-control"
                 id="messaggio"
                 name="messaggio"
                 style="height: 150px"
-                required
                 placeholder=" "
+                :class="{ 'is-invalid': errors.messaggio }"
               ></textarea>
               <label for="messaggio">Come possiamo aiutarti? *</label>
+              <div class="invalid-feedback" v-if="errors.messaggio">
+                {{ errors.messaggio }}
+              </div>
             </div>
+
             <div class="mb-3 mt-3 border p-2 rounded">
               <label for="file" class="form-label">
                 Allega un file (opzionale)
@@ -93,43 +105,57 @@
                 accept=".jpg,.jpeg,.png,.pdf"
               />
             </div>
+
             <div class="mb-3 mt-3 campo form-floating border p-2 rounded">
               <input
-                v-model="form.email"
+                v-model.trim="form.email"
                 type="email"
                 class="form-control"
                 id="email"
                 name="email"
-                required
                 placeholder=" "
+                :class="{ 'is-invalid': errors.email }"
               />
               <label for="email">Qual è la tua email? *</label>
+              <div class="invalid-feedback" v-if="errors.email">
+                {{ errors.email }}
+              </div>
             </div>
+
             <div class="mb-3 mt-3 campo form-floating border p-2 rounded">
               <input
-                v-model="form.telefono"
+                v-model.trim="form.telefono"
                 type="tel"
                 class="form-control"
                 id="telefono"
                 name="telefono"
                 placeholder=" "
+                :class="{ 'is-invalid': errors.telefono }"
               />
               <label for="telefono">
                 Il tuo numero di telefono (opzionale)
               </label>
+              <div class="invalid-feedback" v-if="errors.telefono">
+                {{ errors.telefono }}
+              </div>
             </div>
+
             <div class="form-check mb-3 mt-3 border p-2 rounded">
               <input
                 v-model="form.privacy"
                 class="form-check-input"
                 type="checkbox"
                 id="privacy"
-                required
+                :class="{ 'is-invalid': errors.privacy }"
               />
               <label class="form-check-label" for="privacy">
                 Ho letto e accetto l’<a href="#">informativa sulla privacy</a> *
               </label>
+              <div class="invalid-feedback" v-if="errors.privacy">
+                {{ errors.privacy }}
+              </div>
             </div>
+
             <button class="btn btn-dark mt-3" type="submit">Invia</button>
           </form>
         </div>
@@ -140,21 +166,24 @@
         <div class="col-md-4 blocco">
           <h2>Sede di Torino</h2>
           <p>
-            Corso Dante, 118<br />10126 Torino, Italia<br />
+            Corso Dante, 118<br />
+            10126 Torino, Italia<br />
             <a href="mailto:info@pixelcraft.it">info@pixelcraft.it</a>
           </p>
         </div>
         <div class="col-md-4 blocco">
           <h2>Sede di Milano</h2>
           <p>
-            Via Luisa Battistotti Sassi, 11<br />20133 Milano, Italia<br />
+            Via Luisa Battistotti Sassi, 11<br />
+            20133 Milano, Italia<br />
             <a href="mailto:milano@pixelcraft.it">milano@pixelcraft.it</a>
           </p>
         </div>
         <div class="col-md-4 blocco">
           <h2>Sede di Roma</h2>
           <p>
-            Viale Gorizia, 24<br />00198 Roma, Italia<br />
+            Viale Gorizia, 24<br />
+            00198 Roma, Italia<br />
             <a href="mailto:roma@pixelcraft.it">roma@pixelcraft.it</a>
           </p>
         </div>
@@ -191,6 +220,7 @@ export default {
         privacy: false,
         file: null,
       },
+      errors: {},
     };
   },
   methods: {
@@ -198,8 +228,32 @@ export default {
       this.form.file = event.target.files[0];
     },
     invioForm() {
-      alert("Messaggio inviato!");
-      // Gestisci invio dati o reset form
+      this.errors = {};
+
+      if (!this.form.nome.trim()) {
+        this.errors.nome = "Il campo Nome è obbligatorio.";
+      }
+      if (!this.form.oggetto) {
+        this.errors.oggetto = "Seleziona un'opzione su cosa ti porta qui.";
+      }
+      if (!this.form.messaggio.trim()) {
+        this.errors.messaggio = "Il campo Messaggio è obbligatorio.";
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!this.form.email.trim() || !emailRegex.test(this.form.email)) {
+        this.errors.email = "Inserisci un indirizzo email valido.";
+      }
+      if (this.form.telefono && !/^[0-9+\s-]{7,15}$/.test(this.form.telefono)) {
+        this.errors.telefono = "Il numero di telefono non è valido.";
+      }
+      if (!this.form.privacy) {
+        this.errors.privacy = "Devi accettare l'informativa sulla privacy.";
+      }
+
+      if (Object.keys(this.errors).length === 0) {
+        alert("Messaggio inviato con successo! Grazie per averci contattato.");
+        // Qui puoi aggiungere l'invio dati al server o reset del form
+      }
     },
   },
 };
@@ -265,5 +319,15 @@ form button:hover {
 .mappa h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+}
+
+/* Bootstrap validation styles */
+.is-invalid {
+  border-color: #dc3545;
+}
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875em;
+  margin-top: 0.25rem;
 }
 </style>
