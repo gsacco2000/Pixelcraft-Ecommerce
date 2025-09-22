@@ -2,7 +2,7 @@
   <div class="container mt-4">
     <div class="row g-4">
       <div
-        v-for="product in filteredProducts"
+        v-for="product in productsToShow"
         :key="product.id"
         class="col-12 col-sm-6 col-md-4 col-lg-3"
       >
@@ -17,21 +17,29 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
-import ProductCard from "./productCard";
+import ProductCard from "./productCard.vue";
 
 export default {
   components: { ProductCard },
+  props: {
+    products: {
+      type: Array,
+      required: false,
+      default: null,
+    },
+  },
   computed: {
-    ...mapGetters(["filteredProducts"]),
+    productsToShow() {
+      // Se passo props products la uso, altrimenti uso getter Vuex
+      return this.products ?? this.$store.getters.filteredProducts;
+    },
   },
   methods: {
-    ...mapMutations(["addToCart", "toggleFavorite"]),
     handleAddToCart(product) {
-      this.addToCart(product);
+      this.$store.commit("addToCart", product);
     },
     handleToggleFavorite(productId) {
-      this.toggleFavorite(productId);
+      this.$store.commit("toggleFavorite", productId);
     },
   },
 };

@@ -4,7 +4,8 @@
     <HeroCatalog />
     <h2 class="ps-5 mb-4 fw-bold">Le novità del mese di Settembre</h2>
     <section class="novita-container">
-      <ProductList />
+      <!-- Passa i prodotti novità filtrati localmente -->
+      <ProductList :products="newProducts" />
       <CategoriesSection />
     </section>
     <h3>2 - Inserire banner promo</h3>
@@ -26,13 +27,19 @@ export default {
     HeroCatalog,
     CategoriesSection,
   },
+
+  computed: {
+    newProducts() {
+      // filtro locale solo prodotti con isNew = true
+      return this.$store.state.products.filter((p) => p.isNew);
+    },
+  },
+
   methods: {
     apriPreferiti() {
-      // Logica per mostrare preferiti (es. navigare a pagina preferiti o mostrare modal)
       console.log("Apertura pagina o modal preferiti");
     },
     apriCarrello() {
-      // Logica per mostrare carrello (es. navigare a pagina carrello o mostrare modal)
       console.log("Apertura pagina o modal carrello");
     },
   },

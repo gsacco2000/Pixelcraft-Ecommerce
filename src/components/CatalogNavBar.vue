@@ -12,6 +12,9 @@
       </span>
     </div>
     <div class="nav-categories">
+      <!-- Bottone Shop -->
+      <button @click="goToShop" class="cat-btn">Shop</button>
+      <!-- Filtri categoria -->
       <button
         v-for="cat in categories"
         :key="cat"
@@ -55,6 +58,10 @@ export default {
     onSearch(event) {
       this.setSearchTerm(event.target.value);
     },
+    goToShop() {
+      this.setSelectedCategory("");
+      this.$router.push({ name: "Shop" });
+    },
     selectCategory(cat) {
       if (cat === "all") {
         this.setSelectedCategory("");
@@ -75,8 +82,7 @@ export default {
 
 <style scoped>
 .catalog-nav {
-  background: #fff;
-  border-radius: 1rem;
+  background: var(--skin-color);
   box-shadow: 0 1px 8px 0 #eee;
   padding: 1rem 0.9rem;
   margin-bottom: 1rem;
@@ -128,7 +134,7 @@ export default {
 }
 .cat-btn.active,
 .cat-btn:hover {
-  background: var(--skin-color);
+  background: #3733a7;
   color: #fff;
 }
 
