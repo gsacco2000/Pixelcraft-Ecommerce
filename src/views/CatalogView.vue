@@ -1,5 +1,13 @@
 <template>
   <div>
+    <CatalogNavBar
+      :favsCount="numeroPreferiti"
+      :cartCount="numeroCarrello"
+      @search="cercaArticolo"
+      @select-category="vaiCategoria"
+      @show-favorites="apriPreferiti"
+      @show-cart="apriCarrello"
+    />
     <HeroCatalog />
     <h2 class="ps-5 mb-4 fw-bold">Le novità del mese di Settembre</h2>
     <section class="novita-container">
@@ -13,21 +21,30 @@
 </template>
 
 <script>
+import CatalogNavBar from "../components/CatalogNavBar.vue";
 import ProductList from "../components/productList.vue";
 import HeroCatalog from "../components/HeroCatalog.vue";
 import CategoriesSection from "../components/CategoriesSection.vue";
 
 export default {
   components: {
+    CatalogNavBar,
     ProductList,
     HeroCatalog,
     CategoriesSection,
+  },
+  data() {
+    return {
+      numeroPreferiti: 0,
+      numeroCarrello: 0,
+    };
   },
 };
 </script>
 
 <style scoped>
 .novita-container {
-  margin-bottom: 3rem; /* margine inferiore se vuoi aumentarlo modifica questo valore */
+  margin-bottom: 3rem;
+  /* oppure aggiungi anche un po' di padding e gap se vuoi più aria */
 }
 </style>
