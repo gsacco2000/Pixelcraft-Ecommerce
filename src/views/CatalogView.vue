@@ -1,13 +1,6 @@
 <template>
   <div>
-    <CatalogNavBar
-      :favsCount="numeroPreferiti"
-      :cartCount="numeroCarrello"
-      @search="cercaArticolo"
-      @select-category="vaiCategoria"
-      @show-favorites="apriPreferiti"
-      @show-cart="apriCarrello"
-    />
+    <CatalogNavBar @show-favorites="apriPreferiti" @show-cart="apriCarrello" />
     <HeroCatalog />
     <h2 class="ps-5 mb-4 fw-bold">Le novità del mese di Settembre</h2>
     <section class="novita-container">
@@ -33,11 +26,15 @@ export default {
     HeroCatalog,
     CategoriesSection,
   },
-  data() {
-    return {
-      numeroPreferiti: 0,
-      numeroCarrello: 0,
-    };
+  methods: {
+    apriPreferiti() {
+      // Logica per mostrare preferiti (es. navigare a pagina preferiti o mostrare modal)
+      console.log("Apertura pagina o modal preferiti");
+    },
+    apriCarrello() {
+      // Logica per mostrare carrello (es. navigare a pagina carrello o mostrare modal)
+      console.log("Apertura pagina o modal carrello");
+    },
   },
 };
 </script>
@@ -45,6 +42,5 @@ export default {
 <style scoped>
 .novita-container {
   margin-bottom: 3rem;
-  /* oppure aggiungi anche un po' di padding e gap se vuoi più aria */
 }
 </style>

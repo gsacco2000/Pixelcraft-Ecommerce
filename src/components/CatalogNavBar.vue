@@ -2,8 +2,7 @@
   <nav class="catalog-nav">
     <div class="search-wrapper">
       <input
-        type="text"
-        v-model="searchTerm"
+        :value="searchTerm"
         placeholder="Cerca un articolo…"
         @input="onSearch"
         class="search-bar"
@@ -23,7 +22,9 @@
     <div class="nav-icons">
       <button class="icon-btn" @click="onFavsClick" aria-label="Preferiti">
         <i class="bi bi-heart fav-icon"></i>
-        <span v-if="favsCount > 0" class="nav-badge">{{ favsCount }}</span>
+        <span v-if="favoritesCount > 0" class="nav-badge">{{
+          favoritesCount
+        }}</span>
       </button>
       <button class="icon-btn" @click="onCartClick" aria-label="Carrello">
         <i class="bi bi-cart cart-icon"></i>
@@ -34,31 +35,37 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "CatalogNavBar",
-  props: {
-    favsCount: { type: Number, default: 0 },
-    cartCount: { type: Number, default: 0 },
-    initialCategory: { type: String, default: "poster" },
-  },
+
   data() {
     return {
-      searchTerm: "",
-      selectedCategory: this.initialCategory,
       categories: ["poster", "tote", "tazze", "tshirt"],
     };
   },
+
+  computed: {
+    ...mapState(["searchTerm", "selectedCategory"]),
+    ...mapGetters(["cartCount", "favoritesCount"]),
+  },
+
   methods: {
-    onSearch() {
-      this.$emit("search", this.searchTerm);
+    ...mapMutations(["setSearchTerm", "setSelectedCategory"]),
+
+    onSearch(event) {
+      this.setSearchTerm(event.target.value);
     },
+
     selectCategory(cat) {
-      this.selectedCategory = cat;
-      this.$emit("select-category", cat);
+      this.setSelectedCategory(cat);
     },
+
     onFavsClick() {
       this.$emit("show-favorites");
     },
+
     onCartClick() {
       this.$emit("show-cart");
     },
@@ -144,7 +151,7 @@ export default {
   margin-right: 0.35em;
 }
 .fav-icon {
-  color: #e24e63; /* rosso accesso/modern */
+  color: #e24e63; /* rosso acceso/modern */
 }
 .cart-icon {
   color: #2aaf70; /* verde acceso */
