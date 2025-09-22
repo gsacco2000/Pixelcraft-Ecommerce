@@ -28,6 +28,16 @@ const routes = [
         "@/views/CaseIsifoundation.vue"
       ),
   },
+
+  {
+    path: "/case/casemusicsound",
+    name: "CaseMusicsound",
+    component: () =>
+      import(
+        /* webpackChunkName: "casemusicsound" */
+        "@/views/CaseMusicsound.vue"
+      ),
+  },
 ];
 
 const router = createRouter({
