@@ -30,7 +30,7 @@ const routes = [
   },
 
   {
-    path: "/case/casemusicsound",
+    path: "/case/musicsound",
     name: "CaseMusicsound",
     component: () =>
       import(
