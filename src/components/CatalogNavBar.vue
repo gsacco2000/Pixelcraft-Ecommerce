@@ -7,7 +7,9 @@
         @input="onSearch"
         class="search-bar"
       />
-      <span class="search-icon"><i class="bi bi-search"></i></span>
+      <span class="search-icon">
+        <font-awesome-icon icon="search" />
+      </span>
     </div>
     <div class="nav-categories">
       <button
@@ -16,18 +18,18 @@
         @click="selectCategory(cat)"
         :class="['cat-btn', { active: cat === selectedCategory }]"
       >
-        {{ cat }}
+        {{ cat === "all" ? "Tutti i prodotti" : cat }}
       </button>
     </div>
     <div class="nav-icons">
       <button class="icon-btn" @click="onFavsClick" aria-label="Preferiti">
-        <i class="bi bi-heart fav-icon"></i>
+        <font-awesome-icon icon="heart" class="fav-icon" />
         <span v-if="favoritesCount > 0" class="nav-badge">{{
           favoritesCount
         }}</span>
       </button>
       <button class="icon-btn" @click="onCartClick" aria-label="Carrello">
-        <i class="bi bi-cart cart-icon"></i>
+        <font-awesome-icon icon="cart-shopping" class="cart-icon" />
         <span v-if="cartCount > 0" class="nav-badge">{{ cartCount }}</span>
       </button>
     </div>
@@ -39,33 +41,31 @@ import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "CatalogNavBar",
-
   data() {
     return {
-      categories: ["poster", "tote", "tazze", "tshirt"],
+      categories: ["all", "poster", "tote", "tazze", "tshirt"],
     };
   },
-
   computed: {
     ...mapState(["searchTerm", "selectedCategory"]),
     ...mapGetters(["cartCount", "favoritesCount"]),
   },
-
   methods: {
     ...mapMutations(["setSearchTerm", "setSelectedCategory"]),
-
     onSearch(event) {
       this.setSearchTerm(event.target.value);
     },
-
     selectCategory(cat) {
-      this.setSelectedCategory(cat);
+      if (cat === "all") {
+        this.setSelectedCategory("");
+      } else {
+        this.setSelectedCategory(cat);
+      }
+      this.$router.push({ name: "FilteredCatalog" });
     },
-
     onFavsClick() {
       this.$emit("show-favorites");
     },
-
     onCartClick() {
       this.$emit("show-cart");
     },
@@ -128,7 +128,7 @@ export default {
 }
 .cat-btn.active,
 .cat-btn:hover {
-  background: #3733a7;
+  background: var(--skin-color);
   color: #fff;
 }
 
@@ -151,10 +151,10 @@ export default {
   margin-right: 0.35em;
 }
 .fav-icon {
-  color: #e24e63; /* rosso acceso/modern */
+  color: #e24e63;
 }
 .cart-icon {
-  color: #2aaf70; /* verde acceso */
+  color: #2aaf70;
 }
 .nav-badge {
   position: absolute;
@@ -168,7 +168,7 @@ export default {
   border-radius: 1em;
 }
 
-/* Tablet/Desktop: più spazio e layout orizzontale */
+/* Tablet/Desktop layout */
 @media (min-width: 700px) {
   .catalog-nav {
     flex-direction: row;

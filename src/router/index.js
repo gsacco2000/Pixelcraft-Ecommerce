@@ -18,7 +18,15 @@ const routes = [
         "@/views/CatalogView.vue"
       ),
   },
-
+  {
+    path: "/filtered-catalog",
+    name: "FilteredCatalog",
+    component: () =>
+      import(
+        /* webpackChunkName: "filteredcatalog" */
+        "@/views/FilteredCatalogView.vue"
+      ),
+  },
   {
     path: "/case/isifoundation",
     name: "CaseIsifoundation",
@@ -28,7 +36,6 @@ const routes = [
         "@/views/CaseIsifoundation.vue"
       ),
   },
-
   {
     path: "/case/musicsound",
     name: "CaseMusicsound",
