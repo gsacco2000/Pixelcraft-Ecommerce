@@ -12,9 +12,7 @@
       </span>
     </div>
     <div class="nav-categories">
-      <!-- Bottone Shop -->
       <button @click="goToShop" class="cat-btn">Shop</button>
-      <!-- Filtri categoria -->
       <button
         v-for="cat in categories"
         :key="cat"
@@ -32,7 +30,7 @@
         }}</span>
       </button>
       <button class="icon-btn" @click="onCartClick" aria-label="Carrello">
-        <font-awesome-icon icon="cart-shopping" class="cart-icon" />
+        <font-awesome-icon icon="shopping-cart" class="cart-icon" />
         <span v-if="cartCount > 0" class="nav-badge">{{ cartCount }}</span>
       </button>
     </div>
@@ -81,6 +79,7 @@ export default {
 </script>
 
 <style scoped>
+/* mêmes styles que avant */
 .catalog-nav {
   background: var(--skin-color);
   box-shadow: 0 1px 8px 0 #eee;
@@ -92,7 +91,6 @@ export default {
   align-items: stretch;
 }
 
-/* SEARCH BAR */
 .search-wrapper {
   position: relative;
   width: 100%;
@@ -113,8 +111,6 @@ export default {
   font-size: 1.1rem;
   color: #bbb;
 }
-
-/* CATEGORIES */
 .nav-categories {
   display: flex;
   gap: 0.45rem;
@@ -137,8 +133,6 @@ export default {
   background: #3733a7;
   color: #fff;
 }
-
-/* ICONS */
 .nav-icons {
   display: flex;
   align-items: center;
@@ -173,8 +167,6 @@ export default {
   padding: 0.09em 0.56em;
   border-radius: 1em;
 }
-
-/* Tablet/Desktop layout */
 @media (min-width: 700px) {
   .catalog-nav {
     flex-direction: row;
