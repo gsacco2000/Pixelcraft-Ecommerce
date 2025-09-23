@@ -15,11 +15,12 @@
               Piemonte rurale
             </h5>
             <div class="mt-auto ms-2 mb-3">
-              <a
-                href="articolo_materieprime.html"
+              <router-link
+                to="/articolomaterieprime"
                 class="btn btn-primary p-1 fw-bold"
-                >Continua a leggere</a
               >
+                Continua a leggere
+              </router-link>
             </div>
           </article>
           <article class="card mb-5" style="min-width: 270px">
