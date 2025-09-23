@@ -204,6 +204,75 @@
               </p>
             </div>
           </div>
+          <div class="d-flex align-items-start">
+            <img
+              src="/img.journal/journalarticolo_identitavisiva.png"
+              alt="Montagna innevata"
+              width="50"
+              class="me-3 rounded"
+            />
+            <div>
+              <small class="d-block mb-1">5 min</small>
+              <h6 class="mb-0 fw-semibold">
+                Un'identità visiva per la montagna che cambia
+              </h6>
+              <p class="fst-italic mb-0" style="font-size: 0.75rem">
+                2025, Pietro Salciarini
+              </p>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <img
+              src="/img.journal/journalarticolo_tipografia.png"
+              alt="Grafica typography"
+              width="50"
+              class="me-3 rounded"
+            />
+            <div>
+              <small class="d-block mb-1">7 min</small>
+              <h6 class="mb-0 fw-semibold">
+                Tipografia come territorio: un carattere per le valli occitane
+              </h6>
+              <p class="fst-italic mb-0" style="font-size: 0.75rem">
+                2025, Pietro Salciarini
+              </p>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <img
+              src="/img.journal/journalarticolo_segnaletica.png"
+              alt="Borgo storico"
+              width="50"
+              class="me-3 rounded"
+            />
+            <div>
+              <small class="d-block mb-1">6 min</small>
+              <h6 class="mb-0 fw-semibold">
+                Poster, pietra, pixel: segnaletica contemporanea per borghi
+                storici
+              </h6>
+              <p class="fst-italic mb-0" style="font-size: 0.75rem">
+                2025, Pietro Salciarini
+              </p>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <img
+              src="/img.journal/journalarticolo_graficaambiente.png"
+              alt="Copertina libro"
+              width="50"
+              class="me-3 rounded"
+            />
+            <div>
+              <small class="d-block mb-1">11 min</small>
+              <h6 class="mb-0 fw-semibold">
+                Grafica per l'ambiente: toolkit visivo per iniziative locali
+              </h6>
+              <p class="fst-italic mb-0" style="font-size: 0.75rem">
+                2025, Pietro Salciarini
+              </p>
+            </div>
+          </div>
         </div>
       </aside>
     </div>
