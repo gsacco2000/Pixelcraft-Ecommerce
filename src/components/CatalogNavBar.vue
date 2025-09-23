@@ -1,5 +1,5 @@
 <template>
-  <nav class="catalog-nav">
+  <nav :class="['catalog-nav', { sticky: isSticky }]">
     <div class="search-wrapper">
       <input
         :value="searchTerm"
@@ -45,11 +45,20 @@ export default {
   data() {
     return {
       categories: ["all", "poster", "tote", "tazze", "tshirt"],
+      isSticky: false,
+      originalOffsetTop: 0,
     };
   },
   computed: {
     ...mapState(["searchTerm", "selectedCategory"]),
     ...mapGetters(["cartCount", "favoritesCount"]),
+  },
+  mounted() {
+    this.originalOffsetTop = this.$el.offsetTop;
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     ...mapMutations(["setSearchTerm", "setSelectedCategory"]),
@@ -74,12 +83,16 @@ export default {
     onCartClick() {
       this.$emit("show-cart");
     },
+    handleScroll() {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      this.isSticky = scrollTop > this.originalOffsetTop;
+    },
   },
 };
 </script>
 
 <style scoped>
-/* mêmes styles que avant */
 .catalog-nav {
   background: var(--skin-color);
   box-shadow: 0 1px 8px 0 #eee;
@@ -89,8 +102,21 @@ export default {
   flex-direction: column;
   gap: 1.2rem;
   align-items: stretch;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+/* Sticky */
+.catalog-nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background: var(--skin-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* search bar etc. (come da codice precedente) */
 .search-wrapper {
   position: relative;
   width: 100%;
@@ -158,15 +184,23 @@ export default {
 }
 .nav-badge {
   position: absolute;
-  top: -5px;
-  right: -8px;
+  top: -6px;
+  right: -6px;
   background: #3733a7;
   color: #fff;
-  font-size: 0.9em;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.09em 0.56em;
-  border-radius: 1em;
+  padding: 0.15em 0.3em;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  box-sizing: border-box;
 }
+
 @media (min-width: 700px) {
   .catalog-nav {
     flex-direction: row;
