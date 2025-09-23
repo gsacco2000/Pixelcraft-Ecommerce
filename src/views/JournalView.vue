@@ -4,7 +4,7 @@
       <section class="col-lg-9 d-flex flex-column">
         <h2 class="m-3 flex-shrink-0">Articoli recenti</h2>
         <div class="d-flex overflow-auto gap-3 flex-grow-1">
-          <article class="card" style="min-width: 270px">
+          <article class="card mb-5" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_materieprime.png"
               alt="Foto di cipolle rosse"
@@ -22,7 +22,7 @@
               >
             </div>
           </article>
-          <article class="card" style="min-width: 270px">
+          <article class="card mb-5" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_nuovenarrazioni.png"
               alt="Ragazza in montagna"
@@ -38,7 +38,7 @@
               >
             </div>
           </article>
-          <article class="card" style="min-width: 270px">
+          <article class="card mb-5" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_packaging.png"
               alt="Vari tipi di imballaggi biologici per cibo e bevande"
@@ -54,7 +54,7 @@
               >
             </div>
           </article>
-          <article class="card" style="min-width: 270px">
+          <article class="card mb-5" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_formazione.png"
               alt="Panorama montagna con lago"
@@ -70,7 +70,7 @@
               >
             </div>
           </article>
-          <article class="card" style="min-width: 270px">
+          <article class="card mb-5" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_graficafiliere.png"
               alt="persone che fanno brainstorming su un grande foglio pieno di scritte"
@@ -86,7 +86,7 @@
               >
             </div>
           </article>
-          <article class="card" style="min-width: 270px">
+          <article class="card mb-5" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_storieillustrate.png"
               alt="Copertina libro"
@@ -106,7 +106,7 @@
       </section>
 
       <aside
-        class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto bg-info p-3"
+        class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto bg-info p-3 my-4"
         style="max-height: 450px; background-color: rgb(7, 182, 250)"
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
