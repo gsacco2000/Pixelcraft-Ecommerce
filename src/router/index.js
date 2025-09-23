@@ -4,6 +4,7 @@ import PortfolioView from "@/views/PortfolioView.vue";
 import AboutView from "@/views/AboutView.vue";
 import JournalView from "@/views/JournalView.vue";
 import ContattiView from "@/views/ContattiView.vue";
+import ArticoloMaterieprime from "@/views/ArticoloMaterieprime.vue";
 
 const routes = [
   { path: "/", name: "Home", component: HomeView },
@@ -11,6 +12,11 @@ const routes = [
   { path: "/about", name: "About", component: AboutView },
   { path: "/contatti", name: "Contatti", component: ContattiView },
   { path: "/journal", name: "Journal", component: JournalView },
+  {
+    path: "/articolomaterieprime",
+    name: "ArticoloMaterieprime",
+    component: ArticoloMaterieprime,
+  },
   {
     path: "/shop",
     name: "Shop",
