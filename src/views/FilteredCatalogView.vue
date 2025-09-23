@@ -4,11 +4,13 @@
     <CatalogNavBar @show-favorites="apriPreferiti" @show-cart="apriCarrello" />
 
     <!-- Titolo dinamico con categoria filtro -->
-    <h1 class="mt-4 mb-3">
+    <h2 class="ps-5 mb-4 fw-bold">
       Catalogo prodotti:
-      <span v-if="selectedCategory">{{ selectedCategory }}</span>
-      <span v-else>Tutti</span>
-    </h1>
+      <span class="category" v-if="selectedCategory">
+        {{ selectedCategory }}
+      </span>
+      <span class="category" v-else>Tutti</span>
+    </h2>
 
     <!-- Lista prodotti filtrata -->
     <ProductList />
@@ -41,3 +43,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.category {
+  color: var(--skin-color);
+  font-style: italic;
+}
+</style>
