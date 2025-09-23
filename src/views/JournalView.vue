@@ -1,95 +1,113 @@
 <template>
-  <main class="container-fluid" style="width: min-content">
-    <div class="row g-0">
-      <section class="col-lg-9">
-        <h2 class="m-3">Articoli recenti</h2>
-        <div class="d-flex overflow-auto gap-3">
-          <article class="card">
+  <main class="container-fluid">
+    <div class="row g-0 align-items-stretch">
+      <section class="col-lg-9 d-flex flex-column">
+        <h2 class="m-3 flex-shrink-0">Articoli recenti</h2>
+        <div class="d-flex overflow-auto gap-3 flex-grow-1">
+          <article class="card" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_materieprime.png"
               alt="Foto di cipolle rosse"
               class="img-fluid rounded mb-1"
             />
-            <h5 class="fw-semibold mb-1">
+            <h5 class="card-title p-2">
               Materie prime e identità locale: un racconto visivo per il
               Piemonte rurale
             </h5>
-            <a
-              href="articolo_materieprime.html"
-              class="btn btn-info p-0 fw-bold"
-              >Continua a leggere</a
-            >
+            <div class="mt-auto ms-2 mb-3">
+              <a
+                href="articolo_materieprime.html"
+                class="btn btn-primary p-1 fw-bold"
+                >Continua a leggere</a
+              >
+            </div>
           </article>
-          <article class="card">
+          <article class="card" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_nuovenarrazioni.png"
               alt="Ragazza in montagna"
               class="img-fluid rounded mb-1"
             />
-            <h5 class="fw-semibold mb-1">
+            <h5 class="card-title p-2">
               Nuove narrazioni per il turismo lento: un laboratorio tra grafica
               e territorio
             </h5>
-            <a href="#" class="btn btn-info p-0 fw-bold">Continua a leggere</a>
+            <div class="mt-auto ms-2 mb-3">
+              <a href="#" class="btn btn-primary p-1 fw-bold"
+                >Continua a leggere</a
+              >
+            </div>
           </article>
-          <article class="card">
+          <article class="card" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_packaging.png"
               alt="Vari tipi di imballaggi biologici per cibo e bevande"
               class="img-fluid rounded mb-1"
             />
-            <h5 class="fw-semibold mb-1">
+            <h5 class="card-title p-2">
               Packaging narrativo per il biologico: una sperimentazione in Val
               Valaita
             </h5>
-            <a href="#" class="btn btn-info p-0 fw-bold">Continua a leggere</a>
+            <div class="mt-auto ms-2 mb-3">
+              <a href="#" class="btn btn-primary p-1 fw-bold"
+                >Continua a leggere</a
+              >
+            </div>
           </article>
-          <article class="card">
+          <article class="card" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_formazione.png"
               alt="Panorama montagna con lago"
               class="img-fluid rounded mb-1"
             />
-            <h5 class="fw-semibold mb-1">
+            <h5 class="card-title p-2">
               Formazione e territorio: workshop per giovani comunicatori in
               Appennino
             </h5>
-            <a href="#" class="btn btn-info p-0 fw-bold">Continua a leggere</a>
+            <div class="mt-auto ms-2 mb-3">
+              <a href="#" class="btn btn-primary p-1 fw-bold"
+                >Continua a leggere</a
+              >
+            </div>
           </article>
-          <article class="card">
+          <article class="card" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_graficafiliere.png"
               alt="persone che fanno brainstorming su un grande foglio pieno di scritte"
               class="img-fluid rounded mb-1"
             />
-            <h5 class="fw-bold mb-1">
+            <h5 class="card-title p-2">
               Una grafica sistemica per le filiere corte: studio di identità
               visiva nel cuneese
             </h5>
-            <a href="#" class="btn btn-info p-0 fw-bold">Continua a leggere</a>
+            <div class="mt-auto ms-2 mb-3">
+              <a href="#" class="btn btn-primary p-1 fw-bold"
+                >Continua a leggere</a
+              >
+            </div>
           </article>
-          <article class="card">
+          <article class="card" style="min-width: 270px">
             <img
               src="/img.journal/journalarticolo_storieillustrate.png"
               alt="Copertina libro"
               class="img-fluid rounded mb-1"
             />
-            <h5 class="fw-bold mb-1">
+            <h5 class="card-title p-2">
               Storie illustrate per il clima: un progetto didattico nelle scuole
               di montagna
             </h5>
-            <a href="#" class="btn btn-info p-0 fw-bold">Continua a leggere</a>
+            <div class="mt-auto ms-2 mb-3">
+              <a href="#" class="btn btn-primary p-1 fw-bold"
+                >Continua a leggere</a
+              >
+            </div>
           </article>
         </div>
       </section>
 
       <aside
-        class="col-lg-3 d-none d-lg-block bg-opacity-50 rounded border-bottom p-3"
-        style="
-          max-height: 530px;
-          overflow-y: auto;
-          background-color: rgb(7, 182, 245);
-        "
+        class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto bg-info p-3"
+        style="max-height: 450px; background-color: rgb(7, 182, 250)"
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-3">
