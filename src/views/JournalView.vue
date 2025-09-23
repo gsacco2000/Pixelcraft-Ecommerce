@@ -6,7 +6,7 @@
         <div class="d-flex overflow-auto gap-3">
           <article class="card">
             <img
-              src="img/img.journal/journalarticolo_materieprime.png"
+              src="/img/img.journal/journalarticolo_materieprime.png"
               alt="Foto di cipolle rosse"
               class="img-fluid rounded mb-1"
             />
@@ -22,7 +22,7 @@
           </article>
           <article class="card">
             <img
-              src="img/img.journal/journalarticolo_nuovenarrazioni.png"
+              src="/img/img.journal/journalarticolo_nuovenarrazioni.png"
               alt="Ragazza in montagna"
               class="img-fluid rounded mb-1"
             />
@@ -34,7 +34,7 @@
           </article>
           <article class="card">
             <img
-              src="img/img.journal/journalarticolo_packaging.png"
+              src="/img/img.journal/journalarticolo_packaging.png"
               alt="Vari tipi di imballaggi biologici per cibo e bevande"
               class="img-fluid rounded mb-1"
             />
@@ -46,7 +46,7 @@
           </article>
           <article class="card">
             <img
-              src="img/img.journal/journalarticolo_formazione.png"
+              src="/img/img.journal/journalarticolo_formazione.png"
               alt="Panorama montagna con lago"
               class="img-fluid rounded mb-1"
             />
@@ -58,7 +58,7 @@
           </article>
           <article class="card">
             <img
-              src="img/img.journal/journalarticolo_graficafiliere.png"
+              src="/img/img.journal/journalarticolo_graficafiliere.png"
               alt="persone che fanno brainstorming su un grande foglio pieno di scritte"
               class="img-fluid rounded mb-1"
             />
@@ -70,7 +70,7 @@
           </article>
           <article class="card">
             <img
-              src="img/img.journal/journalarticolo_storieillustrate.png"
+              src="/img/img.journal/journalarticolo_storieillustrate.png"
               alt="Copertina libro"
               class="img-fluid rounded mb-1"
             />
@@ -98,7 +98,7 @@
             class="d-flex align-items-start text-decoration-none text-dark"
           >
             <img
-              src="img/img.journal/journalarticolo_materieprime.png"
+              src="/img/img.journal/journalarticolo_materieprime.png"
               alt="Foto di cipolle rosse"
               width="50"
               class="me-3 rounded"
@@ -116,7 +116,7 @@
           </a>
           <div class="d-flex align-items-start">
             <img
-              src="img/img.journal/journalarticolo_nuovenarrazioni.png"
+              src="/img/img.journal/journalarticolo_nuovenarrazioni.png"
               alt="Ragazza in montagna"
               width="50"
               class="me-3 rounded"
@@ -134,7 +134,7 @@
           </div>
           <div class="d-flex align-items-start">
             <img
-              src="img/img.journal/journalarticolo_packaging.png"
+              src="/img/img.journal/journalarticolo_packaging.png"
               alt="Vari tipi di imballaggi biologici per cibo e bevande"
               width="50"
               class="me-3 rounded"
@@ -152,7 +152,7 @@
           </div>
           <div class="d-flex align-items-start">
             <img
-              src="img/img.journal/journalarticolo_formazione.png"
+              src="/img/img.journal/journalarticolo_formazione.png"
               alt="Panorama montagna con lago"
               width="50"
               class="me-3 rounded"
@@ -170,7 +170,7 @@
           </div>
           <div class="d-flex align-items-start">
             <img
-              src="img/img.journal/journalarticolo_graficafiliere.png"
+              src="/img/img.journal/journalarticolo_graficafiliere.png"
               alt="persone che fanno brainstorming su un grande foglio pieno di scritte"
               width="50"
               class="me-3 rounded"
@@ -188,7 +188,7 @@
           </div>
           <div class="d-flex align-items-start">
             <img
-              src="img/img.journal/journalarticolo_storieillustrate.png"
+              src="/img/img.journal/journalarticolo_storieillustrate.png"
               alt="Copertina libro"
               width="50"
               class="me-3 rounded"
@@ -307,7 +307,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_materieprime.png"
+            src="/img/img.journal/journalarticolo_materieprime.png"
             class="card-img-top"
             alt="Foto di cipolle rosse"
           />
@@ -332,7 +332,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_nuovenarrazioni.png"
+            src="/img/img.journal/journalarticolo_nuovenarrazioni.png"
             class="card-img-top"
             alt="Ragazza in montagna"
           />
@@ -354,7 +354,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_packaging.png"
+            src="/img/img.journal/journalarticolo_packaging.png"
             class="card-img-top"
             alt="Vari tipi di imballaggi biologici per cibo e bevande"
           />
@@ -376,7 +376,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_formazione.png"
+            src="/img/img.journal/journalarticolo_formazione.png"
             class="card-img-top"
             alt="Panorama montagna con lago"
           />
@@ -398,7 +398,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_graficafiliere.png"
+            src="/img/img.journal/journalarticolo_graficafiliere.png"
             class="card-img-top"
             alt="persone che fanno brainstorming su un grande foglio pieno di scritte"
           />
@@ -420,7 +420,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_storieillustrate.png"
+            src="/img/img.journal/journalarticolo_storieillustrate.png"
             class="card-img-top"
             alt="Copertina libro"
           />
@@ -443,7 +443,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_identitavisiva.png"
+            src="/img/img.journal/journalarticolo_identitavisiva.png"
             class="card-img-top"
             alt="Montagna innevata"
           />
@@ -466,7 +466,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_tipografia.png"
+            src="/img/img.journal/journalarticolo_tipografia.png"
             class="card-img-top"
             alt="Grafica typography"
           />
@@ -488,7 +488,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_segnaletica.png"
+            src="/img/img.journal/journalarticolo_segnaletica.png"
             class="card-img-top"
             alt="Borgo storico"
           />
@@ -510,7 +510,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_graficaambiente.png"
+            src="/img/img.journal/journalarticolo_graficaambiente.png"
             class="card-img-top"
             alt="Grafica informativa"
           />
@@ -532,7 +532,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_castelluccionorcia.png"
+            src="/img/img.journal/journalarticolo_castelluccionorcia.png"
             class="card-img-top"
             alt="Campi di Castelluccio di Norcia"
           />
@@ -555,7 +555,7 @@
       <div class="col d-flex">
         <div class="card h-100 shadow-sm">
           <img
-            src="img/img.journal/journalarticolo_microeditoria.png"
+            src="/img/img.journal/journalarticolo_microeditoria.png"
             class="card-img-top"
             alt="Grafica cervello con schema"
           />
