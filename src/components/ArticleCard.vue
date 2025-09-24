@@ -1,19 +1,31 @@
 <template>
   <article class="card mb-5" :style="minWidthStyle">
-    <img
-      :src="articolo.img"
-      :alt="articolo.alt"
-      :width="showMinutiLettura ? 50 : null"
-      class="img-fluid rounded mb-1"
-    />
-    <h5 class="card-title p-2">{{ articolo.titolo }}</h5>
-    <p class="text-muted px-2">{{ articolo.data }} | {{ articolo.autore }}</p>
     <div
       v-if="showMinutiLettura && articolo.minutiLettura"
-      class="p-2 fst-italic small"
+      class="d-flex align-items-center gap-2 p-2"
     >
-      {{ articolo.minutiLettura }} min di lettura
+      <img
+        :src="articolo.img"
+        :alt="articolo.alt"
+        :width="50"
+        class="rounded"
+      />
+      <small class="fst-italic text-muted mb-0">
+        {{ articolo.minutiLettura }} min
+      </small>
     </div>
+
+    <div v-else>
+      <img
+        :src="articolo.img"
+        :alt="articolo.alt"
+        class="img-fluid rounded mb-1"
+      />
+    </div>
+
+    <h5 class="card-title p-2">{{ articolo.titolo }}</h5>
+    <p class="text-muted px-2">{{ articolo.data }} | {{ articolo.autore }}</p>
+
     <div v-if="!showMinutiLettura" class="mt-auto ms-2 mb-3 px-2">
       <router-link
         v-if="isInternalLink"

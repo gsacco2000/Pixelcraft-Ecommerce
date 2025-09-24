@@ -18,13 +18,25 @@
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-3">
-          <ArticleCard
-            v-for="art in articoliAside"
-            :key="art.id"
-            :articolo="art"
-            :showMinutiLettura="true"
-            :minWidthStyle="{ minWidth: 'auto' }"
-          />
+          <template v-for="art in articoliAside" :key="art.id">
+            <router-link
+              v-if="art.link && art.link !== '#'"
+              :to="art.link"
+              class="text-decoration-none text-reset"
+            >
+              <ArticleCard
+                :articolo="art"
+                :showMinutiLettura="true"
+                :minWidthStyle="{ minWidth: 'auto' }"
+              />
+            </router-link>
+            <ArticleCard
+              v-else
+              :articolo="art"
+              :showMinutiLettura="true"
+              :minWidthStyle="{ minWidth: 'auto' }"
+            />
+          </template>
         </div>
       </aside>
     </div>
