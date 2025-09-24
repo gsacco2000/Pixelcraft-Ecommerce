@@ -2,13 +2,19 @@
   <section class="categories-section">
     <h2 class="categories-title">Esplora per categorie</h2>
     <div class="categories-list">
-      <div v-for="cat in categories" :key="cat.name" class="category-item">
+      <router-link
+        v-for="cat in categories"
+        :key="cat.name"
+        :to="{ name: 'FilteredCatalog' }"
+        class="category-item"
+        @click="filtroCategoria(cat.label)"
+      >
         <div class="category-image-wrapper">
           <img :src="cat.img" :alt="cat.name" class="category-image" />
         </div>
         <div class="category-label">{{ cat.label }}</div>
         <div class="category-count">{{ cat.count }} Products</div>
-      </div>
+      </router-link>
     </div>
   </section>
 </template>
@@ -46,6 +52,12 @@ export default {
       ],
     };
   },
+  methods: {
+    filtroCategoria(label) {
+      // Resetta la categoria nel Vuex store
+      this.$store.commit("setSelectedCategory", label);
+    },
+  },
 };
 </script>
 
@@ -79,6 +91,14 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 150px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: box-shadow 0.1s;
+}
+.category-item:hover .category-label {
+  font-style: italic;
+  color: var(--skin-color);
 }
 .category-image-wrapper {
   background: #fff;
