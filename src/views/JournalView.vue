@@ -76,7 +76,7 @@
     <div class="container-fluid my-4">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col d-flex" v-for="art in articoliFiltrati" :key="art.id">
-          <ArticleCard :articolo="art" />
+          <ArticleCard :articolo="art" :showCategorie="true" />
         </div>
       </div>
     </div>

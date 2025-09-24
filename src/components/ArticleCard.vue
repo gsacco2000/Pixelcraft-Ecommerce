@@ -23,6 +23,16 @@
       />
     </div>
 
+    <div v-if="showCategorie" class="px-2 mb-2">
+      <span
+        v-for="cat in articolo.categorie"
+        :key="cat"
+        class="badge bg-secondary me-1"
+      >
+        {{ cat }}
+      </span>
+    </div>
+
     <h5 class="card-title p-2">{{ articolo.titolo }}</h5>
     <p class="text-muted px-2">{{ articolo.data }} | {{ articolo.autore }}</p>
 
@@ -56,6 +66,10 @@ export default {
     minWidthStyle: {
       type: Object,
       default: () => ({ minWidth: "270px" }),
+    },
+    showCategorie: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
