@@ -75,9 +75,7 @@ export default {
   },
   methods: {
     submitForm() {
-      // Qui puoi gestire l’invio del form, ad esempio chiamare un’API o mostrare un messaggio
       alert(`Grazie per esserti iscritto, ${this.name}!`);
-      // Reset form
       this.name = "";
       this.surname = "";
       this.email = "";
@@ -87,7 +85,6 @@ export default {
 </script>
 
 <style scoped>
-/* KEEP IN TOUCH SECTION - FORM DI CONTATTO */
 .keep-in-touch {
   background: var(--skin-color);
   color: var(--background);

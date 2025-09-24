@@ -153,51 +153,7 @@
     >
       <h2 class="portfolio-header fw-bold mb-4">Portfolio</h2>
       <div class="row g-3">
-        <div class="col-12 col-md-4">
-          <div class="project h-100 d-flex flex-column align-items-center">
-            <div class="project-image-wrapper w-100 mb-3">
-              <img
-                src="/img.portfolio/portfolio.tabli.jpg"
-                alt="Tablì Lavazza"
-                class="img-fluid rounded"
-              />
-              <div class="overlay">
-                <div>Una tab al 100% di caffè, il futuro nella tazzina.</div>
-              </div>
-            </div>
-            <div class="project-title fw-bold fs-5">Tablì Lavazza</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="project h-100 d-flex flex-column align-items-center">
-            <div class="project-image-wrapper w-100 mb-3">
-              <img
-                src="/img.portfolio/portfolio.abbonamentoMusei.jpg"
-                alt="Abbonamento Musei"
-                class="img-fluid rounded"
-              />
-              <div class="overlay">
-                <div>Una nuova identità per il museo più grande d’Italia.</div>
-              </div>
-            </div>
-            <div class="project-title fw-bold fs-5">Abbonamento Musei</div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="project h-100 d-flex flex-column align-items-center">
-            <div class="project-image-wrapper w-100 mb-3">
-              <img
-                src="/img.portfolio/portfolio.laVenariaReale.jpg"
-                alt="La Venaria Reale"
-                class="img-fluid rounded"
-              />
-              <div class="overlay">
-                <div>La Reggia si apre a una naturale evoluzione visiva.</div>
-              </div>
-            </div>
-            <div class="project-title fw-bold fs-5">La Venaria Reale</div>
-          </div>
-        </div>
+        <ProjectList :projects="relatedProjects" />
       </div>
     </section>
 
@@ -208,10 +164,38 @@
 
 <script>
 import AppNewsletter from "@/components/AppNewsletter.vue";
+import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "CaseMusicsound",
-  components: { AppNewsletter },
+  components: { AppNewsletter, ProjectList },
+  data() {
+    return {
+      relatedProjects: [
+        {
+          title: "Tablì Lavazza",
+          img: "/img.portfolio/portfolio.tabli.jpg",
+          alt: "Tablì Lavazza",
+          description: "Una tab al 100% di caffè, il futuro nella tazzina.",
+          link: null,
+        },
+        {
+          title: "Abbonamento Musei",
+          img: "/img.portfolio/portfolio.abbonamentoMusei.jpg",
+          alt: "Abbonamento Musei",
+          description: "Una nuova identità per il museo più grande d’Italia.",
+          link: null,
+        },
+        {
+          title: "La Venaria Reale",
+          img: "/img.portfolio/portfolio.laVenariaReale.jpg",
+          alt: "La Venaria Reale",
+          description: "La Reggia si apre a una naturale evoluzione visiva.",
+          link: null,
+        },
+      ],
+    };
+  },
   methods: {
     scrollNextSection() {
       const sections = document.querySelectorAll("main > section");
@@ -249,12 +233,13 @@ export default {
   z-index: 2;
 }
 .z-3 {
-  z-index: 1030; /* Bootstrap modal/offcanvas z-index */
+  z-index: 1030;
 }
 
 .bounce {
   animation: bounce 2s infinite;
 }
+
 @keyframes bounce {
   0%,
   100% {
@@ -269,8 +254,8 @@ export default {
   width: 54px;
   height: 54px;
   display: flex;
-  justify-content: center; /* centro orizzontale */
-  align-items: center; /* centro verticale */
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 50%;
   background: var(--skin-color);
@@ -279,8 +264,8 @@ export default {
   right: 20px;
   bottom: 20px;
   padding: 0;
-  margin: 0; /* reset margine */
-  line-height: 0; /* reset line-height */
+  margin: 0;
+  line-height: 0;
   overflow: visible;
   z-index: 1031;
 }
@@ -288,13 +273,11 @@ export default {
 .info-icon-custom i {
   color: white;
   font-size: 1.7rem;
-  margin: 0; /* reset margine */
-  padding: 0; /* reset padding */
+  margin: 0;
+  padding: 0;
   display: block;
   line-height: 1;
 }
-
-/* Portfolio */
 
 .portfolio-section {
   background: var(--background);
