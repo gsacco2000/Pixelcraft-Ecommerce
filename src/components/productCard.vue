@@ -65,7 +65,7 @@
       tabindex="-1"
     >
       <img
-        :src="product.image"
+        :src="product.images ? product.images[0] : ''"
         class="card-img-top mx-auto d-block"
         :alt="product.name"
       />

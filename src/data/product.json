@@ -1,13 +1,19 @@
 [
-    {
-        "id": 1,
-        "name": "Poster K-food",
-        "price": 19.99,
-        "oldPrice": 25.0,
-        "discount": 20,
-        "isNew": true,
-        "category": "poster",
-        "image": "/img.shop/shop.poster1.jpeg"
+      {   
+          "id": 1,
+          "name": "Poster K-food",
+          "price": 19.99,
+          "oldPrice": 25.0,
+          "discount": 20,
+          "isNew": true,
+          "category": "poster",
+          "images": [
+            "/img.shop/shop.poster1.jpeg",
+            "/img.shop/shop.poster2.jpeg",
+            "/img.shop/shop.poster3.jpeg",
+            "/img.shop/shop.poster4.jpeg"
+          ],
+          "description": "Bellissimo poster dedicato alla cucina K-food, perfetto per arredare la tua casa con stile."
       },
       {
         "id": 2,
