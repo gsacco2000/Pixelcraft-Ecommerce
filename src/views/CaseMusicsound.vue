@@ -17,6 +17,10 @@
       <div
         class="d-flex justify-content-center align-items-center mb-3 z-2 position-relative"
         @click="scrollNextSection"
+        role="button"
+        tabindex="0"
+        @keydown.enter="scrollNextSection"
+        aria-label="Scroll alla sezione successiva"
       >
         <i class="fas fa-chevron-down fs-2 text-white bounce"></i>
       </div>
@@ -75,6 +79,7 @@
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasInfo"
       aria-controls="offcanvasInfo"
+      aria-label="Informazioni Open Sound Festival"
     >
       <i class="fas fa-info-circle"></i>
     </button>
@@ -196,83 +201,22 @@
       </div>
     </section>
 
-    <!-- KEEP IN TOUCH SECTION - FORM DI CONTATTO -->
-    <section class="keep-in-touch w-100 py-5">
-      <div class="container" style="max-width: 1200px">
-        <div class="row align-items-center g-4">
-          <div class="col-12 col-md-6 text-section">
-            <h2 class="fw-bold">
-              Costruiamo esperienze<br />
-              che lasciano il segno,<br />
-              <span class="pixel">un pixel alla volta.</span>
-            </h2>
-            <h3 class="subtitle mt-3 mb-4">Iscriviti alla nostra newsletter</h3>
-          </div>
-          <div class="col-12 col-md-6">
-            <form
-              class="form-section bg-light bg-opacity-10 rounded-4 p-4"
-              method="post"
-            >
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Nome"
-                    autocomplete="given-name"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="surname"
-                    name="surname"
-                    required
-                    placeholder="Cognome"
-                    autocomplete="family-name"
-                  />
-                </div>
-                <div class="col-12">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="Email"
-                    autocomplete="email"
-                  />
-                </div>
-                <div class="col-12 d-flex justify-content-center">
-                  <button
-                    type="submit"
-                    class="btn btn-outline-light fw-bold py-2 px-4"
-                  >
-                    Iscriviti
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- KEEP IN TOUCH SECTION - COMPONENTE NEWSLETTER -->
+    <AppNewsletter />
   </main>
 </template>
 
 <script>
+import AppNewsletter from "@/components/AppNewsletter.vue";
+
 export default {
-  name: "OpenSoundFestival",
+  name: "CaseMusicsound",
+  components: { AppNewsletter },
   methods: {
     scrollNextSection() {
-      // Scroll alla sezione successiva
       const sections = document.querySelectorAll("main > section");
       const scrollPosition = window.scrollY;
-      for (let section of sections) {
+      for (const section of sections) {
         if (section.offsetTop > scrollPosition) {
           window.scrollTo({
             top: section.offsetTop,
@@ -321,64 +265,6 @@ export default {
   }
 }
 
-.info-icon {
-  z-index: 1031;
-}
-
-/* Optional: elimina border/caption della tabella se vuoi solo testo */
-table caption {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #b3b3b3;
-  display: none;
-}
-
-table .titolo {
-  background-color: var(--skin-color);
-}
-
-.caption-box {
-  width: 100%;
-  max-width: 96vw;
-}
-
-@media (min-width: 576px) {
-  .caption-box {
-    max-width: 420px;
-  }
-}
-@media (min-width: 768px) {
-  .caption-box {
-    max-width: 500px;
-  }
-}
-@media (min-width: 1200px) {
-  .caption-box {
-    max-width: 560px;
-  }
-}
-
-.offcanvas-title {
-  font-weight: bold;
-  color: var(--skin-color);
-}
-
-.offcanvas-body,
-.offcanvas-header {
-  background-color: var(--background);
-  padding-right: 2rem;
-}
-
-.btn-close {
-  background-color: var(--skin-color);
-  font-size: 1rem;
-}
-
-.offcanvas-body p,
-caption {
-  color: var(--text);
-}
-
 .info-icon-custom {
   width: 54px;
   height: 54px;
@@ -410,11 +296,10 @@ caption {
 
 /* Portfolio */
 
-/* Sezione PORTFOLIO */
 .portfolio-section {
   background: var(--background);
   border-radius: 0.3rem;
-  color: (--text);
+  color: var(--text);
 }
 
 .portfolio-header {
@@ -480,27 +365,6 @@ caption {
 @media (min-width: 768px) {
   .portfolio-header {
     font-size: 2.2rem;
-  }
-}
-
-/* Sezione finale */
-.keep-in-touch .text-section {
-  padding: var(--padding-medium);
-}
-
-/* Media queries */
-@media (min-width: 768px) {
-  .caption {
-    max-width: 35%;
-    font-size: var(--font-p);
-  }
-
-  .close-btn {
-    font-size: 28px;
-  }
-
-  .title h1 {
-    font-size: 2.5rem;
   }
 }
 </style>

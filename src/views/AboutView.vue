@@ -1,235 +1,178 @@
 <template>
-  <main class="container my-5">
-    <!-- Daisy -->
-    <div class="row team-row align-items-stretch g-0 mb-4">
-      <div class="col-12 col-md-6 order-md-1 p-0">
+  <main>
+    <div
+      v-for="member in team"
+      :key="member.name"
+      class="row team-row align-items-stretch g-0 mb-4"
+      :class="{ 'flex-row-reverse': member.order === 'right' }"
+    >
+      <div class="col-12 col-md-6">
         <img
-          src="/img.about/about.daisy.jpg"
-          alt="Daisy Romaniello"
-          class="img-cover w-100 h-100"
+          :src="member.img"
+          :alt="member.alt"
+          class="img-cover w-100 h-100 rounded-start"
+          loading="lazy"
         />
       </div>
       <div
-        class="col-12 col-md-6 order-md-2 d-flex color-block color1 p-4"
-        :class="colorClass('color1')"
+        class="col-12 col-md-6 d-flex p-4 text-center color-block rounded-end"
+        :class="member.color"
       >
-        <div class="w-100 text-center">
-          <h2>Daisy Romaniello</h2>
-          <p>Founder &amp; Project Manager</p>
-          <div class="social-icons">
+        <div class="w-100 d-flex flex-column justify-content-center">
+          <h2>{{ member.name }}</h2>
+          <p>{{ member.role }}</p>
+          <div
+            class="social-icons d-inline-flex gap-3 justify-content-center align-items-center mt-3"
+          >
             <a
-              href="https://www.instagram.com/daisyromaniello/"
+              v-for="social in member.socials"
+              :key="social.platform"
+              :href="social.url"
               target="_blank"
               rel="noopener noreferrer"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/daisyromaniello/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin"></i
-            ></a>
+              :aria-label="`${social.platform} ${member.name}`"
+            >
+              <i :class="social.iconClass"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Giulia -->
-    <div class="row team-row align-items-stretch g-0 mb-4">
-      <div class="col-12 col-md-6 order-md-2 p-0">
-        <img
-          src="/img.about/about.giulia.jpg"
-          alt="Giulia Sacco"
-          class="img-cover w-100 h-100"
-        />
-      </div>
-      <div
-        class="col-12 col-md-6 order-md-1 d-flex color-block color2 p-4"
-        :class="colorClass('color2')"
-      >
-        <div class="w-100 text-center">
-          <h2>Giulia Sacco</h2>
-          <p>Art Director</p>
-          <div class="social-icons">
-            <a
-              href="https://www.instagram.com/giu.scc/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/giulia-sacco-b1a64830b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pietro -->
-    <div class="row team-row align-items-stretch g-0 mb-4">
-      <div class="col-12 col-md-6 order-md-1 p-0">
-        <img
-          src="/img.about/about.pietro.jpg"
-          alt="Pietro Salciarini"
-          class="img-cover w-100 h-100"
-        />
-      </div>
-      <div
-        class="col-12 col-md-6 order-md-2 d-flex color-block color3 p-4"
-        :class="colorClass('color3')"
-      >
-        <div class="w-100 text-center">
-          <h2>Pietro Salciarini</h2>
-          <p>Web Developer</p>
-          <div class="social-icons">
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/pietro-salciarini-095b67356/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Jessica -->
-    <div class="row team-row align-items-stretch g-0 mb-4" id="jessica">
-      <div class="col-12 col-md-6 order-md-2 p-0">
-        <img
-          src="/img.about/about.jessica.jpg"
-          alt="Jessica Scano"
-          class="img-cover w-100 h-100"
-        />
-      </div>
-      <div
-        class="col-12 col-md-6 order-md-1 d-flex color-block color4 p-4"
-        :class="colorClass('color4')"
-      >
-        <div class="w-100 text-center">
-          <h2>Jessica Scano</h2>
-          <p>Social Media Manager</p>
-          <div class="social-icons">
-            <a
-              href="https://www.instagram.com/jessica_scano/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/jessica-scano-b35a56100/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-          </div>
-        </div>
-      </div>
+    <!-- Footer newsletter a tutta larghezza -->
+    <div class="newsletter-container container-fluid px-0">
+      <AppNewsletter />
     </div>
   </main>
-
-  <!-- Form newsletter -->
-  <section class="keep-in-touch w-100 py-5">
-    <div class="container" style="max-width: 1200px">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-6 text-section">
-          <h2 class="fw-bold">
-            Costruiamo esperienze<br />
-            che lasciano il segno,<br />
-            <span class="pixel">un pixel alla volta.</span>
-          </h2>
-          <h3 class="subtitle mt-3 mb-4">Iscriviti alla nostra newsletter</h3>
-        </div>
-        <div class="col-12 col-md-6">
-          <form
-            class="form-section bg-light bg-opacity-10 rounded-4 p-4"
-            method="post"
-          >
-            <div class="row g-3">
-              <div class="col-12 col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="Nome"
-                  autocomplete="given-name"
-                />
-              </div>
-              <div class="col-12 col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="surname"
-                  name="surname"
-                  required
-                  placeholder="Cognome"
-                  autocomplete="family-name"
-                />
-              </div>
-              <div class="col-12">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="Email"
-                  autocomplete="email"
-                />
-              </div>
-              <div class="col-12 d-flex justify-content-center">
-                <button
-                  type="submit"
-                  class="btn btn-outline-light fw-bold py-2 px-4"
-                >
-                  Iscriviti
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 </template>
 
 <script>
+import AppNewsletter from "@/components/AppNewsletter.vue";
+
 export default {
   name: "AboutPage",
+  components: {
+    AppNewsletter,
+  },
   data() {
     return {
-      activeColor: "color1", // default color
+      team: [
+        {
+          name: "Daisy Romaniello",
+          role: "Founder & Project Manager",
+          img: "/img.about/about.daisy.jpg",
+          alt: "Daisy Romaniello",
+          color: "color1",
+          order: "left",
+          socials: [
+            {
+              platform: "Instagram",
+              url: "https://www.instagram.com/daisyromaniello/",
+              iconClass: "fab fa-instagram",
+            },
+            {
+              platform: "LinkedIn",
+              url: "https://www.linkedin.com/in/daisyromaniello/",
+              iconClass: "fab fa-linkedin",
+            },
+          ],
+        },
+        {
+          name: "Giulia Sacco",
+          role: "Art Director",
+          img: "/img.about/about.giulia.jpg",
+          alt: "Giulia Sacco",
+          color: "color2",
+          order: "right",
+          socials: [
+            {
+              platform: "Instagram",
+              url: "https://www.instagram.com/giu.scc/",
+              iconClass: "fab fa-instagram",
+            },
+            {
+              platform: "LinkedIn",
+              url: "https://www.linkedin.com/in/giulia-sacco-b1a64830b/",
+              iconClass: "fab fa-linkedin",
+            },
+          ],
+        },
+        {
+          name: "Pietro Salciarini",
+          role: "Web Developer",
+          img: "/img.about/about.pietro.jpg",
+          alt: "Pietro Salciarini",
+          color: "color3",
+          order: "left",
+          socials: [
+            {
+              platform: "GitHub",
+              url: "https://github.com/",
+              iconClass: "fab fa-github",
+            },
+            {
+              platform: "LinkedIn",
+              url: "https://www.linkedin.com/in/pietro-salciarini-095b67356/",
+              iconClass: "fab fa-linkedin",
+            },
+          ],
+        },
+        {
+          name: "Jessica Scano",
+          role: "Social Media Manager",
+          img: "/img.about/about.jessica.jpg",
+          alt: "Jessica Scano",
+          color: "color4",
+          order: "right",
+          socials: [
+            {
+              platform: "Instagram",
+              url: "https://www.instagram.com/jessica_scano/",
+              iconClass: "fab fa-instagram",
+            },
+            {
+              platform: "LinkedIn",
+              url: "https://www.linkedin.com/in/jessica-scano-b35a56100/",
+              iconClass: "fab fa-linkedin",
+            },
+          ],
+        },
+      ],
     };
-  },
-  methods: {
-    colorClass(color) {
-      return color;
-    },
   },
 };
 </script>
 
 <style scoped>
-.transparent-box {
-  position: absolute;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
-  min-width: 300px;
-  background-color: rgba(87, 86, 86, 0.5);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.newsletter-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.team-row {
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: var(--skin-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.team-row > .col-md-6 {
+  max-width: 450px;
+  padding: 0;
+  min-height: 320px; /* garantisce altezza minima per vedibilità immagine */
 }
 
 .img-cover {
@@ -237,14 +180,20 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 0.15s ease;
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
 }
 
 .color-block {
-  display: flex;
+  display: flex !important;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: center !important;
   color: var(--background);
+  flex-direction: column;
+  padding: 2rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 }
 
 .color1,
@@ -261,10 +210,6 @@ export default {
 
 .social-icons {
   margin-top: 0.75rem;
-  display: inline-flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
 }
 
 .social-icons a {
@@ -279,27 +224,33 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .team-row {
-    align-items: stretch;
+  .team-row.flex-row-reverse {
+    flex-direction: row-reverse;
   }
-
   .team-row > .col-md-6 {
     aspect-ratio: 1 / 1;
-  }
-
-  .team-row > .col-md-6 .color-block {
-    padding: var(--padding-medium);
   }
 }
 
 @media (max-width: 767.98px) {
-  .team-row + .team-row {
-    margin-top: 1rem;
+  main {
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
-}
-
-.img-cover,
-.color-block {
-  transition: all 0.15s ease;
+  .team-row {
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+  }
+  .team-row > .col-md-6 {
+    max-width: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+    min-height: auto;
+  }
+  .img-cover,
+  .color-block {
+    border-radius: 0;
+  }
 }
 </style>
