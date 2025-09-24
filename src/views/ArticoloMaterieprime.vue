@@ -1,5 +1,5 @@
 <template>
-  <main class="container-lg">
+  <main class="container-md">
     <img
       src="/img.journal/journalarticolo_materieprime.png"
       class="img-fluid d-block mb-4"
