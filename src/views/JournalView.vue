@@ -18,7 +18,7 @@
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-3">
-          <template v-for="art in articoliAside" :key="art.id">
+          <div v-for="art in articoliAside" :key="art.id">
             <router-link
               v-if="art.link && art.link !== '#'"
               :to="art.link"
@@ -36,7 +36,7 @@
               :showMinutiLettura="true"
               :minWidthStyle="{ minWidth: 'auto' }"
             />
-          </template>
+          </div>
         </div>
       </aside>
     </div>
