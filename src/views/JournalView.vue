@@ -1,5 +1,5 @@
 <template>
-  <main class="container-fluid">
+  <main class="container">
     <div class="row g-0 align-items-stretch">
       <section class="col-lg-9 d-flex flex-column">
         <h2 class="m-3 flex-shrink-0">Articoli recenti</h2>
