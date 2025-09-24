@@ -147,7 +147,7 @@
                 grafica e territorio
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Jessica Scano
               </p>
             </div>
           </div>
@@ -165,7 +165,7 @@
                 Valaita
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Jessica Scano
               </p>
             </div>
           </div>
@@ -183,7 +183,7 @@
                 Appennino
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Giulia Sacco
               </p>
             </div>
           </div>
@@ -201,7 +201,7 @@
                 nel cuneese
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Daisy Romaniello
               </p>
             </div>
           </div>
@@ -219,7 +219,7 @@
                 scuole di montagna
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Jessica Scano
               </p>
             </div>
           </div>
@@ -236,7 +236,7 @@
                 Un'identità visiva per la montagna che cambia
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Giulia Sacco
               </p>
             </div>
           </div>
@@ -271,7 +271,7 @@
                 storici
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Jessica Scano
               </p>
             </div>
           </div>
@@ -288,7 +288,7 @@
                 Grafica per l'ambiente: toolkit visivo per iniziative locali
               </h6>
               <p class="fst-italic mb-0" style="font-size: 0.75rem">
-                2025, Pietro Salciarini
+                2025, Daisy Romaniello
               </p>
             </div>
           </div>
