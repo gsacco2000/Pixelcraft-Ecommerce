@@ -9,15 +9,18 @@
 
       <div class="row">
         <div class="col-md-6 d-flex flex-column align-items-center">
-          <!-- Immagine grande -->
           <img
+            v-if="selectedImage"
             :src="selectedImage"
             alt="Immagine prodotto"
             class="img-fluid main-img mb-3"
           />
+          <div v-else class="no-image">Immagine non disponibile</div>
 
-          <!-- Immagini miniature -->
-          <div class="d-flex gap-2 thumbnails">
+          <div
+            class="d-flex gap-2 thumbnails"
+            v-if="product.images && product.images.length > 1"
+          >
             <img
               v-for="(src, idx) in product.images"
               :key="idx"
@@ -33,12 +36,12 @@
         <div class="col-md-6">
           <h1>{{ product.name }}</h1>
           <p class="h4 text-primary">
-            €{{ product.price.toFixed(2) }}
+            €{{ product.price?.toFixed(2) }}
             <span
               v-if="product.oldPrice"
               class="text-muted text-decoration-line-through ms-2"
             >
-              €{{ product.oldPrice.toFixed(2) }}
+              €{{ product.oldPrice?.toFixed(2) }}
             </span>
             <span v-if="product.discount" class="badge bg-danger ms-2">
               -{{ product.discount }}%
@@ -47,7 +50,6 @@
 
           <p>{{ product.description }}</p>
 
-          <!-- Filtri per poster -->
           <div v-if="product.category === 'poster'" class="mb-3">
             <label for="dimension" class="form-label">Dimensione:</label>
             <select
@@ -114,12 +116,14 @@
 
 <script>
 import CatalogNavBar from "@/components/CatalogNavBar.vue";
+import { mapState } from "vuex";
 
 export default {
   components: { CatalogNavBar },
+  props: ["id"],
   data() {
     return {
-      selectedImage: "/img.shop/shop.poster1.jpeg",
+      selectedImage: "",
       selectedDimension: "",
       selectedFrame: "",
       quantity: 1,
@@ -129,40 +133,39 @@ export default {
         { label: "Bianca", value: "white" },
         { label: "Effetto Legno", value: "wood" },
       ],
-      product: {
-        id: 1,
-        name: "Poster K-food",
-        price: 19.99,
-        oldPrice: 25.0,
-        discount: 20,
-        isNew: true,
-        category: "poster",
-        images: [
-          "/img.shop/shop.poster1.jpeg",
-          "/img.shop/shop.poster1-2.jpeg",
-          "/img.shop/shop.poster1-3.jpeg",
-          "/img.shop/shop.poster1-4.jpeg",
-        ],
-        description:
-          "Bellissimo poster dedicato alla cucina K-food, perfetto per arredare la tua casa con stile.",
-      },
-      // placeholder preferiti
       isFavorite: false,
     };
   },
   computed: {
+    ...mapState(["products"]),
+    product() {
+      return this.products.find((p) => p.id === Number(this.id)) || {};
+    },
     filtersValid() {
       return this.selectedDimension && this.quantity > 0;
+    },
+  },
+  watch: {
+    product: {
+      immediate: true,
+      handler(newProduct) {
+        if (newProduct.images && newProduct.images.length > 0) {
+          this.selectedImage = newProduct.images[0];
+        } else {
+          this.selectedImage = "";
+        }
+      },
     },
   },
   methods: {
     handleAddToCart() {
       if (!this.filtersValid) return;
+      // QUI la logica reale per aggiungere al carrello con Vuex
       alert("Prodotto aggiunto al carrello!");
-      // Logica reale addToCart da Vuex o API
     },
     handleToggleFavorite() {
       this.isFavorite = !this.isFavorite;
+      // QUI essendo demo placeholder gestisci favorite
     },
     goBack() {
       this.$router.push({ name: "FilteredCatalog" });
