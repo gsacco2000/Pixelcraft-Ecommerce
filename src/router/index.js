@@ -21,37 +21,29 @@ const routes = [
     path: "/shop",
     name: "Shop",
     component: () =>
-      import(
-        /* webpackChunkName: "shop" */
-        "@/views/CatalogView.vue"
-      ),
+      import(/* webpackChunkName: "shop" */ "@/views/CatalogView.vue"),
   },
   {
     path: "/filtered-catalog",
     name: "FilteredCatalog",
-    component: () =>
-      import(
-        /* webpackChunkName: "filteredcatalog" */
-        "@/views/FilteredCatalogView.vue"
-      ),
+    component: () => import("@/views/FilteredCatalogView.vue"),
   },
   {
     path: "/case/isifoundation",
     name: "CaseIsifoundation",
-    component: () =>
-      import(
-        /* webpackChunkName: "caseisifoundation" */
-        "@/views/CaseIsifoundation.vue"
-      ),
+    component: () => import("@/views/CaseIsifoundation.vue"),
   },
   {
     path: "/case/musicsound",
     name: "CaseMusicsound",
-    component: () =>
-      import(
-        /* webpackChunkName: "casemusicsound" */
-        "@/views/CaseMusicsound.vue"
-      ),
+    component: () => import("@/views/CaseMusicsound.vue"),
+  },
+  // Aggiungi questa rotta dinamica per il dettaglio prodotto
+  {
+    path: "/product/:id",
+    name: "ProductDetail",
+    component: () => import("@/views/ProductDetailView.vue"),
+    props: true, // permette di passare gli params come props
   },
 ];
 
