@@ -1,7 +1,6 @@
 <template>
   <main class="container">
     <div class="row g-0 align-items-stretch">
-      <!-- Articoli recenti -->
       <section class="col-lg-9 d-flex flex-column">
         <h2 class="m-3 flex-shrink-0">Articoli recenti</h2>
         <div class="d-flex overflow-auto gap-3 flex-grow-1">
@@ -13,7 +12,6 @@
         </div>
       </section>
 
-      <!-- Aside -->
       <aside
         class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto bg-info p-3 my-4"
         style="max-height: 450px; background-color: rgb(7, 182, 250)"
@@ -31,7 +29,6 @@
       </aside>
     </div>
 
-    <!-- Tutti gli articoli e filtro -->
     <h2 class="text-center pb-3">Tutti gli articoli</h2>
     <div class="container pb-3">
       <div class="row row-cols-2 row-cols-lg-4 g-3">
