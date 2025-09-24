@@ -23,7 +23,7 @@ export default createStore({
       });
     },
     cartCount(state) {
-      return state.cartItems.length;
+      return state.cartItems.reduce((total, item) => total + item.quantity, 0);
     },
     favoritesCount(state) {
       return state.favoriteItems.length;
@@ -37,8 +37,23 @@ export default createStore({
     setSelectedCategory(state, category) {
       state.selectedCategory = category;
     },
-    addToCart(state, product) {
-      state.cartItems.push(product);
+    addToCart(state, productToAdd) {
+      const existingIndex = state.cartItems.findIndex(
+        (item) =>
+          item.id === productToAdd.id &&
+          item.selectedSize === productToAdd.selectedSize &&
+          item.selectedDimension === productToAdd.selectedDimension &&
+          item.selectedColor === productToAdd.selectedColor &&
+          item.selectedFrame === productToAdd.selectedFrame
+      );
+
+      if (existingIndex !== -1) {
+        // Se trovi già il prodotto con stesse opzioni aggiorna quantità
+        state.cartItems[existingIndex].quantity += productToAdd.quantity;
+      } else {
+        // Altrimenti aggiungi prodotto nuovo con quantità
+        state.cartItems.push({ ...productToAdd });
+      }
     },
     removeFromCart(state, productId) {
       state.cartItems = state.cartItems.filter((item) => item.id !== productId);
