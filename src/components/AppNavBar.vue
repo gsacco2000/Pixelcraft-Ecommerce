@@ -28,7 +28,7 @@
       <i class="fab fa-behance"></i>
     </a>
 
-    <nav class="navbar">
+    <nav class="navbar px-2">
       <router-link to="/" aria-label="Vai alla homepage" class="logo-link">
         <img src="/pixelcraft_light.png" alt="Logo" class="logo logo-light" />
         <img
