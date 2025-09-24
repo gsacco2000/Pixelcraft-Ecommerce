@@ -301,90 +301,32 @@
 
   <h2 class="text-center pb-3">Tutti gli articoli</h2>
 
-  <div class="container pb-3">
-    <div class="row row-cols-2 row-cols-lg-4 g-3">
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center px-2"
-        >
-          TUTTI
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          FOOD & BEVERAGE
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          TRAVEL & IDENTITY
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          DESIGN
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          COMMUNITY DESIGN
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          SUSTAINABILITY
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          GRAPHIC DESIGN
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          BRANDING TERRITORIALE
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          CULTURA LOCALE
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          SPAZIO PUBBLICO
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          VISUAL COMMUNICATION
-        </div>
-      </div>
-      <div class="col">
-        <div
-          class="bg-light rounded text-center w-100 h-100 d-flex justify-content-center align-items-center py-3 px-2"
-        >
-          VISUAL STORYTELLING
+  <div id="app">
+    <div class="container pb-3">
+      <div class="row row-cols-2 row-cols-lg-4 g-3">
+        <div v-for="cat in categorie" :key="cat" class="col">
+          <button
+            @click="setCategoria(cat)"
+            :class="[
+              'btn',
+              'w-100',
+              'h-100',
+              'd-flex',
+              'justify-content-center',
+              'align-items-center',
+              'rounded',
+              'text-center',
+              'px-2',
+              'bg-light',
+              categoriaSelezionata === cat
+                ? 'border border-primary fw-bold'
+                : '',
+              cat === 'TUTTI' ? 'py-0' : 'py-3',
+            ]"
+            style="white-space: normal; cursor: pointer"
+          >
+            {{ cat }}
+          </button>
         </div>
       </div>
     </div>
@@ -392,270 +334,22 @@
 
   <div class="container-fluid my-4">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col d-flex">
+      <div class="col d-flex" v-for="art in articoliFiltrati" :key="art.id">
         <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_materieprime.png"
-            class="card-img-top"
-            alt="Foto di cipolle rosse"
-          />
+          <img :src="art.img" class="card-img-top" :alt="art.alt" />
           <div class="card-body d-flex flex-column">
             <div>
-              <span class="badge bg-primary">FOOD & BEVERAGE</span>
-              <span class="badge bg-danger">VISUAL STORYTELLING</span>
-              <h5 class="card-title mt-3">
-                Materie prime e identità locale: un racconto visivo per il
-                Piemonte rurale
-              </h5>
-              <p class="text-muted">MAY 02 2025 | PIETRO SALCIARINI</p>
-            </div>
-            <a
-              href="articolo_materieprime.html"
-              class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_nuovenarrazioni.png"
-            class="card-img-top"
-            alt="Ragazza in montagna"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-success">TRAVEL & IDENTITY</span>
-              <h5 class="card-title mt-3">
-                Nuove narrazioni per il turismo lento: un laboratorio tra
-                grafica e territorio
-              </h5>
-              <p class="text-muted">APRIL 18 2025 | JESSICA SCANO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_packaging.png"
-            class="card-img-top"
-            alt="Vari tipi di imballaggi biologici per cibo e bevande"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-warning text-dark">DESIGN</span>
-              <h5 class="card-title mt-3">
-                Packaging narrativo per il biologico: una sperimentazione in Val
-                Valaita
-              </h5>
-              <p class="text-muted">APRIL 04 2025 | JESSICA SCANO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_formazione.png"
-            class="card-img-top"
-            alt="Panorama montagna con lago"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-info text-dark">COMMUNITY DESIGN</span>
-              <h5 class="card-title mt-3">
-                Formazione e territorio: workshop per giovani comunicatori in
-                Appennino
-              </h5>
-              <p class="text-muted">MARCH 22 2025 | GIULIA SACCO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_graficafiliere.png"
-            class="card-img-top"
-            alt="persone che fanno brainstorming su un grande foglio pieno di scritte"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-secondary">GRAPHIC DESIGN</span>
-              <h5 class="card-title mt-3">
-                Una grafica sistemica per le filiere: studio di identità visiva
-                nel cuneese
-              </h5>
-              <p class="text-muted">MARCH 04 2025 | DAISY ROMANIELLO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_storieillustrate.png"
-            class="card-img-top"
-            alt="Copertina libro"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-success">SUSTAINABILITY</span>
-              <span class="badge bg-success">TRAVEL IDENTITY</span>
-              <h5 class="card-title mt-3">
-                Storie illustrate per il clima: un progetto didattico nelle
-                scuole di montagna
-              </h5>
-              <p class="text-muted">FEBRUARY 12 2025 | JESSICA SCANO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_identitavisiva.png"
-            class="card-img-top"
-            alt="Montagna innevata"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-warning text-dark"
-                >BRANDING TERRITORIALE</span
+              <span
+                v-for="cat in art.categorie"
+                :key="cat"
+                class="badge me-1"
+                :class="badgeClass(cat)"
+                >{{ cat }}</span
               >
-              <h5 class="card-title mt-3">
-                Un'identità visiva per la montagna che cambia
-              </h5>
-              <p class="text-muted">FEBRUARY 01 2025 | GIULIA SACCO</p>
+              <h5 class="card-title mt-3">{{ art.titolo }}</h5>
+              <p class="text-muted">{{ art.data }} | {{ art.autore }}</p>
             </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_tipografia.png"
-            class="card-img-top"
-            alt="Grafica typography"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-secondary">CULTURA LOCALE</span>
-              <span class="badge bg-secondary">GRAPHIC DESIGN</span>
-              <h5 class="card-title mt-3">
-                Tipografia come territorio: un carattere per le valli occitane
-              </h5>
-              <p class="text-muted">JANUARY 29 2025 | PIETRO SALCIARINI</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_segnaletica.png"
-            class="card-img-top"
-            alt="Borgo storico"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-info text-dark">SPAZIO PUBBLICO</span>
-              <h5 class="card-title mt-3">
-                Poster, pietra, pixel: segnaletica contemporanea per borghi
-                storici
-              </h5>
-              <p class="text-muted">JANUARY 15 2025 | JESSICA SCANO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_graficaambiente.png"
-            class="card-img-top"
-            alt="Grafica informativa"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-primary">VISUAL COMMUNICATION</span>
-              <span class="badge bg-secondary">CULTURA LOCALE</span>
-              <h5 class="card-title mt-3">
-                Grafica per l'ambiente: toolkit visivo per iniziative locali
-              </h5>
-              <p class="text-muted">DECEMBER 12 2024 | DAISY ROMANIELLO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_castelluccionorcia.png"
-            class="card-img-top"
-            alt="Campi di Castelluccio di Norcia"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-warning text-dark"
-                >BRANDING TERRITORIALE</span
-              >
-              <h5 class="card-title mt-3">
-                I colori del territorio: una palette per la comunicazione rurale
-              </h5>
-              <p class="text-muted">DECEMBER 04 2024 | JESSICA SCANO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
-              >Continua a leggere</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/img.journal/journalarticolo_microeditoria.png"
-            class="card-img-top"
-            alt="Grafica cervello con schema"
-          />
-          <div class="card-body d-flex flex-column">
-            <div>
-              <span class="badge bg-info text-dark">SPAZIO PUBBLICO</span>
-              <h5 class="card-title mt-3">
-                Micro-editoria e territorio: il design delle storie locali
-              </h5>
-              <p class="text-muted">NOVEMBER 28 2024 | JESSICA SCANO</p>
-            </div>
-            <a href="#" class="btn btn-primary mt-auto w-100"
+            <a :href="art.link" class="btn btn-primary mt-auto w-100"
               >Continua a leggere</a
             >
           </div>
@@ -668,6 +362,186 @@
 <script>
 export default {
   name: "JournalView",
+  data() {
+    return {
+      categoriaSelezionata: "TUTTI",
+      categorie: [
+        "TUTTI",
+        "FOOD & BEVERAGE",
+        "TRAVEL & IDENTITY",
+        "DESIGN",
+        "COMMUNITY DESIGN",
+        "SUSTAINABILITY",
+        "GRAPHIC DESIGN",
+        "BRANDING TERRITORIALE",
+        "CULTURA LOCALE",
+        "SPAZIO PUBBLICO",
+        "VISUAL COMMUNICATION",
+        "VISUAL STORYTELLING",
+      ],
+      articoli: [
+        {
+          id: 1,
+          img: "/img.journal/journalarticolo_materieprime.png",
+          alt: "Foto di cipolle rosse",
+          categorie: ["FOOD & BEVERAGE", "VISUAL STORYTELLING"],
+          titolo:
+            "Materie prime e identità locale: un racconto visivo per il Piemonte rurale",
+          data: "MAY 02 2025",
+          autore: "PIETRO SALCIARINI",
+          link: "articolo_materieprime.html",
+        },
+        {
+          id: 2,
+          img: "/img.journal/journalarticolo_nuovenarrazioni.png",
+          alt: "Ragazza in montagna",
+          categorie: ["TRAVEL & IDENTITY"],
+          titolo:
+            "Nuove narrazioni per il turismo lento: un laboratorio tra grafica e territorio",
+          data: "APRIL 18 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+        },
+        {
+          id: 3,
+          img: "/img.journal/journalarticolo_packaging.png",
+          alt: "Vari tipi di imballaggi biologici per cibo e bevande",
+          categorie: ["DESIGN"],
+          titolo:
+            "Packaging narrativo per il biologico: una sperimentazione in Val Valaita",
+          data: "APRIL 04 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+        },
+        {
+          id: 4,
+          img: "/img.journal/journalarticolo_formazione.png",
+          alt: "Panorama montagna con lago",
+          categorie: ["COMMUNITY DESIGN"],
+          titolo:
+            "Formazione e territorio: workshop per giovani comunicatori in Appennino",
+          data: "MARCH 22 2025",
+          autore: "GIULIA SACCO",
+          link: "#",
+        },
+        {
+          id: 5,
+          img: "/img.journal/journalarticolo_graficafiliere.png",
+          alt: "persone che fanno brainstorming su un grande foglio pieno di scritte",
+          categorie: ["GRAPHIC DESIGN"],
+          titolo:
+            "Una grafica sistemica per le filiere: studio di identità visiva nel cuneese",
+          data: "MARCH 04 2025",
+          autore: "DAISY ROMANIELLO",
+          link: "#",
+        },
+        {
+          id: 6,
+          img: "/img.journal/journalarticolo_storieillustrate.png",
+          alt: "Copertina libro",
+          categorie: ["SUSTAINABILITY", "TRAVEL IDENTITY"],
+          titolo:
+            "Storie illustrate per il clima: un progetto didattico nelle scuole di montagna",
+          data: "FEBRUARY 12 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+        },
+        {
+          id: 7,
+          img: "/img.journal/journalarticolo_identitavisiva.png",
+          alt: "Montagna innevata",
+          categorie: ["BRANDING TERRITORIALE"],
+          titolo: "Un'identità visiva per la montagna che cambia",
+          data: "FEBRUARY 01 2025",
+          autore: "GIULIA SACCO",
+          link: "#",
+        },
+        {
+          id: 8,
+          img: "/img.journal/journalarticolo_tipografia.png",
+          alt: "Grafica typography",
+          categorie: ["CULTURA LOCALE", "GRAPHIC DESIGN"],
+          titolo:
+            "Tipografia come territorio: un carattere per le valli occitane",
+          data: "JANUARY 29 2025",
+          autore: "PIETRO SALCIARINI",
+          link: "#",
+        },
+        {
+          id: 9,
+          img: "/img.journal/journalarticolo_segnaletica.png",
+          alt: "Borgo storico",
+          categorie: ["SPAZIO PUBBLICO"],
+          titolo:
+            "Poster, pietra, pixel: segnaletica contemporanea per borghi storici",
+          data: "JANUARY 15 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+        },
+        {
+          id: 10,
+          img: "/img.journal/journalarticolo_graficaambiente.png",
+          alt: "Grafica informativa",
+          categorie: ["VISUAL COMMUNICATION", "CULTURA LOCALE"],
+          titolo:
+            "Grafica per l'ambiente: toolkit visivo per iniziative locali",
+          data: "DECEMBER 12 2024",
+          autore: "DAISY ROMANIELLO",
+          link: "#",
+        },
+        {
+          id: 11,
+          img: "/img.journal/journalarticolo_castelluccionorcia.png",
+          alt: "Campi di Castelluccio di Norcia",
+          categorie: ["BRANDING TERRITORIALE"],
+          titolo:
+            "I colori del territorio: una palette per la comunicazione rurale",
+          data: "DECEMBER 04 2024",
+          autore: "JESSICA SCANO",
+          link: "#",
+        },
+        {
+          id: 12,
+          img: "/img.journal/journalarticolo_microeditoria.png",
+          alt: "Grafica cervello con schema",
+          categorie: ["SPAZIO PUBBLICO"],
+          titolo: "Micro-editoria e territorio: il design delle storie locali",
+          data: "NOVEMBER 28 2024",
+          autore: "JESSICA SCANO",
+          link: "#",
+        },
+      ],
+    };
+  },
+  computed: {
+    articoliFiltrati() {
+      if (this.categoriaSelezionata === "TUTTI") return this.articoli;
+      return this.articoli.filter((a) =>
+        a.categorie.includes(this.categoriaSelezionata)
+      );
+    },
+  },
+  methods: {
+    badgeClass(cat) {
+      const map = {
+        "FOOD & BEVERAGE": "bg-primary",
+        "VISUAL STORYTELLING": "bg-danger",
+        "TRAVEL & IDENTITY": "bg-success",
+        DESIGN: "bg-warning text-dark",
+        "COMMUNITY DESIGN": "bg-info text-dark",
+        SUSTAINABILITY: "bg-success",
+        "GRAPHIC DESIGN": "bg-secondary",
+        "BRANDING TERRITORIALE": "bg-warning text-dark",
+        "CULTURA LOCALE": "bg-secondary",
+        "SPAZIO PUBBLICO": "bg-info text-dark",
+        "VISUAL COMMUNICATION": "bg-primary",
+      };
+      return map[cat] || "bg-secondary";
+    },
+    setCategoria(cat) {
+      this.categoriaSelezionata = cat;
+    },
+  },
 };
 </script>
 
