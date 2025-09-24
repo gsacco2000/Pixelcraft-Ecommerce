@@ -71,56 +71,7 @@
         class="portfolio-section mx-auto p-3 p-md-5"
         style="max-width: 1200px"
       >
-        <h2 class="portfolio-header fw-bold mb-4">Portfolio</h2>
-        <div class="row g-3">
-          <div class="col-12 col-md-4">
-            <div class="project h-100 d-flex flex-column align-items-center">
-              <div class="project-image-wrapper w-100 mb-3">
-                <img
-                  src="/img.portfolio/portfolio.tabli.jpg"
-                  alt="Tablì Lavazza"
-                  class="img-fluid rounded"
-                />
-                <div class="overlay">
-                  <div>Una tab al 100% di caffè, il futuro nella tazzina.</div>
-                </div>
-              </div>
-              <div class="project-title fw-bold fs-5">Tablì Lavazza</div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="project h-100 d-flex flex-column align-items-center">
-              <div class="project-image-wrapper w-100 mb-3">
-                <img
-                  src="/img.portfolio/portfolio.abbonamentoMusei.jpg"
-                  alt="Abbonamento Musei"
-                  class="img-fluid rounded"
-                />
-                <div class="overlay">
-                  <div>
-                    Una nuova identità per il museo più grande d’Italia.
-                  </div>
-                </div>
-              </div>
-              <div class="project-title fw-bold fs-5">Abbonamento Musei</div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="project h-100 d-flex flex-column align-items-center">
-              <div class="project-image-wrapper w-100 mb-3">
-                <img
-                  src="/img.portfolio/portfolio.laVenariaReale.jpg"
-                  alt="La Venaria Reale"
-                  class="img-fluid rounded"
-                />
-                <div class="overlay">
-                  <div>La Reggia si apre a una naturale evoluzione visiva.</div>
-                </div>
-              </div>
-              <div class="project-title fw-bold fs-5">La Venaria Reale</div>
-            </div>
-          </div>
-        </div>
+        <ProjectList :projects="projects" />
       </section>
 
       <div class="sectionsContainer mx-auto py-3">
@@ -140,9 +91,9 @@
               <h3 class="fw-bold lh-base">
                 Un'identità visiva per la montagna che cambia
               </h3>
-              <router-link to="#" class="button mt-auto">
-                Continua a leggere
-              </router-link>
+              <router-link to="#" class="button mt-auto"
+                >Continua a leggere</router-link
+              >
             </div>
           </div>
           <div class="col-12 col-md-4">
@@ -160,9 +111,9 @@
                 Narrazioni per il turismo lento: laboratorio tra grafica e
                 territorio
               </h3>
-              <router-link to="#" class="button mt-auto">
-                Continua a leggere
-              </router-link>
+              <router-link to="#" class="button mt-auto"
+                >Continua a leggere</router-link
+              >
             </div>
           </div>
           <div class="col-12 col-md-4">
@@ -172,122 +123,57 @@
                 alt="Packaging"
                 class="img-fluid rounded mb-2"
               />
-              <p class="genere">
-                <span class="design">DESIGN</span>
-              </p>
+              <p class="genere"><span class="design">DESIGN</span></p>
               <p class="info mb-2">APRIL 04 2025 | JESSICA SCANO</p>
               <h3 class="fw-bold lh-base">
                 Packaging narrativo: sperimentazione in Val Varaita
               </h3>
-              <router-link to="#" class="button mt-auto">
-                Continua a leggere
-              </router-link>
+              <router-link to="#" class="button mt-auto"
+                >Continua a leggere</router-link
+              >
             </div>
           </div>
         </section>
       </div>
 
-      <section class="keep-in-touch w-100 py-5">
-        <div class="container" style="max-width: 1200px">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-md-6 text-section">
-              <h2 class="fw-bold">
-                Costruiamo esperienze<br />
-                che lasciano il segno,<br />
-                <span class="pixel">un pixel alla volta.</span>
-              </h2>
-              <h3 class="subtitle mt-3 mb-4">
-                Iscriviti alla nostra newsletter
-              </h3>
-            </div>
-            <div class="col-12 col-md-6">
-              <form
-                class="form-section bg-light bg-opacity-10 rounded-4 p-4"
-                method="post"
-              >
-                <div class="row g-3">
-                  <div class="col-12 col-md-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="Nome"
-                      autocomplete="given-name"
-                    />
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="surname"
-                      name="surname"
-                      required
-                      placeholder="Cognome"
-                      autocomplete="family-name"
-                    />
-                  </div>
-                  <div class="col-12">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      name="email"
-                      required
-                      placeholder="Email"
-                      autocomplete="email"
-                    />
-                  </div>
-                  <div class="col-12 d-flex justify-content-center">
-                    <button
-                      type="submit"
-                      class="btn btn-outline-light fw-bold py-2 px-4"
-                    >
-                      Iscriviti
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AppNewsletter />
     </main>
   </div>
 </template>
 
 <script>
+import ProjectList from "@/components/ProjectList.vue";
+import AppNewsletter from "@/components/AppNewsletter.vue";
+
 export default {
   name: "HomeView",
-  mounted() {
-    // SLIDESHOW HOMEPAGE - home
-    const slides = document.querySelectorAll(".slide");
-    let current = 0;
-    function showNextSlide() {
-      slides[current].classList.remove("active");
-      current = (current + 1) % slides.length;
-      slides[current].classList.add("active");
-    }
-    setInterval(showNextSlide, 3000);
-
-    // ANIMAZIONE FADE-IN DEI PROGETTI - portfolio
-    const projects = document.querySelectorAll(".project");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Array.from(projects).indexOf(entry.target);
-            const delay = (index % 3) * 100 + Math.floor(index / 3) * 150;
-            entry.target.style.transitionDelay = `${delay}ms`;
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    projects.forEach((project) => observer.observe(project));
+  components: { ProjectList, AppNewsletter },
+  data() {
+    return {
+      projects: [
+        {
+          title: "Tablì Lavazza",
+          img: "/img.portfolio/portfolio.tabli.jpg",
+          alt: "Tablì Lavazza",
+          description: "Una tab al 100% di caffè, il futuro nella tazzina.",
+          link: null,
+        },
+        {
+          title: "Abbonamento Musei",
+          img: "/img.portfolio/portfolio.abbonamentoMusei.jpg",
+          alt: "Abbonamento Musei",
+          description: "Una nuova identità per il museo più grande d’Italia.",
+          link: null,
+        },
+        {
+          title: "La Venaria Reale",
+          img: "/img.portfolio/portfolio.laVenariaReale.jpg",
+          alt: "La Venaria Reale",
+          description: "La Reggia si apre a una naturale evoluzione visiva.",
+          link: null,
+        },
+      ],
+    };
   },
 };
 </script>
@@ -559,7 +445,6 @@ export default {
   background: var(--skin-color);
 }
 
-/* Progetti animazione fade-in */
 .project {
   opacity: 0;
   transform: translateY(20px);
@@ -571,7 +456,6 @@ export default {
   transform: translateY(0);
 }
 
-/* Extra: Utility for Bootstrap text color */
 .text-white {
   color: #fff !important;
 }
