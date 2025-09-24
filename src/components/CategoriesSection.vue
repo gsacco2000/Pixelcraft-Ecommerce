@@ -39,13 +39,13 @@ export default {
         },
         {
           name: "cup",
-          label: "cup",
+          label: "tazze",
           count: 4,
           img: "/img.shop/cat.cup.jpeg",
         },
         {
           name: "t-shirt",
-          label: "tee",
+          label: "tshirt",
           count: 10,
           img: "/img.shop/cat.tee.jpeg",
         },
