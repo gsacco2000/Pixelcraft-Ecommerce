@@ -112,8 +112,8 @@
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-3">
-          <a
-            href="articolo_materieprime.html"
+          <router-link
+            to="/articolomaterieprime"
             class="d-flex align-items-start text-decoration-none text-dark"
           >
             <img
@@ -132,7 +132,7 @@
                 2025, Pietro Salciarini
               </p>
             </div>
-          </a>
+          </router-link>
           <div class="d-flex align-items-start">
             <img
               src="/img.journal/journalarticolo_nuovenarrazioni.png"

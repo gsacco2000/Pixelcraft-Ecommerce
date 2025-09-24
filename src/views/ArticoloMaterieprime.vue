@@ -1,8 +1,8 @@
 <template>
-  <main class="m-4">
+  <main class="container-lg">
     <img
       src="/img.journal/journalarticolo_materieprime.png"
-      class="img-fluid"
+      class="img-fluid d-block mb-4"
       alt="Foto di cipolle rosse"
     />
     <h1>
