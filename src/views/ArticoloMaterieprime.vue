@@ -240,10 +240,61 @@
       </div>
     </div>
   </main>
+
+  <div class="m-4">
+    <h2 class="text-start">Articoli correlati</h2>
+    <ArticleList :articoli="selectedArticles" />
+  </div>
 </template>
 
 <script>
+import ArticleList from "@/components/ArticleList.vue";
+
 export default {
   name: "ArticoloMaterieprime",
+  components: {
+    ArticleList,
+  },
+  data() {
+    return {
+      selectedArticles: [
+        {
+          id: 7,
+          img: "/img.journal/journalarticolo_identitavisiva.png",
+          alt: "Montagna innevata",
+          categorie: ["BRANDING TERRITORIALE"],
+          titolo: "Un'identità visiva per la montagna che cambia",
+          data: "FEBRUARY 01 2025",
+          autore: "GIULIA SACCO",
+          link: "#",
+          minutiLettura: 5,
+        },
+        {
+          id: 2,
+          img: "/img.journal/journalarticolo_nuovenarrazioni.png",
+          alt: "Ragazza in montagna",
+          categorie: ["TRAVEL & IDENTITY"],
+          titolo:
+            "Nuove narrazioni per il turismo lento: un laboratorio tra grafica e territorio",
+          data: "APRIL 18 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+          minutiLettura: 5,
+        },
+        {
+          id: 3,
+          img: "/img.journal/journalarticolo_packaging.png",
+          alt: "Vari tipi di imballaggi biologici per cibo e bevande",
+          categorie: ["DESIGN"],
+          titolo:
+            "Packaging narrativo per il biologico: una sperimentazione in Val Valaita",
+          data: "APRIL 04 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+          minutiLettura: 7,
+        },
+      ],
+    };
+  },
 };
 </script>
