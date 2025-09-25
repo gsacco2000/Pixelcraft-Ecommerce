@@ -27,7 +27,8 @@
       <span
         v-for="cat in articolo.categorie"
         :key="cat"
-        class="badge bg-secondary me-1"
+        class="badge me-1"
+        :style="categoryStyle(cat)"
       >
         {{ cat }}
       </span>
@@ -72,9 +73,36 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      categoryColors: {
+        "FOOD & BEVERAGE": "#1976f2",
+        "VISUAL STORYTELLING": "#e54848",
+        "TRAVEL & IDENTITY": "#ffd700",
+        DESIGN: "#ff9800",
+        "COMMUNITY DESIGN": "#00ffff",
+        SUSTAINABILITY: "#388e3c",
+        "GRAPHIC DESIGN": "#9c27b0",
+        "BRANDING TERRITORIALE": "#f4511e",
+        "CULTURA LOCALE": "#7b1fa2",
+        "SPAZIO PUBBLICO": "#00796b",
+        "VISUAL COMMUNICATION": "#0288d1",
+      },
+    };
+  },
   computed: {
     isInternalLink() {
       return this.articolo.link.startsWith("/");
+    },
+  },
+  methods: {
+    categoryStyle(cat) {
+      const color = this.categoryColors[cat] || "#6c757d";
+      return {
+        backgroundColor: color,
+        color: "#fff",
+        fontWeight: "600",
+      };
     },
   },
 };

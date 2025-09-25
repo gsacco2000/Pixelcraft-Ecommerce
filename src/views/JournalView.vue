@@ -183,7 +183,7 @@ export default {
           id: 6,
           img: "/img.journal/journalarticolo_storieillustrate.png",
           alt: "Copertina libro",
-          categorie: ["SUSTAINABILITY", "TRAVEL IDENTITY"],
+          categorie: ["SUSTAINABILITY", "TRAVEL & IDENTITY"],
           titolo:
             "Storie illustrate per il clima: un progetto didattico nelle scuole di montagna",
           data: "FEBRUARY 12 2025",
