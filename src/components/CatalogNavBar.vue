@@ -7,9 +7,7 @@
         @input="onSearch"
         class="search-bar"
       />
-      <span class="search-icon">
-        <font-awesome-icon icon="search" />
-      </span>
+      <span class="search-icon"><font-awesome-icon icon="search" /></span>
     </div>
     <div class="nav-categories">
       <button @click="goToShop" class="cat-btn">Shop</button>

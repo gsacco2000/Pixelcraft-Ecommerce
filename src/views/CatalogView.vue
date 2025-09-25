@@ -1,6 +1,10 @@
 <template>
   <div>
-    <CatalogNavBar @show-favorites="apriPreferiti" @show-cart="apriCarrello" />
+    <CatalogNavBar
+      ref="navbar"
+      @show-favorites="openFavorites"
+      @show-cart="openCart"
+    />
     <HeroCatalog />
     <h2 class="ps-5 mb-4 fw-bold">Le novità del mese di Settembre</h2>
     <section class="novita-container">
@@ -14,6 +18,17 @@
       </router-link>
       <CategoriesSection />
     </section>
+
+    <FavoritesDrawer
+      v-if="showFavorites"
+      :style="{ top: navbarBottom + 'px' }"
+      @close="showFavorites = false"
+    />
+    <CartDrawer
+      v-if="showCart"
+      :style="{ top: navbarBottom + 'px' }"
+      @close="showCart = false"
+    />
   </div>
 </template>
 
@@ -23,6 +38,8 @@ import CatalogNavBar from "../components/CatalogNavBar.vue";
 import ProductList from "../components/productList.vue";
 import HeroCatalog from "../components/HeroCatalog.vue";
 import CategoriesSection from "../components/CategoriesSection.vue";
+import FavoritesDrawer from "../components/FavoritesDrawer.vue";
+import CartDrawer from "../components/CartDrawer.vue";
 
 export default {
   components: {
@@ -30,16 +47,48 @@ export default {
     ProductList,
     HeroCatalog,
     CategoriesSection,
+    FavoritesDrawer,
+    CartDrawer,
+  },
+  data() {
+    return {
+      showFavorites: false,
+      showCart: false,
+      navbarBottom: 0,
+    };
   },
   computed: {
     ...mapGetters(["newProducts"]),
   },
+  mounted() {
+    this.calcNavbarBottom();
+    window.addEventListener("resize", this.calcNavbarBottom);
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.calcNavbarBottom);
+  },
   methods: {
-    apriPreferiti() {
-      console.log("Apertura pagina o modal preferiti");
+    openFavorites() {
+      this.showFavorites = true;
+      this.showCart = false;
+      this.calcNavbarBottom();
     },
-    apriCarrello() {
-      console.log("Apertura pagina o modal carrello");
+    openCart() {
+      this.showCart = true;
+      this.showFavorites = false;
+      this.calcNavbarBottom();
+    },
+    resetFiltro() {
+      // logica reset filtro se vuoi
+    },
+    calcNavbarBottom() {
+      this.$nextTick(() => {
+        if (this.$refs.navbar && this.$refs.navbar.$el) {
+          this.navbarBottom =
+            this.$refs.navbar.$el.getBoundingClientRect().bottom +
+            window.scrollY;
+        }
+      });
     },
   },
 };

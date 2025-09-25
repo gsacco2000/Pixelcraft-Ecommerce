@@ -146,10 +146,6 @@ nav ul.nav-links li a {
   transition: color 0.3s ease;
 }
 
-nav ul.nav-links li a:hover,
-nav ul.nav-links li a:focus {
-}
-
 nav ul.nav-links li a::after {
   content: "";
   position: absolute;

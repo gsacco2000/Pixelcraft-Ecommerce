@@ -36,7 +36,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: "#28a745",
+      default: "#ffdd00",
     },
     inactiveColor: {
       type: String,
@@ -88,5 +88,9 @@ export default {
 <style scoped>
 .cursor-pointer {
   cursor: pointer;
+}
+
+path {
+  color: var(--skin-color);
 }
 </style>
