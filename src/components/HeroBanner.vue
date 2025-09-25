@@ -35,7 +35,7 @@ export default {
 }
 
 .overlay-box {
-  max-width: 450px; /* riquadro più stretto */
+  max-width: 500px;
   background-color: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(8px);
   border-radius: 15px;
