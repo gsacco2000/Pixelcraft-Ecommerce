@@ -83,6 +83,48 @@
             </div>
           </div>
 
+          <!-- Selezione tazze -->
+          <div v-if="product.category === 'tazze'" class="mb-3">
+            <label class="form-label">Dimensione Tazza:</label>
+            <select v-model="selectedMugOption" class="form-select w-auto">
+              <option
+                v-for="option in mugOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Selezione tshirt -->
+          <div v-if="product.category === 'tshirt'" class="mb-3">
+            <label class="form-label">Taglia T-shirt:</label>
+            <select v-model="selectedTshirtSize" class="form-select w-auto">
+              <option
+                v-for="size in tshirtSizes"
+                :key="size.value"
+                :value="size.value"
+              >
+                {{ size.label }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Selezione tote -->
+          <div v-if="product.category === 'tote'" class="mb-3">
+            <label class="form-label">Colore Tote:</label>
+            <select v-model="selectedToteColor" class="form-select w-auto">
+              <option
+                v-for="color in toteColors"
+                :key="color.value"
+                :value="color.value"
+              >
+                {{ color.label }}
+              </option>
+            </select>
+          </div>
+
           <div class="mb-3">
             <label for="qty" class="form-label">Quantità:</label>
             <input
@@ -137,6 +179,25 @@ export default {
         { label: "Bianca", value: "white" },
         { label: "Effetto Legno", value: "wood" },
       ],
+      mugOptions: [
+        { label: "Standard", value: "standard" },
+        { label: "Grande", value: "large" },
+        { label: "Piccola", value: "small" },
+      ],
+      tshirtSizes: [
+        { label: "Small", value: "S" },
+        { label: "Medium", value: "M" },
+        { label: "Large", value: "L" },
+        { label: "Extra Large", value: "XL" },
+      ],
+      toteColors: [
+        { label: "Nero", value: "black" },
+        { label: "Bianco", value: "white" },
+        { label: "Beige", value: "beige" },
+      ],
+      selectedMugOption: "standard",
+      selectedTshirtSize: "M",
+      selectedToteColor: "black",
     };
   },
   computed: {
@@ -146,7 +207,16 @@ export default {
       return this.products.find((p) => p.id === Number(this.id)) || {};
     },
     filtersValid() {
-      return this.selectedDimension && this.quantity > 0;
+      // Puoi espandere la validazione includendo le nuove selezioni se vuoi
+      const baseValid = this.selectedDimension && this.quantity > 0;
+      if (this.product.category === "poster") return baseValid;
+      if (this.product.category === "tazze")
+        return this.selectedMugOption && this.quantity > 0;
+      if (this.product.category === "tshirt")
+        return this.selectedTshirtSize && this.quantity > 0;
+      if (this.product.category === "tote")
+        return this.selectedToteColor && this.quantity > 0;
+      return this.quantity > 0; // Default fallback
     },
     isFavoriteComputed() {
       return this.isFavorite(this.product.id);
@@ -174,6 +244,9 @@ export default {
         quantity: this.quantity,
         selectedDimension: this.selectedDimension,
         selectedFrame: this.selectedFrame,
+        selectedMugOption: this.selectedMugOption,
+        selectedTshirtSize: this.selectedTshirtSize,
+        selectedToteColor: this.selectedToteColor,
       };
 
       this.addToCart(productToAdd);
