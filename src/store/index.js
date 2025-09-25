@@ -21,6 +21,9 @@ export default createStore({
         return categoryMatch && searchMatch;
       });
     },
+    newProducts(state) {
+      return state.products.filter((product) => product.isNew);
+    },
     cartCount(state) {
       return state.cartItems.reduce((total, item) => total + item.quantity, 0);
     },
@@ -84,7 +87,6 @@ export default createStore({
       }
       commit("addToCart", productToAdd);
     },
-
     removeFromCartAction({ commit }, productToRemove) {
       commit("removeFromCart", productToRemove);
     },

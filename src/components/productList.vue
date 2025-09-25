@@ -2,7 +2,7 @@
   <div class="container mt-4">
     <div class="row g-4">
       <div
-        v-for="product in productsToShow"
+        v-for="product in products"
         :key="product.id"
         class="col-12 col-sm-6 col-md-4 col-lg-3"
       >
@@ -21,10 +21,10 @@ import ProductCard from "./productCard.vue";
 
 export default {
   components: { ProductCard },
-  computed: {
-    // Prendo i prodotti sempre dallo store Vuex per mantenere la reattività
-    productsToShow() {
-      return this.$store.getters.filteredProducts;
+  props: {
+    products: {
+      type: Array,
+      required: true,
     },
   },
   methods: {

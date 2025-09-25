@@ -148,7 +148,7 @@
             "/img.shop/shop.tote2.jpeg",
             "/img.shop/shop.tote3.jpeg",
             "/img.shop/shop.tote4.jpeg",
-            "/img.shop/shop.tote5.jpeg"
+            "/img.shop/shop.tote6.jpeg"
          ],
         "description": "Femminile, ma con carattere. “Fiori Ribelli” mescola motivi floreali a dettagli spigolosi, creando un contrasto elegante che racconta una bellezza non convenzionale. Ideale per chi ama la delicatezza, ma non rinuncia a mostrarsi forte. Una borsa che sa di primavera, ma anche di rivoluzione."
       },
@@ -215,7 +215,7 @@
         "images": [
             "/img.shop/shop.tote3.jpeg",
             "/img.shop/shop.tote4.jpeg",
-            "/img.shop/shop.tote5.jpeg",
+            "/img.shop/shop.7.jpeg",
             "/img.shop/shop.tote6.jpeg"
          ],
         "description": "Non è solo una borsa, è una dichiarazione d’intenti. “100% Me” è per chi non scende a compromessi, per chi vive secondo i propri ritmi e le proprie regole. Linee pulite, grafica d’impatto, e un messaggio che non passa inosservato. Per chi vuole dire tutto… senza dire una parola."
@@ -265,7 +265,7 @@
         "stockQuantity": 25,
         "images": [
             "/img.shop/shop.tote4.jpeg",
-            "/img.shop/shop.tote5.jpeg",
+            "/img.shop/shop.tote7.jpeg",
             "/img.shop/shop.tote6.jpeg",
             "/img.shop/shop.tote1.jpeg"
          ],
@@ -315,7 +315,7 @@
         "category": "tote",
         "stockQuantity": 105,
         "images": [
-            "/img.shop/shop.tote5.jpeg",
+            "/img.shop/shop.tote7.jpeg",
             "/img.shop/shop.tote6.jpeg",
             "/img.shop/shop.tote1.jpeg",
             "/img.shop/shop.tote2.jpeg"
