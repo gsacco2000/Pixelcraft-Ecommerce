@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "ProductCard",
@@ -106,12 +106,8 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({
-      commitToggleFavorite: "toggleFavorite",
-    }),
     toggleFavorite() {
-      this.commitToggleFavorite(this.product.id);
-      this.$emit("toggle-favorite", this.product.id);
+      this.$store.commit("toggleFavorite", this.product.id);
     },
   },
 };

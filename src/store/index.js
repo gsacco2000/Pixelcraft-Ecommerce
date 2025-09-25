@@ -68,9 +68,12 @@ export default createStore({
     toggleFavorite(state, productId) {
       const index = state.favoriteItems.indexOf(productId);
       if (index === -1) {
-        state.favoriteItems.push(productId);
+        state.favoriteItems = [...state.favoriteItems, productId];
       } else {
-        state.favoriteItems.splice(index, 1);
+        state.favoriteItems = [
+          ...state.favoriteItems.slice(0, index),
+          ...state.favoriteItems.slice(index + 1),
+        ];
       }
     },
   },

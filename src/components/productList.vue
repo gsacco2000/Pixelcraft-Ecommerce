@@ -21,17 +21,10 @@ import ProductCard from "./productCard.vue";
 
 export default {
   components: { ProductCard },
-  props: {
-    products: {
-      type: Array,
-      required: false,
-      default: null,
-    },
-  },
   computed: {
+    // Prendo i prodotti sempre dallo store Vuex per mantenere la reattività
     productsToShow() {
-      // Se passo props products la uso, altrimenti uso getter Vuex
-      return this.products ?? this.$store.getters.filteredProducts;
+      return this.$store.getters.filteredProducts;
     },
   },
   methods: {
