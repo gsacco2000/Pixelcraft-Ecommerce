@@ -58,7 +58,6 @@ p {
 
 /* HEADER */
 header {
-  background: var(--skin-color);
   color: var(--text);
   text-align: right;
 }
@@ -149,7 +148,6 @@ nav ul.nav-links li a {
 
 nav ul.nav-links li a:hover,
 nav ul.nav-links li a:focus {
-  color: var(--skin-color);
 }
 
 nav ul.nav-links li a::after {
@@ -159,7 +157,6 @@ nav ul.nav-links li a::after {
   left: 50%;
   width: 40%;
   height: 3px;
-  background-color: var(--skin-color);
   transition: width 0.3s ease;
   transform: translateX(-50%);
   width: 0;
@@ -311,7 +308,6 @@ nav ul.nav-links.active ~ .close-menu {
 
 /* BOTTONE GENERICO */
 .button {
-  background-color: var(--skin-color);
   border: none;
   padding: 0.6rem var(--padding-medium);
   font-size: 0.9rem;
