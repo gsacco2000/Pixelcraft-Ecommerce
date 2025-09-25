@@ -35,8 +35,8 @@ export default {
     },
   },
   methods: {
-    handleAddToCart(product) {
-      this.$store.commit("addToCart", product);
+    handleAddToCart(productToAdd) {
+      this.$store.commit("addToCart", productToAdd);
     },
     handleToggleFavorite(productId) {
       this.$store.commit("toggleFavorite", productId);

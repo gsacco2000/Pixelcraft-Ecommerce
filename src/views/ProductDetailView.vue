@@ -103,10 +103,14 @@
           </button>
           <button
             class="btn"
-            :class="isFavorite ? 'btn-danger' : 'btn-outline-secondary'"
+            :class="isFavoriteComputed ? 'btn-danger' : 'btn-outline-secondary'"
             @click="handleToggleFavorite"
           >
-            {{ isFavorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti" }}
+            {{
+              isFavoriteComputed
+                ? "Rimuovi dai preferiti"
+                : "Aggiungi ai preferiti"
+            }}
           </button>
         </div>
       </div>
@@ -116,7 +120,7 @@
 
 <script>
 import CatalogNavBar from "@/components/CatalogNavBar.vue";
-import { mapState } from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
   components: { CatalogNavBar },
@@ -133,16 +137,19 @@ export default {
         { label: "Bianca", value: "white" },
         { label: "Effetto Legno", value: "wood" },
       ],
-      isFavorite: false,
     };
   },
   computed: {
     ...mapState(["products"]),
+    ...mapGetters(["isFavorite"]),
     product() {
       return this.products.find((p) => p.id === Number(this.id)) || {};
     },
     filtersValid() {
       return this.selectedDimension && this.quantity > 0;
+    },
+    isFavoriteComputed() {
+      return this.isFavorite(this.product.id);
     },
   },
   watch: {
@@ -158,14 +165,23 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(["addToCart", "toggleFavorite"]),
     handleAddToCart() {
       if (!this.filtersValid) return;
-      // QUI la logica reale per aggiungere al carrello con Vuex
+
+      const productToAdd = {
+        ...this.product,
+        quantity: this.quantity,
+        selectedDimension: this.selectedDimension,
+        selectedFrame: this.selectedFrame,
+      };
+
+      this.addToCart(productToAdd);
+
       alert("Prodotto aggiunto al carrello!");
     },
     handleToggleFavorite() {
-      this.isFavorite = !this.isFavorite;
-      // QUI essendo demo placeholder gestisci favorite
+      this.toggleFavorite(this.product.id);
     },
     goBack() {
       this.$router.push({ name: "FilteredCatalog" });

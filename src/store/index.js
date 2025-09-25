@@ -1,15 +1,14 @@
 import { createStore } from "vuex";
-import products from "@/data/product.json"; // Assicurati che il percorso sia corretto!
+import products from "@/data/product.json";
 
 export default createStore({
   state: {
-    products, // Usa direttamente quello importato dal JSON
+    products,
     searchTerm: "",
     selectedCategory: "",
     cartItems: [],
     favoriteItems: [],
   },
-
   getters: {
     filteredProducts(state) {
       return state.products.filter((product) => {
@@ -28,8 +27,10 @@ export default createStore({
     favoritesCount(state) {
       return state.favoriteItems.length;
     },
+    isFavorite: (state) => (productId) => {
+      return state.favoriteItems.includes(productId);
+    },
   },
-
   mutations: {
     setSearchTerm(state, term) {
       state.searchTerm = term;
@@ -46,27 +47,43 @@ export default createStore({
           item.selectedColor === productToAdd.selectedColor &&
           item.selectedFrame === productToAdd.selectedFrame
       );
-
       if (existingIndex !== -1) {
-        // Se trovi già il prodotto con stesse opzioni aggiorna quantità
         state.cartItems[existingIndex].quantity += productToAdd.quantity;
       } else {
-        // Altrimenti aggiungi prodotto nuovo con quantità
         state.cartItems.push({ ...productToAdd });
       }
     },
-    removeFromCart(state, productId) {
-      state.cartItems = state.cartItems.filter((item) => item.id !== productId);
+    removeFromCart(state, productToRemove) {
+      state.cartItems = state.cartItems.filter(
+        (item) =>
+          !(
+            item.id === productToRemove.id &&
+            item.selectedSize === productToRemove.selectedSize &&
+            item.selectedDimension === productToRemove.selectedDimension &&
+            item.selectedColor === productToRemove.selectedColor &&
+            item.selectedFrame === productToRemove.selectedFrame
+          )
+      );
     },
     toggleFavorite(state, productId) {
-      const index = state.favoriteItems.findIndex(
-        (item) => item.id === productId
-      );
+      const index = state.favoriteItems.indexOf(productId);
       if (index === -1) {
-        state.favoriteItems.push({ id: productId });
+        state.favoriteItems.push(productId);
       } else {
         state.favoriteItems.splice(index, 1);
       }
+    },
+  },
+  actions: {
+    addToCartAction({ commit }, productToAdd) {
+      if (!productToAdd.quantity || productToAdd.quantity < 1) {
+        productToAdd.quantity = 1;
+      }
+      commit("addToCart", productToAdd);
+    },
+
+    removeFromCartAction({ commit }, productToRemove) {
+      commit("removeFromCart", productToRemove);
     },
   },
 });

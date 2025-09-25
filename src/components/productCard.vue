@@ -14,7 +14,10 @@
     >
       <!-- Icona cuore -->
       <button
-        :class="['icon-btn favorite-btn', { 'active-favorite': isFavorite }]"
+        :class="[
+          'icon-btn favorite-btn',
+          { 'active-favorite': isFavoriteComputed },
+        ]"
         aria-label="Salva preferito"
         @click.stop="toggleFavorite"
         type="button"
@@ -39,7 +42,7 @@
       <button
         class="icon-btn cart-btn"
         aria-label="Aggiungi al carrello"
-        @click.stop="$emit('add-to-cart', product.id)"
+        @click.stop="$emit('add-to-cart', { ...product, quantity: 1 })"
         type="button"
       >
         <svg
@@ -89,19 +92,25 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "ProductCard",
   props: {
     product: Object,
   },
-  data() {
-    return {
-      isFavorite: false,
-    };
+  computed: {
+    ...mapGetters(["isFavorite"]),
+    isFavoriteComputed() {
+      return this.isFavorite(this.product.id);
+    },
   },
   methods: {
+    ...mapMutations({
+      commitToggleFavorite: "toggleFavorite",
+    }),
     toggleFavorite() {
-      this.isFavorite = !this.isFavorite;
+      this.commitToggleFavorite(this.product.id);
       this.$emit("toggle-favorite", this.product.id);
     },
   },

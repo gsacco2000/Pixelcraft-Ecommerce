@@ -1,7 +1,7 @@
 [
       {   
           "id": 1,
-          "name": "Poster K-food",
+          "name": "Poster “Linee Fluide” – Eleganza minimalista",
           "price": 19.99,
           "oldPrice": 25.0,
           "discount": 20,
@@ -13,11 +13,11 @@
             "/img.shop/shop.poster3.jpeg",
             "/img.shop/shop.poster4.jpeg"
           ],
-          "description": "Bellissimo poster dedicato alla cucina K-food, perfetto per arredare la tua casa con stile."
+        "description": "Lasciati trasportare dal ritmo silenzioso di curve morbide e linee essenziali. “Linee Fluide” è un poster che celebra l’armonia del vuoto e del pieno, perfetto per chi ama l’estetica pulita e la calma visiva. Il suo design minimalista si adatta con naturalezza a qualsiasi ambiente, portando equilibrio e modernità con un tocco raffinato."
       },
       {
         "id": 2,
-        "name": "Poster no novità",
+        "name": "Poster “Color Splash” – Energia creativa",
         "price": 29.99,
         "oldPrice": null,
         "discount": 0,
@@ -28,11 +28,12 @@
             "/img.shop/shop.poster1.jpeg",
             "/img.shop/shop.poster3.jpeg",
             "/img.shop/shop.poster4.jpeg"
-         ]
+         ],
+        "description": "Una vera esplosione di colore che non passa inosservata. “Color Splash” unisce forme dinamiche e tonalità accese in uno stile pop che trasmette vitalità e movimento. Ideale per spazi creativi, ambienti giovani o pareti che chiedono personalità. Ogni sguardo è un invito a sentirsi vivi, ispirati, liberi."
       },
       {
         "id": 3,
-        "name": "Tee Graphic Doodle",
+        "name": "T-shirt “Segno Grafico” – Essenziale ma d’impatto",
         "price": 29.99,
         "oldPrice": null,
         "discount": 0,
@@ -43,11 +44,12 @@
             "/img.shop/shop.shirt2.jpeg",
             "/img.shop/shop.shirt3.jpeg",
             "/img.shop/shop.shirt4.jpeg"
-          ]
+          ],
+        "description": "Una grafica netta, pulita, che lascia spazio al bianco e parla con pochi tratti. “Segno Grafico” è la maglietta ideale per chi ama il minimalismo visivo, ma non passa inosservato. Un’estetica asciutta, che comunica forza con la massima semplicità."
       },
       {
         "id": 4,
-        "name": "Tazze Line",
+        "name": "Tazza “Astratto Soft” – Linee e colori in equilibrio",
         "price": 29.99,
         "oldPrice": null,
         "discount": 0,
@@ -58,11 +60,12 @@
             "/img.shop/shop.cup3.jpeg",
             "/img.shop/shop.cup4.jpeg",
             "/img.shop/shop.cup5.jpeg"
-          ]
+          ],
+        "description": "Una composizione di forme morbide e toni neutri che creano un’estetica rilassante e contemporanea. “Astratto Soft” è la tazza ideale per chi ama l’equilibrio tra design e semplicità. Un piccolo oggetto d’arte per iniziare la giornata con stile."
       },
       {
         "id": 5,
-        "name": "Tote Barbie vibes",
+        "name": "Tote Bag “Sempre con te” – Semplicità che conquista",
         "price": 19.99,
         "oldPrice": 25.0,
         "discount": 5,
@@ -73,11 +76,12 @@
             "/img.shop/shop.tote2.jpeg",
             "/img.shop/shop.tote3.jpeg",
             "/img.shop/shop.tote4.jpeg"
-         ]
+         ],
+        "description": "Una borsa pratica, leggera e dal design essenziale. “Sempre con te” è la compagna ideale per ogni giornata: dalla spesa al lavoro, dalla passeggiata al tempo libero. Il suo stile minimalista si adatta a ogni outfit, con la discrezione di un accessorio che non ha bisogno di urlare per farsi notare."
       },
       {
         "id": 6,
-        "name": "T-shirt Vintage Logo",
+        "name": "T-shirt “Pattern Vivo” – Movimento stampato",
         "price": 24.99,
         "oldPrice": 34.99,
         "discount": 15,
@@ -88,11 +92,12 @@
             "/img.shop/shop.shirt4.jpeg",
             "/img.shop/shop.shirt5.jpeg",
             "/img.shop/shop.shirt6.jpeg"
-          ]
+          ],
+        "description": "Disegni che si rincorrono, linee che vibrano, colori che pulsano: “Pattern Vivo” è una t-shirt dinamica, perfetta per chi ama indossare il ritmo del design. Ogni dettaglio sembra muoversi, creando un impatto visivo che cattura lo sguardo."
       },
       {
         "id": 7,
-        "name": "Poster Art Deco",
+        "name": "Poster “Sii Forte Oggi” – Ispirazione quotidiana",
         "price": 14.99,
         "oldPrice": null,
         "discount": 0,
@@ -103,11 +108,12 @@
             "/img.shop/shop.poster1.jpeg",
             "/img.shop/shop.poster2.jpeg",
             "/img.shop/shop.poster4.jpeg"
-         ]
+         ],
+        "description": "Un messaggio semplice ma potente, racchiuso in un design tipografico moderno e incisivo. “Sii Forte Oggi” è il poster perfetto per ricordarti ogni giorno di affrontare la vita con coraggio e determinazione. Un complemento d’arredo che parla direttamente a chi lo guarda, ideale per chi ama motivarsi con stile."
       },
       {
         "id": 8,
-        "name": "Tazze Classic White",
+        "name": "Tazza “Pop Geometry” – Grafica che vibra",
         "price": 12.99,
         "oldPrice": 18.5,
         "discount": 10,
@@ -118,11 +124,12 @@
             "/img.shop/shop.cup3.jpeg",
             "/img.shop/shop.cup4.jpeg",
             "/img.shop/shop.cup5.jpeg"
-         ]
+         ],
+        "description": "Forme geometriche audaci, colori saturi e un ritmo visivo che cattura lo sguardo: “Pop Geometry” è più di una tazza, è un manifesto estetico. Pensata per chi ama osare, abbinare, mixare. Perfetta per dare un tocco grafico alla routine."
       },
       {
         "id": 9,
-        "name": "Tote Bag Floral",
+        "name": "Tote Bag “Fiori Ribelli” – Romantica ma non troppo",
         "price": 21.99,
         "oldPrice": null,
         "discount": 0,
@@ -133,11 +140,12 @@
             "/img.shop/shop.tote3.jpeg",
             "/img.shop/shop.tote4.jpeg",
             "/img.shop/shop.tote5.jpeg"
-         ]
+         ],
+        "description": "Femminile, ma con carattere. “Fiori Ribelli” mescola motivi floreali a dettagli spigolosi, creando un contrasto elegante che racconta una bellezza non convenzionale. Ideale per chi ama la delicatezza, ma non rinuncia a mostrarsi forte. Una borsa che sa di primavera, ma anche di rivoluzione."
       },
       {
         "id": 10,
-        "name": "Poster Landscape",
+        "name": "Poster “Aurora Boreale” – Magia naturale",
         "price": 17.99,
         "oldPrice": 25.0,
         "discount": 10,
@@ -148,11 +156,12 @@
             "/img.shop/shop.poster1.jpeg",
             "/img.shop/shop.poster2.jpeg",
             "/img.shop/shop.poster3.jpeg"
-         ]
+         ],
+        "description": "Immergiti nella meraviglia dei cieli nordici con questo poster ispirato all’aurora boreale. I suoi colori avvolgenti e la luce eterea trasformano qualsiasi ambiente in un luogo di calma e sogno. Un richiamo alla natura più spettacolare, che invita alla contemplazione e al silenzio interiore."
       },
       {
         "id": 11,
-        "name": "T-shirt Cartoon Print",
+        "name": "T-shirt “Tipografia Urbana” – Lettere con carattere",
         "price": 27.99,
         "oldPrice": null,
         "discount": 0,
@@ -163,11 +172,12 @@
             "/img.shop/shop.shirt5.jpeg",
             "/img.shop/shop.shirt6.jpeg",
             "/img.shop/shop.shirt1.jpeg"
-          ]
+          ],
+        "description": "Non è solo una scritta, è un progetto grafico. “Tipografia Urbana” fonde lettering deciso e composizione asimmetrica in un design ispirato alla segnaletica, ai muri delle città, alla comunicazione visiva metropolitana. Per chi parla attraverso i caratteri."
       },
       {
         "id": 12,
-        "name": "Pack of 2 Vintage Posters",
+        "name": "Poster “Circuiti” – Geometria futurista",
         "price": 35.99,
         "oldPrice": 45.99,
         "discount": 20,
@@ -178,11 +188,12 @@
             "/img.shop/shop.poster1.jpeg",
             "/img.shop/shop.poster2.jpeg",
             "/img.shop/shop.poster3.jpeg"
-         ]
+         ],
+        "description": "Un design deciso e contemporaneo, ispirato all’estetica digitale e all’architettura dei circuiti elettronici. “Circuiti” è il poster ideale per chi ama le forme geometriche, il contrasto visivo e un tocco high-tech. Perfetto per ambienti moderni, minimal o industriali, dove il design è protagonista."
       },
       {
         "id": 13,
-        "name": "Tote Bag Urban Style",
+        "name": "Tote Bag “100% Me” – Espressione di identità",
         "price": 22.5,
         "oldPrice": 28.0,
         "discount": 10,
@@ -193,11 +204,12 @@
             "/img.shop/shop.tote4.jpeg",
             "/img.shop/shop.tote5.jpeg",
             "/img.shop/shop.tote6.jpeg"
-         ]
+         ],
+        "description": "Non è solo una borsa, è una dichiarazione d’intenti. “100% Me” è per chi non scende a compromessi, per chi vive secondo i propri ritmi e le proprie regole. Linee pulite, grafica d’impatto, e un messaggio che non passa inosservato. Per chi vuole dire tutto… senza dire una parola."
       },
       {
         "id": 14,
-        "name": "Classic White Mug",
+        "name": "Tazza “Linea Continua” – Minimalismo illustrato",
         "price": 14.99,
         "oldPrice": 19.99,
         "discount": 15,
@@ -208,11 +220,12 @@
             "/img.shop/shop.cup4.jpeg",
             "/img.shop/shop.cup5.jpeg",
             "/img.shop/shop.cup6.jpeg"
-         ]
+         ],
+        "description": "Una sola linea, nessuna interruzione: “Linea Continua” è una tazza dal design elegante e poetico, dove il disegno racconta una storia attraverso la semplicità. Ideale per chi cerca un tocco sofisticato e senza tempo, in cucina come sulla scrivania."
       },
       {
         "id": 15,
-        "name": "T-shirt Band Logo",
+        "name": "T-shirt “Flora Astratta” – Botanica immaginata",
         "price": 34.99,
         "oldPrice": null,
         "discount": 0,
@@ -223,11 +236,12 @@
             "/img.shop/shop.shirt6.jpeg",
             "/img.shop/shop.shirt1.jpeg",
             "/img.shop/shop.shirt2.jpeg"
-          ]
+          ],
+        "description": "Foglie, petali, rami: ma nessuno come li hai mai visti. “Flora Astratta” reinterpreta i motivi naturali con una grafica contemporanea, tra geometria e delicatezza. Una t-shirt che porta un respiro organico, ma completamente stilizzato."
       },
       {
         "id": 16,
-        "name": "Tote Bag Eco Friendly",
+        "name": "Tote Bag “Caos Ordinato” – Creatività in movimento",
         "price": 19.99,
         "oldPrice": 25.0,
         "discount": 10,
@@ -238,11 +252,12 @@
             "/img.shop/shop.tote5.jpeg",
             "/img.shop/shop.tote6.jpeg",
             "/img.shop/shop.tote1.jpeg"
-         ]
+         ],
+        "description": "Colori, forme e sovrapposizioni che parlano di te. “Caos Ordinato” è la borsa ideale per menti creative, per chi non ama gli schemi ma li reinventa. Capiente, comoda e soprattutto unica, è l’accessorio giusto per portare con te tutto quello che ti serve per inventare ogni giornata."
       },
       {
         "id": 17,
-        "name": "Tazze Colorate",
+        "name": "Tazza “Pattern Botanico” – Natura stilizzata",
         "price": 18.99,
         "oldPrice": null,
         "discount": 0,
@@ -253,11 +268,12 @@
             "/img.shop/shop.cup5.jpeg",
             "/img.shop/shop.cup6.jpeg",
             "/img.shop/shop.cup7.jpeg"
-         ]
+         ],
+        "description": "Motivi ispirati al mondo vegetale, reinterpretati con uno stile grafico pulito e moderno. “Pattern Botanico” porta il verde sulle tue pause, con un equilibrio visivo tra natura e design. Per chi ama la freschezza delle forme organiche, senza rinunciare al rigore."
       },
       {
         "id": 18,
-        "name": "T-shirt Vintage Print",
+        "name": "T-shirt “Blocchi di Colore” – Geometria decisa",
         "price": 29.99,
         "oldPrice": 34.99,
         "discount": 12,
@@ -268,11 +284,12 @@
             "/img.shop/shop.shirt1.jpeg",
             "/img.shop/shop.shirt2.jpeg",
             "/img.shop/shop.shirt3.jpeg"
-          ]
+          ],
+        "description": "Forme nette, accostamenti audaci, contrasti ben calibrati: “Blocchi di Colore” è pensata per chi ama la composizione visiva forte e l’energia delle palette moderne. Una t-shirt che parla il linguaggio del design grafico puro."
       },
       {
         "id": 19,
-        "name": "Tote Bag Summer Vibes",
+        "name": "Tote Bag “Libri & Caffè” – L’anima dell’intellettuale urbano",
         "price": 17.99,
         "oldPrice": null,
         "discount": 0,
@@ -283,11 +300,12 @@
             "/img.shop/shop.tote6.jpeg",
             "/img.shop/shop.tote1.jpeg",
             "/img.shop/shop.tote2.jpeg"
-         ]
+         ],
+        "description": "Perfetta per chi si perde tra scaffali e tazze fumanti. “Libri & Caffè” è pensata per lettori incalliti, amanti dei pomeriggi in biblioteca o delle colazioni lente al bar sotto casa. Un design sobrio e una citazione sottile che svela subito chi sei, senza bisogno di spiegazioni."
       },
       {
         "id": 20,
-        "name": "Tazze Artistic Blue",
+        "name": "Tazza “Modulari” – Design che si compone",
         "price": 20.99,
         "oldPrice": null,
         "discount": 0,
@@ -298,11 +316,12 @@
             "/img.shop/shop.cup6.jpeg",
             "/img.shop/shop.cup7.jpeg",
             "/img.shop/shop.cup8.jpeg"
-         ]
+         ],
+        "description": "Pensata per essere affiancata, “Modulari” è una tazza con pattern che si estendono, si riflettono, si incastrano. Ogni tazza è unica, ma tutte parlano lo stesso linguaggio visivo. Un set da collezione che trasforma la colazione in una composizione artistica."
       },
       {
         "id": 21,
-        "name": "T-shirt Graphic Design",
+        "name": "T-shirt “Struttura Digitale” – Estetica hi-tech",
         "price": 24.99,
         "oldPrice": 29.99,
         "discount": 10,
@@ -313,11 +332,12 @@
             "/img.shop/shop.shirt2.jpeg",
             "/img.shop/shop.shirt4.jpeg",
             "/img.shop/shop.shirt5.jpeg"
-          ]
+          ],
+        "description": "Ispirata all’estetica dei dati, dei circuiti e dell’architettura digitale, “Struttura Digitale” è una maglia che sembra uscita da un’interfaccia visiva. Fredda, precisa, contemporanea: perfetta per chi ama lo stile tech e le texture concettuali."
       },
       {
         "id": 22,
-        "name": "Tote Miami vibes",
+        "name": "Tote Bag “Frasi di una volta” – Ironica e nostalgica",
         "price": 19.99,
         "oldPrice": 25.0,
         "discount": 15,
@@ -328,11 +348,12 @@
             "/img.shop/shop.tote1.jpeg",
             "/img.shop/shop.tote2.jpeg",
             "/img.shop/shop.tote3.jpeg"
-         ]
+         ],
+        "description": "Un tocco vintage e una frase che fa sorridere: questa tote bag è pensata per chi ama distinguersi con leggerezza. “Frasi di una volta” richiama i modi di dire popolari con un twist grafico moderno. Perfetta per chi ha personalità, senso dell’umorismo e amore per le piccole cose autentiche."
       },
       {
         "id": 23,
-        "name": "Tazze Artistic Blue",
+        "name": "Tazza “Neo Memphis” – Anni ’80 rivisitati",
         "price": 20.99,
         "oldPrice": null,
         "discount": 0,
@@ -343,11 +364,12 @@
             "/img.shop/shop.cup7.jpeg",
             "/img.shop/shop.cup8.jpeg",
             "/img.shop/shop.cup1.jpeg"
-         ]
+         ],
+        "description": "Colori pastello, linee spezzate, forme imprevedibili: “Neo Memphis” è un omaggio al design radicale degli anni ’80, rivisitato con un tocco attuale. Energica e giocosa, è la tazza giusta per chi ama un’estetica fuori dagli schemi."
       },
       {
         "id": 24,
-        "name": "Tazze Artistic Blue",
+        "name": "Tazza “Inchiostro Nero” – Contrasto e carattere",
         "price": 20.99,
         "oldPrice": null,
         "discount": 0,
@@ -358,11 +380,12 @@
             "/img.shop/shop.cup.8jpeg",
             "/img.shop/shop.cup1.jpeg",
             "/img.shop/shop.cup2.jpeg"
-         ]
+         ],
+        "description": "Un design monocromatico che punta tutto sul nero grafico: tratti decisi, pattern ad alto contrasto e una forte identità visiva. “Inchiostro Nero” è la scelta perfetta per chi cerca eleganza visiva con un tocco deciso. Iconica, intensa, mai banale."
       },
       {
         "id": 25,
-        "name": "Tazze Artistic Blue",
+        "name": "Tazza “Pixel Mood” – Digitale e decorativa",
         "price": 20.99,
         "oldPrice": null,
         "discount": 0,
@@ -373,6 +396,7 @@
             "/img.shop/shop.cup1.jpeg",
             "/img.shop/shop.cup2.jpeg",
             "/img.shop/shop.cup3.jpeg"
-         ]
+         ],
+        "description": "Un design ispirato all’estetica pixel-art, tra nostalgia digitale e precisione grafica. “Pixel Mood” mescola colori netti e forme quadrate in una composizione ordinata ma vibrante. Per chi ama il design che strizza l’occhio al passato, ma guarda avanti."
       }
     ]
