@@ -221,15 +221,19 @@
         </div>
       </div>
     </div>
+
+    <!-- Recensioni -->
+    <ReviewsSection />
   </div>
 </template>
 
 <script>
 import CatalogNavBar from "@/components/CatalogNavBar.vue";
+import ReviewsSection from "@/components/ReviewsSection.vue";
 import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
-  components: { CatalogNavBar },
+  components: { CatalogNavBar, ReviewsSection },
   props: ["id"],
   data() {
     return {
