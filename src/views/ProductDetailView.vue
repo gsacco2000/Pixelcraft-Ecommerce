@@ -35,7 +35,22 @@
 
         <div class="col-md-6">
           <h1>{{ product.name }}</h1>
-          <p class="h4 text-primary">
+
+          <!-- Badge stato stock con tooltip -->
+          <span
+            class="badge"
+            :class="{
+              'bg-success text-white': stockStatus === 'available',
+              'bg-warning text-dark': stockStatus === 'running_out',
+              'bg-danger text-white': stockStatus === 'out_of_stock',
+            }"
+            v-b-tooltip.hover
+            :title="tooltipStock"
+          >
+            {{ stockLabels[stockStatus] }}
+          </span>
+
+          <p class="h4 text-primary mt-2">
             €{{ product.price?.toFixed(2) }}
             <span
               v-if="product.oldPrice"
@@ -99,16 +114,65 @@
 
           <!-- Selezione tshirt -->
           <div v-if="product.category === 'tshirt'" class="mb-3">
-            <label class="form-label">Taglia T-shirt:</label>
-            <select v-model="selectedTshirtSize" class="form-select w-auto">
-              <option
-                v-for="size in tshirtSizes"
-                :key="size.value"
-                :value="size.value"
+            <div class="d-flex align-items-center gap-4 flex-wrap">
+              <div>
+                <label class="form-label mb-1">Taglia T-shirt:</label>
+                <select
+                  v-model="selectedTshirtSize"
+                  class="form-select w-auto mb-0"
+                >
+                  <option
+                    v-for="size in tshirtSizes"
+                    :key="size.value"
+                    :value="size.value"
+                  >
+                    {{ size.label }}
+                  </option>
+                </select>
+              </div>
+              <!-- Tabella guida taglie -->
+              <div
+                class="size-guide m-0"
+                style="min-width: 285px; max-width: 450px"
               >
-                {{ size.label }}
-              </option>
-            </select>
+                <table class="table table-sm mb-0 align-middle">
+                  <thead>
+                    <tr>
+                      <th>Taglia</th>
+                      <th>Busto (cm)</th>
+                      <th>Lunghezza (cm)</th>
+                      <th>Manica (cm)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>S</td>
+                      <td>92</td>
+                      <td>69</td>
+                      <td>21</td>
+                    </tr>
+                    <tr>
+                      <td>M</td>
+                      <td>100</td>
+                      <td>71</td>
+                      <td>21.5</td>
+                    </tr>
+                    <tr>
+                      <td>L</td>
+                      <td>108</td>
+                      <td>73</td>
+                      <td>22</td>
+                    </tr>
+                    <tr>
+                      <td>XL</td>
+                      <td>116</td>
+                      <td>75</td>
+                      <td>22.5</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
 
           <!-- Selezione tote -->
@@ -139,7 +203,7 @@
           <button
             class="btn btn-primary me-3"
             @click="handleAddToCart"
-            :disabled="!filtersValid"
+            :disabled="!filtersValid || stockStatus === 'out_of_stock'"
           >
             Aggiungi al carrello
           </button>
@@ -198,6 +262,11 @@ export default {
       selectedMugOption: "standard",
       selectedTshirtSize: "M",
       selectedToteColor: "black",
+      stockLabels: {
+        available: "Disponibile",
+        running_out: "In esaurimento",
+        out_of_stock: "Esaurito",
+      },
     };
   },
   computed: {
@@ -206,8 +275,29 @@ export default {
     product() {
       return this.products.find((p) => p.id === Number(this.id)) || {};
     },
+    stockStatus() {
+      const qty = this.product.stockQuantity ?? 0;
+      if (qty === 0) {
+        return "out_of_stock";
+      } else if (qty > 0 && qty <= 5) {
+        return "running_out";
+      } else {
+        return "available";
+      }
+    },
+    tooltipStock() {
+      switch (this.stockStatus) {
+        case "available":
+          return "Il prodotto è disponibile in quantità sufficiente";
+        case "running_out":
+          return "Attenzione: il prodotto sta per esaurirsi!";
+        case "out_of_stock":
+          return "Prodotto esaurito, al momento non disponibile";
+        default:
+          return "";
+      }
+    },
     filtersValid() {
-      // Puoi espandere la validazione includendo le nuove selezioni se vuoi
       const baseValid = this.selectedDimension && this.quantity > 0;
       if (this.product.category === "poster") return baseValid;
       if (this.product.category === "tazze")
@@ -216,7 +306,7 @@ export default {
         return this.selectedTshirtSize && this.quantity > 0;
       if (this.product.category === "tote")
         return this.selectedToteColor && this.quantity > 0;
-      return this.quantity > 0; // Default fallback
+      return this.quantity > 0;
     },
     isFavoriteComputed() {
       return this.isFavorite(this.product.id);
@@ -272,7 +362,6 @@ export default {
   cursor: pointer;
   user-select: none;
 }
-
 .thumbnails img {
   width: 80px;
   height: 80px;
@@ -282,9 +371,20 @@ export default {
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
 }
-
 .thumbnails img.active,
 .thumbnails img:hover {
   border-color: #0d6efd;
+}
+.size-guide table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+.size-guide th,
+.size-guide td {
+  border: 1px solid #dee2e6;
+  padding: 0.4rem 0.75rem;
+  text-align: center;
+  vertical-align: middle;
 }
 </style>

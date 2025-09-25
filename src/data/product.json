@@ -7,6 +7,7 @@
           "discount": 20,
           "isNew": true,
           "category": "poster",
+          "stockQuantity": 5,
           "images": [
             "/img.shop/shop.poster1.jpeg",
             "/img.shop/shop.poster2.jpeg",
@@ -23,6 +24,7 @@
         "discount": 0,
         "isNew": false,
         "category": "poster",
+        "stockQuantity": 22,
         "images": [
             "/img.shop/shop.poster2.jpeg",
             "/img.shop/shop.poster1.jpeg",
@@ -39,6 +41,7 @@
         "discount": 0,
         "isNew": true,
         "category": "tshirt",
+        "stockQuantity": 12,
         "images": [
             "/img.shop/shop.shirt1.jpeg",
             "/img.shop/shop.shirt2.jpeg",
@@ -55,6 +58,7 @@
         "discount": 0,
         "isNew": true,
         "category": "tazze",
+        "stockQuantity": 15,
         "images": [
             "/img.shop/shop.cup1.jpeg",
             "/img.shop/shop.cup3.jpeg",
@@ -71,6 +75,7 @@
         "discount": 5,
         "isNew": true,
         "category": "tote",
+        "stockQuantity": 10,
         "images": [
             "/img.shop/shop.tote1.jpeg",
             "/img.shop/shop.tote2.jpeg",
@@ -87,6 +92,7 @@
         "discount": 15,
         "isNew": false,
         "category": "tshirt",
+        "stockQuantity": 1,
         "images": [
             "/img.shop/shop.shirt3.jpeg",
             "/img.shop/shop.shirt4.jpeg",
@@ -103,6 +109,7 @@
         "discount": 0,
         "isNew": false,
         "category": "poster",
+        "stockQuantity": 0,
         "images": [
             "/img.shop/shop.poster3.jpeg",
             "/img.shop/shop.poster1.jpeg",
@@ -119,6 +126,7 @@
         "discount": 10,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 7,
         "images": [
             "/img.shop/shop.cup2.jpeg",
             "/img.shop/shop.cup3.jpeg",
@@ -135,6 +143,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tote",
+        "stockQuantity": 0,
         "images": [
             "/img.shop/shop.tote2.jpeg",
             "/img.shop/shop.tote3.jpeg",
@@ -151,6 +160,7 @@
         "discount": 10,
         "isNew": false,
         "category": "poster",
+        "stockQuantity": 3,
         "images": [
             "/img.shop/shop.poster4.jpeg",
             "/img.shop/shop.poster1.jpeg",
@@ -167,6 +177,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tshirt",
+        "stockQuantity": 22,
         "images": [
             "/img.shop/shop.shirt4.jpeg",
             "/img.shop/shop.shirt5.jpeg",
@@ -183,6 +194,7 @@
         "discount": 20,
         "isNew": false,
         "category": "poster",
+        "stockQuantity": 4,
         "images": [
             "/img.shop/shop.poster5.jpeg",
             "/img.shop/shop.poster1.jpeg",
@@ -199,6 +211,7 @@
         "discount": 10,
         "isNew": false,
         "category": "tote",
+        "stockQuantity": 3,
         "images": [
             "/img.shop/shop.tote3.jpeg",
             "/img.shop/shop.tote4.jpeg",
@@ -215,6 +228,7 @@
         "discount": 15,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 15,
         "images": [
             "/img.shop/shop.cup3.jpeg",
             "/img.shop/shop.cup4.jpeg",
@@ -231,6 +245,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tshirt",
+        "stockQuantity": 0,
         "images": [
             "/img.shop/shop.shirt5.jpeg",
             "/img.shop/shop.shirt6.jpeg",
@@ -247,6 +262,7 @@
         "discount": 10,
         "isNew": false,
         "category": "tote",
+        "stockQuantity": 25,
         "images": [
             "/img.shop/shop.tote4.jpeg",
             "/img.shop/shop.tote5.jpeg",
@@ -263,6 +279,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 2,
         "images": [
             "/img.shop/shop.cup4.jpeg",
             "/img.shop/shop.cup5.jpeg",
@@ -279,6 +296,7 @@
         "discount": 12,
         "isNew": false,
         "category": "tshirt",
+        "stockQuantity": 1,
         "images": [
             "/img.shop/shop.shirt6.jpeg",
             "/img.shop/shop.shirt1.jpeg",
@@ -295,6 +313,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tote",
+        "stockQuantity": 105,
         "images": [
             "/img.shop/shop.tote5.jpeg",
             "/img.shop/shop.tote6.jpeg",
@@ -311,6 +330,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 22,
         "images": [
             "/img.shop/shop.cup5.jpeg",
             "/img.shop/shop.cup6.jpeg",
@@ -327,6 +347,7 @@
         "discount": 10,
         "isNew": false,
         "category": "tshirt",
+        "stockQuantity": 0,
         "images": [
             "/img.shop/shop.shirt7.jpeg",
             "/img.shop/shop.shirt2.jpeg",
@@ -343,6 +364,7 @@
         "discount": 15,
         "isNew": false,
         "category": "tote",
+        "stockQuantity": 7,
         "images": [
             "/img.shop/shop.tote6.jpeg",
             "/img.shop/shop.tote1.jpeg",
@@ -359,6 +381,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 5,
         "images": [
             "/img.shop/shop.cup6.jpeg",
             "/img.shop/shop.cup7.jpeg",
@@ -375,6 +398,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 12,
         "images": [
             "/img.shop/shop.cup7.jpeg",
             "/img.shop/shop.cup.8jpeg",
@@ -391,6 +415,7 @@
         "discount": 0,
         "isNew": false,
         "category": "tazze",
+        "stockQuantity": 0,
         "images": [
             "/img.shop/shop.cup8.jpeg",
             "/img.shop/shop.cup1.jpeg",
