@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 import products from "@/data/product.json";
 
 export default createStore({
@@ -91,4 +92,11 @@ export default createStore({
       commit("removeFromCart", productToRemove);
     },
   },
+  plugins: [
+    createPersistedState({
+      key: "pixelcraft-store",
+      paths: ["cartItems", "favoriteItems"],
+      storage: window.localStorage,
+    }),
+  ],
 });
