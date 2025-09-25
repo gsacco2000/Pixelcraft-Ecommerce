@@ -98,7 +98,6 @@
             </div>
           </div>
 
-          <!-- Selezione tazze -->
           <div v-if="product.category === 'tazze'" class="mb-3">
             <label class="form-label">Dimensione Tazza:</label>
             <select v-model="selectedMugOption" class="form-select w-auto">
@@ -112,7 +111,6 @@
             </select>
           </div>
 
-          <!-- Selezione tshirt -->
           <div v-if="product.category === 'tshirt'" class="mb-3">
             <div class="d-flex align-items-center gap-4 flex-wrap">
               <div>
@@ -130,7 +128,6 @@
                   </option>
                 </select>
               </div>
-              <!-- Tabella guida taglie -->
               <div
                 class="size-guide m-0"
                 style="min-width: 285px; max-width: 450px"
@@ -175,7 +172,6 @@
             </div>
           </div>
 
-          <!-- Selezione tote -->
           <div v-if="product.category === 'tote'" class="mb-3">
             <label class="form-label">Colore Tote:</label>
             <select v-model="selectedToteColor" class="form-select w-auto">
@@ -220,19 +216,24 @@
           </button>
         </div>
       </div>
-    </div>
 
-    <!-- Recensioni -->
-    <!--<ReviewsSection />-->
+      <!-- RECENSIONI (full width sotto le due colonne) -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <ReviewsSection :productId="product.id" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import CatalogNavBar from "@/components/CatalogNavBar.vue";
+import ReviewsSection from "@/components/ReviewsSection.vue";
 import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
-  components: { CatalogNavBar },
+  components: { CatalogNavBar, ReviewsSection },
   props: ["id"],
   data() {
     return {

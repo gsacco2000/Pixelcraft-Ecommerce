@@ -7,14 +7,6 @@
           <h4 class="mb-2">Valutazione media</h4>
           <div class="d-flex align-items-end">
             <span class="display-5 me-2">{{ avgRating }}</span>
-            <StarRating
-              v-model:rating="selectedRating"
-              :readonly="false"
-              :activeColor="'#28a745'"
-              :inactiveColor="'#ddd'"
-              :maxStars="5"
-              :increment="0.5"
-            />
           </div>
           <small class="text-muted">{{ reviews.length }} recensioni</small>
 
