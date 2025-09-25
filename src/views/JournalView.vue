@@ -17,7 +17,7 @@
         style="max-height: 450px; background-color: rgb(7, 182, 250)"
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
-        <div class="d-flex flex-column gap-3">
+        <div class="d-flex flex-column gap-2">
           <div v-for="art in articoliAside" :key="art.id">
             <router-link
               v-if="art.link && art.link !== '#'"
