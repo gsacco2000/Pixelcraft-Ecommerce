@@ -5,6 +5,7 @@
       @show-favorites="openFavorites"
       @show-cart="openCart"
     />
+    <br />
     <HeroCatalog />
     <h2 class="ps-5 mb-4 fw-bold">Le novità del mese di Settembre</h2>
     <section class="novita-container">
@@ -19,15 +20,25 @@
       <CategoriesSection />
     </section>
 
+    <!-- Banner subito dopo la sezione novità -->
+    <div class="banner-wrapper">
+      <img
+        src="/img.shop/banner.shop.png"
+        alt="Banner tote"
+        class="banner-image"
+      />
+    </div>
+
+    <!-- Drawer Preferiti e Carrello -->
     <FavoritesDrawer
       v-if="showFavorites"
       :style="{ top: navbarBottom + 'px' }"
-      @close="showFavorites = false"
+      @close="closeDrawers"
     />
     <CartDrawer
       v-if="showCart"
       :style="{ top: navbarBottom + 'px' }"
-      @close="showCart = false"
+      @close="closeDrawers"
     />
   </div>
 </template>
@@ -81,6 +92,10 @@ export default {
     resetFiltro() {
       // logica reset filtro se vuoi
     },
+    closeDrawers() {
+      this.showCart = false;
+      this.showFavorites = false;
+    },
     calcNavbarBottom() {
       this.$nextTick(() => {
         if (this.$refs.navbar && this.$refs.navbar.$el) {
@@ -119,5 +134,23 @@ export default {
 .btn-view-all-products:hover,
 .btn-view-all-products:focus {
   background: #146c43;
+}
+
+.banner-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+}
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Nascondi banner da mobile */
+@media (max-width: 767px) {
+  .banner-wrapper {
+    display: none;
+  }
 }
 </style>
