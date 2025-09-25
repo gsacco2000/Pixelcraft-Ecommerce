@@ -247,5 +247,3 @@ export default {
   name: "ArticoloMaterieprime",
 };
 </script>
-
-<style scoped></style>
