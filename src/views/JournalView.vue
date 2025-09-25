@@ -1,5 +1,11 @@
 <template>
   <main class="container">
+    <HeroBanner
+      backgroundImage="/img.journal/journal.hero.jpg"
+      title="Journal"
+      description="Idee, ispirazioni e approfondimenti: il nostro blog è uno spazio dove condividiamo pensieri, esperienze e visioni sul mondo della comunicazione visiva e oltre. Qui raccontiamo storie di progetti, riflessioni sui trend emergenti e consigli pratici per affrontare le sfide creative di oggi. Dall’identità di brand alla sostenibilità nel design, dal web alle arti visive, esploriamo temi che ci appassionano e ci guidano nel nostro lavoro quotidiano. Un luogo di confronto e scoperta, pensato per chi vuole restare in movimento insieme a noi."
+    />
+
     <div class="row g-0 align-items-stretch">
       <section class="col-lg-9 d-flex flex-column">
         <h2 class="m-3 flex-shrink-0">Articoli recenti</h2>
@@ -83,11 +89,13 @@
 
 <script>
 import ArticleCard from "@/components/ArticleCard.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
 
 export default {
   name: "JournalView",
   components: {
     ArticleCard,
+    HeroBanner,
   },
   data() {
     return {
