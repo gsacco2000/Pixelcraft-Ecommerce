@@ -1,10 +1,7 @@
 <template>
   <div id="app" class="d-flex flex-column min-vh-100">
     <AppNavBar />
-
-    <!-- Inserisci lo style switcher come componente globale -->
     <StyleSwitcher />
-
     <main class="flex-grow-1">
       <router-view />
     </main>
@@ -14,14 +11,14 @@
 
 <script>
 import AppNavBar from "@/components/AppNavBar.vue";
-import AppFooter from "@/components/AppFooter.vue";
 import StyleSwitcher from "@/components/StyleSwitcher.vue";
+import AppFooter from "@/components/AppFooter.vue";
 
 export default {
   components: {
     AppNavBar,
+    StyleSwitcher,
     AppFooter,
-    StyleSwitcher, // registra il componente qui
   },
 };
 </script>

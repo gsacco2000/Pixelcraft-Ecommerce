@@ -1,42 +1,24 @@
 <template>
-  <div :class="['style-switcher', { open: isOpen }]">
-    <div
-      class="icon-wrapper s-icon switcher-icon"
-      @click="toggleSwitcher"
-      title="Impostazioni"
-    >
-      <div class="circle">
-        <i class="fas fa-cog"></i>
-      </div>
+  <div class="style-switcher" :class="{ open: isOpen }">
+    <div class="style-switcher-toggler s-icon" @click="toggleSwitcher">
+      <i class="fas fa-cog switcher"></i>
     </div>
 
     <h4>Scegli il tuo colore</h4>
 
-    <div class="colors row">
-      <div
+    <div class="colors">
+      <span
         v-for="color in colors"
         :key="color.class"
-        class="col-6 d-flex justify-content-center mb-1"
+        :class="color.class"
+        @click="onColorClick(color.class)"
       >
-        <span
-          :class="['color-btn', color.class]"
-          @click="onColorClick(color.class)"
-          role="button"
-          tabindex="0"
-        >
-          {{ color.name }}
-        </span>
-      </div>
+        {{ color.name }}
+      </span>
     </div>
 
-    <div
-      class="icon-wrapper s-icon day-night-icon"
-      @click="toggleDarkMode"
-      :title="darkMode ? 'Tema chiaro' : 'Tema scuro'"
-    >
-      <div class="circle">
-        <i :class="darkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
-      </div>
+    <div class="day-night s-icon" @click="toggleDarkMode">
+      <i :class="darkMode ? 'fas fa-sun switcher' : 'fas fa-moon switcher'"></i>
     </div>
   </div>
 </template>
@@ -47,180 +29,159 @@ export default {
   data() {
     return {
       isOpen: false,
-      darkMode: false,
-      activeColor: "blue",
       colors: [
         { class: "color-1", name: "Giulia" },
         { class: "color-2", name: "Jessica" },
         { class: "color-3", name: "Daisy" },
         { class: "color-4", name: "Pietro" },
       ],
+      darkMode: false,
       colorMap: {
         "color-1": "blue",
         "color-2": "beige",
         "color-3": "lilac",
         "color-4": "green",
       },
+      activeColor: "blue",
     };
   },
   mounted() {
-    const savedColor = localStorage.getItem("themeColor") || "blue";
-    const savedDark = localStorage.getItem("themeMode") === "dark";
-    this.setActiveColor(savedColor);
-    this.darkMode = savedDark;
+    this.activeColor = localStorage.getItem("themeColor") || "blue";
+    this.darkMode = localStorage.getItem("themeMode") === "dark";
     this.applyTheme();
     this.applyDarkMode();
-    this.updateLogo();
+    window.dispatchEvent(new CustomEvent("themeChange"));
   },
   methods: {
     toggleSwitcher() {
       this.isOpen = !this.isOpen;
     },
     onColorClick(colorClass) {
-      this.setActiveColor(colorClass);
-      this.isOpen = false; // chiude subito dopo la scelta
-    },
-    setActiveColor(colorClass) {
-      this.activeColor = this.colorMap[colorClass] || "blue";
+      this.activeColor = this.colorMap[colorClass];
       this.applyTheme();
       localStorage.setItem("themeColor", this.activeColor);
-      this.updateLogo();
+      window.dispatchEvent(new CustomEvent("themeChange"));
     },
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
       this.applyDarkMode();
       localStorage.setItem("themeMode", this.darkMode ? "dark" : "light");
-      this.updateLogo();
+      window.dispatchEvent(new CustomEvent("themeChange"));
     },
     applyTheme() {
-      const body = document.body;
-      body.classList.remove("blue", "beige", "lilac", "green");
-      body.classList.add(this.activeColor);
+      document.body.classList.remove("blue", "beige", "lilac", "green");
+      document.body.classList.add(this.activeColor);
     },
     applyDarkMode() {
       document.body.classList.toggle("dark", this.darkMode);
-    },
-    updateLogo() {
-      const logos = document.querySelectorAll("a.navbar-brand .logo");
-      logos.forEach((logo) => logo.classList.remove("active"));
-      const modeClass = this.darkMode ? "logo-dark" : "logo-light";
-      logos.forEach((logo) => {
-        if (
-          logo.classList.contains(modeClass) &&
-          logo.classList.contains(`logo-${this.activeColor}`)
-        ) {
-          logo.classList.add("active");
-        }
-      });
     },
   },
 };
 </script>
 
 <style scoped>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .style-switcher {
   position: fixed;
   right: 0;
-  top: 220px;
+  top: 140px;
   padding: 15px;
-  width: 210px;
-  background: var(--background, #fff);
+  width: 250px;
+  background: var(--background);
   z-index: 101;
   border-radius: 5px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   transform: translateX(100%);
-  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Bree Serif", serif;
 }
+
 .style-switcher.open {
   transform: translateX(-25px);
 }
-@media (max-width: 767px) {
-  .style-switcher {
-    top: 320px;
-  }
-}
-.s-icon {
+
+.style-switcher .s-icon {
   position: absolute;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  background: var(--background);
+  color: white;
   right: 100%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   margin-right: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.14);
+  transition: all 0.3s ease;
   border-radius: 50%;
-  background: white;
-  width: 44px;
-  height: 44px;
-  transition: background 0.3s;
-  z-index: 102;
 }
-.s-icon:hover {
-  background: #f0f0f0;
+
+.style-switcher .s-icon i {
+  line-height: 40px;
 }
-.switcher-icon {
+
+.switcher {
+  position: absolute;
+  bottom: -17px;
+  left: 10px;
+}
+
+.style-switcher .style-switcher-toggler {
   top: 0;
 }
-.day-night-icon {
-  top: 85px;
+
+.style-switcher .day-night {
+  top: 60px;
 }
-.circle {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 6px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.12);
-}
-.s-icon i {
-  font-size: 18px;
-  color: #101820;
-  margin: 0;
-  line-height: 1;
-  display: block;
-}
+
 .style-switcher h4 {
   margin: 0 0 10px;
-  color: var(--text-black-900, #222);
+  color: var(--text-black-900);
   font-family: "Bree Serif", serif;
   font-size: 16px;
   font-weight: 600;
 }
-.colors {
-  margin-bottom: 15px;
-}
-.color-btn {
+
+.style-switcher .colors {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 38px;
-  border-radius: 25px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -20px;
+}
+
+.style-switcher .colors span {
+  height: 30px;
+  width: 100px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 5px;
   font-family: "Bree Serif", serif;
-  font-weight: 700;
-  font-size: 15px;
   color: black;
   cursor: pointer;
-  transition: all 0.3s ease;
+  user-select: none;
 }
-.color-btn:hover {
+
+.style-switcher .colors span:hover {
+  transition: all 0.3s ease;
   transform: scale(1.05);
 }
-.color-1 {
+
+.style-switcher .color-1 {
   background: #0085cc;
 }
-.color-2 {
+
+.style-switcher .color-2 {
   background: #d5a490;
 }
-.color-3 {
+
+.style-switcher .color-3 {
   background: #c99be2;
 }
-.color-4 {
+
+.style-switcher .color-4 {
   background: #90b791;
 }
 </style>
