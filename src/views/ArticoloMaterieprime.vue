@@ -38,7 +38,6 @@
           <img
             src="/img.article/journalPixelcraft.png"
             class="img-fluid rounded shadow"
-            style="max-width: 100%"
             alt="Foto brand PixelCraft"
           />
         </div>
@@ -46,7 +45,6 @@
           <img
             src="/img.article/journalPiemonte.png"
             class="img-fluid rounded shadow"
-            style="max-width: 100%"
             alt="Foto regione Piemonte con province"
           />
         </div>
@@ -129,7 +127,6 @@
           data-bs-root-margin="0px 0px -40%"
           data-bs-smooth-scroll="true"
           tabindex="0"
-          style="height: 400px; overflow-y: auto"
         >
           <h3 class="pb-2"><u>Ideazione e progettazione</u></h3>
           <ol>
@@ -241,7 +238,7 @@
     </div>
   </main>
 
-  <div class="portfolio-section mx-auto p-3 p-md-5" style="max-width: 1200px">
+  <div class="portfolio-section mx-auto p-3 p-md-5">
     <ArticleList :articoli="selectedArticles" />
   </div>
 
@@ -303,3 +300,23 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.progetto {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.scrollspy-example {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.portfolio-section {
+  max-width: 1200px;
+}
+
+.img-fluid {
+  max-width: 100%;
+}
+</style>
