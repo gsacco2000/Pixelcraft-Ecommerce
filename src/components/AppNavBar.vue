@@ -33,6 +33,7 @@
         <i class="fab fa-behance"></i>
       </a>
     </div>
+
     <nav class="navbar navbar-expand-md px-3">
       <router-link to="/" class="navbar-brand" aria-label="Homepage">
         <img
@@ -80,53 +81,82 @@
       <button
         class="navbar-toggler hamburger hamburger--spin"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNavbar"
         aria-controls="mainNavbar"
-        aria-expanded="false"
+        :aria-expanded="menuOpen.toString()"
         aria-label="Toggle navigation"
         @click="toggleMenu"
         :class="{ 'is-active': menuOpen }"
       >
-        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
       </button>
 
       <div
         class="collapse navbar-collapse"
         id="mainNavbar"
         :class="{ show: menuOpen }"
-        @click="closeMenuOnClick"
       >
         <ul class="navbar-nav ms-auto nav-links">
           <li class="nav-item">
-            <router-link to="/" exact-active-class="active" class="nav-link"
-              >Home</router-link
+            <router-link
+              to="/"
+              exact-active-class="active"
+              class="nav-link"
+              @click="closeMenu"
             >
+              Home
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/about" active-class="active" class="nav-link"
-              >About</router-link
+            <router-link
+              to="/about"
+              active-class="active"
+              class="nav-link"
+              @click="closeMenu"
             >
+              About
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/portfolio" active-class="active" class="nav-link"
-              >Portfolio</router-link
+            <router-link
+              to="/portfolio"
+              active-class="active"
+              class="nav-link"
+              @click="closeMenu"
             >
+              Portfolio
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/journal" active-class="active" class="nav-link"
-              >Journal</router-link
+            <router-link
+              to="/journal"
+              active-class="active"
+              class="nav-link"
+              @click="closeMenu"
             >
+              Journal
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/shop" active-class="active" class="nav-link"
-              >Shop</router-link
+            <router-link
+              to="/shop"
+              active-class="active"
+              class="nav-link"
+              @click="closeMenu"
             >
+              Shop
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/contatti" active-class="active" class="nav-link"
-              >Contatti</router-link
+            <router-link
+              to="/contatti"
+              active-class="active"
+              class="nav-link"
+              @click="closeMenu"
             >
+              Contatti
+            </router-link>
           </li>
         </ul>
       </div>
@@ -144,16 +174,23 @@ export default {
   mounted() {
     this.updateLogoFromStorage();
     window.addEventListener("themeChange", this.updateLogoFromStorage);
+    // Chiudi il menu quando si clicca fuori
+    document.addEventListener("click", this.handleClickOutside);
   },
   beforeUnmount() {
     window.removeEventListener("themeChange", this.updateLogoFromStorage);
+    document.removeEventListener("click", this.handleClickOutside);
   },
   methods: {
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
     },
-    closeMenuOnClick(e) {
-      if (e.target.classList.contains("nav-link") && window.innerWidth < 768) {
+    closeMenu() {
+      this.menuOpen = false;
+    },
+    handleClickOutside(event) {
+      const navbar = this.$el.querySelector(".navbar");
+      if (!navbar.contains(event.target)) {
         this.menuOpen = false;
       }
     },
@@ -182,7 +219,7 @@ export default {
 <style scoped>
 .topbar {
   height: 30px;
-  background-color: var(--skin-color); /* bootstrap light */
+  background-color: var(--skin-color);
   color: var(--text);
   font-size: 1rem;
 }
@@ -192,11 +229,6 @@ export default {
   transition: color 0.3s;
 }
 
-.icon_nav:hover,
-.icon_nav:focus {
-  color: #007bff; /* bootstrap primary */
-  text-decoration: none;
-}
 .logo {
   display: none;
   width: 4rem;
@@ -205,6 +237,67 @@ export default {
 .logo.active {
   display: inline-block !important;
   width: 4rem !important;
+}
+
+/* Navbar mobile styles */
+@media (max-width: 767px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bs-body-bg, #fff);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.35s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .navbar-collapse.show {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-nav {
+    padding: 1rem 0;
+    flex-direction: column;
+  }
+
+  .nav-item {
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    color: var(--text, #333) !important;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-item:last-child .nav-link {
+    border-bottom: none;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .navbar-collapse {
+    display: flex !important;
+    max-height: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 /* Hamburger styles */
@@ -227,16 +320,39 @@ export default {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+  position: relative;
 }
 
-.hamburger-inner,
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -1.5px;
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background-color: var(--skin-color, #333) !important;
+  border-radius: 3px !important;
+  transition: all 0.3s ease !important;
+}
+
 .hamburger-inner::before,
 .hamburger-inner::after {
-  background-color: var(--skin-color) !important;
-  height: 3px !important;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background-color: var(--skin-color, #333) !important;
   border-radius: 3px !important;
-  border: none !important;
-  transition: all 0.3s !important;
+  transition: all 0.3s ease !important;
+}
+
+.hamburger-inner::before {
+  top: -8px;
+}
+
+.hamburger-inner::after {
+  bottom: -8px;
 }
 
 .navbar-toggler.is-active .hamburger-inner {
@@ -250,6 +366,56 @@ export default {
 
 .navbar-toggler.is-active .hamburger-inner::after {
   opacity: 0;
-  top: 0;
+  bottom: 0;
+}
+
+/* EFFETTO LINEA SOTTO I LINK */
+nav ul.nav-links li a {
+  position: relative;
+}
+
+nav ul.nav-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--skin-color);
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav ul.nav-links li a:hover::after,
+nav ul.nav-links li a:focus::after,
+nav ul.nav-links li a.active::after {
+  width: 40%;
+}
+
+/* Adattamento per mobile - linea più sottile e larghezza diversa */
+@media (max-width: 767px) {
+  nav ul.nav-links li a::after {
+    bottom: 5px;
+    height: 2px;
+  }
+
+  nav ul.nav-links li a:hover::after,
+  nav ul.nav-links li a:focus::after,
+  nav ul.nav-links li a.active::after {
+    width: 30%;
+  }
+}
+
+/* Fix per il layout responsive */
+@media (min-width: 768px) {
+  .navbar-collapse {
+    display: flex !important;
+    max-height: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+  }
 }
 </style>
