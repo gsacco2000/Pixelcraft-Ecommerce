@@ -10,7 +10,8 @@
   --nav-bg: #003554;
   --text: #051923;
 
-  --font-family: "Montserrat", Arial, sans-serif;
+
+  --font-family: 'Montserrat', Arial, sans-serif;
   --font-p: 1rem;
 
   --padding-small: 1rem;
@@ -20,10 +21,25 @@
   --line-height: 1.6;
 }
 
+
 /* TEMA SCURO CON CLIC SU ICONA */
 body.dark {
   --background: #151515;
   --text: #e9e9e9;
+}
+
+/* TEMA BEIGE CON CLIC SU ICONA */
+body.blue {
+  --skin-color: #0085CC;
+}
+body.beige {
+  --skin-color: #D5A490;
+}
+body.lilac {
+  --skin-color: #C99BE2;
+}
+body.green {
+  --skin-color: #90B791;
 }
 
 /* RESET */

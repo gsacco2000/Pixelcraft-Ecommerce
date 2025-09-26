@@ -1,6 +1,10 @@
 <template>
   <div id="app" class="d-flex flex-column min-vh-100">
     <AppNavBar />
+
+    <!-- Inserisci lo style switcher come componente globale -->
+    <StyleSwitcher />
+
     <main class="flex-grow-1">
       <router-view />
     </main>
@@ -11,23 +15,24 @@
 <script>
 import AppNavBar from "@/components/AppNavBar.vue";
 import AppFooter from "@/components/AppFooter.vue";
+import StyleSwitcher from "@/components/StyleSwitcher.vue";
 
 export default {
   components: {
     AppNavBar,
     AppFooter,
+    StyleSwitcher, // registra il componente qui
   },
 };
 </script>
 
 <style scoped>
 #app {
-  /* min-vh-100 e flex già in classe, ma se vuoi puoi aggiungerle anche qui: */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 main {
-  flex-grow: 1; /* prende tutto lo spazio verticale possibile per spingere footer in basso */
+  flex-grow: 1;
 }
 </style>
