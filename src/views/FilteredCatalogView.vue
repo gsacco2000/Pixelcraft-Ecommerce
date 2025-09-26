@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <CatalogNavBar @show-favorites="apriPreferiti" @show-cart="apriCarrello" />
+  <div class="catalog-root">
+    <CatalogNavBar
+      @show-favorites="apriPreferiti"
+      @show-carrello="apriCarrello"
+    />
 
     <h2 class="ps-5 mb-4 fw-bold">
       Catalogo prodotti:
@@ -40,6 +43,10 @@ export default {
 </script>
 
 <style scoped>
+.catalog-root {
+  margin-bottom: 3rem; /* distanza sotto la sezione catalogo */
+}
+
 .category {
   color: var(--skin-color);
   font-style: italic;
