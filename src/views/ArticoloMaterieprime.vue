@@ -241,8 +241,7 @@
     </div>
   </main>
 
-  <div class="m-4">
-    <h2 class="text-start">Articoli correlati</h2>
+  <div class="portfolio-section mx-auto p-3 p-md-5" style="max-width: 1200px">
     <ArticleList :articoli="selectedArticles" />
   </div>
 </template>

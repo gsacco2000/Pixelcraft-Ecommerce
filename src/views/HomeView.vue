@@ -38,7 +38,10 @@
         <ProjectList :projects="projects" />
       </section>
 
-      <div class="m-4">
+      <div
+        class="portfolio-section mx-auto p-3 p-md-5"
+        style="max-width: 1200px"
+      >
         <ArticleList :articoli="selectedArticles" />
       </div>
 
