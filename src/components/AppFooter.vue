@@ -2,20 +2,17 @@
   <footer class="footer py-4">
     <div class="container">
       <div class="row align-items-center gy-3">
-        <!-- Left -->
         <div class="col-12 col-md-4 text-md-start text-center mb-2 mb-md-0">
           <strong>Pixel Craft</strong>
           <p class="mb-0 small" style="color: white; margin-top: 0.5rem">
             P.IVA 12345678901
           </p>
         </div>
-        <!-- Center -->
         <div class="col-12 col-md-4 text-center mb-2 mb-md-0">
           <p class="mb-0" style="font-size: 0.98rem; color: white">
             © 2025 Pixel Craft. Tutti i diritti riservati.
           </p>
         </div>
-        <!-- Right -->
         <div class="col-12 col-md-4 text-md-end text-center">
           <div class="footer-social d-inline-block mb-2 mb-md-0">
             <a
@@ -54,7 +51,6 @@ export default {
 </script>
 
 <style scoped>
-/* footer */
 .footer {
   background-color: #151515;
   color: var(--skin-color);

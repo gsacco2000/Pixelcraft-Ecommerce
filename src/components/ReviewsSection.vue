@@ -1,7 +1,6 @@
 <template>
   <section class="container mt-5">
     <div class="row">
-      <!-- Statistiche media voto -->
       <div class="col-md-6 mb-4">
         <div class="card p-4">
           <h4 class="mb-2">Valutazione media</h4>
@@ -29,7 +28,6 @@
           </div>
         </div>
       </div>
-      <!-- Form recensione -->
       <div class="col-md-6 mb-4">
         <div class="card p-4">
           <h4 class="mb-3">Aggiungi una recensione</h4>
@@ -72,7 +70,7 @@
         </div>
       </div>
     </div>
-    <!-- Lista recensioni -->
+
     <div>
       <h4 class="mb-3 mt-5">Recensioni dei clienti</h4>
       <div

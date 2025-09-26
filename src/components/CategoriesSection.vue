@@ -131,8 +131,6 @@ export default {
   color: #8c8c8c;
 }
 
-/* Tablet e superiore */
-
 @media (min-width: 600px) {
   .categories-list {
     flex-direction: row;

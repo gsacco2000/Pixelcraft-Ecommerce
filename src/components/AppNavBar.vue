@@ -1,6 +1,5 @@
 <template>
   <header>
-    <!-- Top bar con social icons -->
     <div class="topbar d-flex justify-content-end align-items-center px-3 py-1">
       <a
         class="icon_nav me-3"
@@ -174,7 +173,6 @@ export default {
   mounted() {
     this.updateLogoFromStorage();
     window.addEventListener("themeChange", this.updateLogoFromStorage);
-    // Chiudi il menu quando si clicca fuori
     document.addEventListener("click", this.handleClickOutside);
   },
   beforeUnmount() {
@@ -239,7 +237,6 @@ export default {
   width: 4rem !important;
 }
 
-/* Navbar mobile styles */
 @media (max-width: 767px) {
   .navbar-collapse {
     position: absolute;
@@ -289,7 +286,6 @@ export default {
   }
 }
 
-/* Desktop styles */
 @media (min-width: 768px) {
   .navbar-collapse {
     display: flex !important;
@@ -306,7 +302,6 @@ export default {
   }
 }
 
-/* Hamburger styles */
 .navbar-toggler {
   width: 24px !important;
   height: 24px !important;
@@ -375,7 +370,6 @@ export default {
   bottom: 0;
 }
 
-/* EFFETTO LINEA SOTTO I LINK */
 nav ul.nav-links li a {
   position: relative;
 }
@@ -398,7 +392,6 @@ nav ul.nav-links li a.active::after {
   width: 40%;
 }
 
-/* Adattamento per mobile - linea più sottile e larghezza diversa */
 @media (max-width: 767px) {
   nav ul.nav-links li a::after {
     bottom: 5px;
@@ -412,7 +405,6 @@ nav ul.nav-links li a.active::after {
   }
 }
 
-/* Fix per il layout responsive */
 @media (min-width: 768px) {
   .navbar-collapse {
     display: flex !important;

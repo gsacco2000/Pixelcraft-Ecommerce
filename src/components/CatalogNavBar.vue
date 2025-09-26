@@ -102,7 +102,6 @@ export default {
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Sticky */
 .catalog-nav.sticky {
   position: fixed;
   top: 0;
@@ -118,7 +117,6 @@ export default {
   }
 }
 
-/* search bar etc. (come da codice precedente) */
 .search-wrapper {
   position: relative;
   width: 100%;

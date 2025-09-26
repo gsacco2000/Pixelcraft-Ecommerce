@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Immagine principale -->
     <img
       :src="selectedImage"
       alt="Immagine prodotto"
@@ -12,8 +11,6 @@
         border-radius: 8px;
       "
     />
-
-    <!-- Miniature -->
     <div class="d-flex gap-2">
       <img
         v-for="(src, index) in images"

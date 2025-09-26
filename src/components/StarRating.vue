@@ -36,7 +36,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: "var(--skin-color)", // qui imposti il colore con la variabile CSS
+      default: "var(--skin-color)",
     },
     inactiveColor: {
       type: String,
