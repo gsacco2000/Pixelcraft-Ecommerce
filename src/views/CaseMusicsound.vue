@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- SEZIONE 1 -->
     <section
       class="vh-85 w-100 d-flex flex-column justify-content-end position-relative overflow-hidden"
     >
@@ -26,7 +25,6 @@
       </div>
     </section>
 
-    <!-- SEZIONE 2 -->
     <section
       class="vh-85 w-100 d-flex flex-column justify-content-end position-relative overflow-hidden"
     >
@@ -49,7 +47,6 @@
       </div>
     </section>
 
-    <!-- SEZIONE 3 -->
     <section
       class="vh-85 w-100 d-flex flex-column justify-content-end position-relative overflow-hidden"
     >
@@ -72,7 +69,6 @@
       </div>
     </section>
 
-    <!-- ICONA INFO (OFFCANVAS BOOTSTRAP) -->
     <button
       class="info-icon-custom"
       type="button"
@@ -146,7 +142,6 @@
       </div>
     </div>
 
-    <!-- PORTFOLIO -->
     <section
       class="portfolio-section mx-auto p-3 p-md-5"
       style="max-width: 1200px"
@@ -157,7 +152,6 @@
       </div>
     </section>
 
-    <!-- KEEP IN TOUCH SECTION - COMPONENTE NEWSLETTER -->
     <AppNewsletter />
   </main>
 </template>

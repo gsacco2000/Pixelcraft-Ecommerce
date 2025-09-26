@@ -14,7 +14,6 @@
         Il carrello è vuoto
       </div>
 
-      <!-- DESKTOP / TABLET: tabella dettagliata -->
       <table
         v-else
         class="table align-middle mb-4 d-none d-md-table custom-table"
@@ -85,7 +84,6 @@
         </tbody>
       </table>
 
-      <!-- MOBILE: card ottimizzata, con variabili colore e bottone x tondo -->
       <div v-if="cartItems.length > 0" class="d-md-none mb-4">
         <div
           v-for="item in cartItems"
@@ -218,7 +216,6 @@ h1 {
   border: none;
 }
 
-/* Desktop/tablet table styling */
 .custom-table,
 .custom-table thead,
 .custom-table tbody,
@@ -234,7 +231,6 @@ h1 {
   color: var(--text) !important;
 }
 
-/* Bottone rimozione tondo - tutte le dimensioni */
 .cart-remove-btn {
   width: 44px;
   height: 44px;
@@ -259,7 +255,6 @@ h1 {
   color: var(--skin-color);
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   h1 {
     font-size: 1rem;

@@ -20,7 +20,6 @@
       <CategoriesSection />
     </section>
 
-    <!-- Banner subito dopo la sezione novità -->
     <div class="banner-wrapper">
       <img
         src="/img.shop/banner.shop.png"
@@ -29,7 +28,6 @@
       />
     </div>
 
-    <!-- Inserisco qui il form ShopForm -->
     <ShopForm />
   </div>
 </template>
@@ -40,7 +38,7 @@ import CatalogNavBar from "../components/CatalogNavBar.vue";
 import ProductList from "../components/productList.vue";
 import HeroCatalog from "../components/HeroCatalog.vue";
 import CategoriesSection from "../components/CategoriesSection.vue";
-import ShopForm from "../components/ShopForm.vue"; // importa il form
+import ShopForm from "../components/ShopForm.vue";
 
 export default {
   components: {
@@ -48,7 +46,7 @@ export default {
     ProductList,
     HeroCatalog,
     CategoriesSection,
-    ShopForm, // registra il componente
+    ShopForm,
   },
   data() {
     return {
@@ -78,9 +76,7 @@ export default {
       this.showFavorites = false;
       this.calcNavbarBottom();
     },
-    resetFiltro() {
-      // logica reset filtro se vuoi
-    },
+    resetFiltro() {},
     closeDrawers() {
       this.showCart = false;
       this.showFavorites = false;
@@ -132,7 +128,6 @@ export default {
   display: block;
   object-fit: contain;
 }
-/* Nascondi banner da mobile */
 @media (max-width: 767px) {
   .banner-wrapper {
     display: none;

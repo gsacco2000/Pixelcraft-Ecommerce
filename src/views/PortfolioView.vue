@@ -1,7 +1,6 @@
 <template>
   <div>
     <main>
-      <!-- Hero banner tramite componente HeroBanner -->
       <HeroBanner
         backgroundImage="/img.home/home.caffe.jpg"
         title="Portfolio"
@@ -24,10 +23,8 @@
         height="650px"
       />
 
-      <!-- Sezione Progetti riusando componente ProjectList -->
       <ProjectList :projects="projects" />
 
-      <!-- Newsletter -->
       <AppNewsletter />
     </main>
   </div>
@@ -122,14 +119,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* Lo stile della hero ora è gestito da HeroBanner.vue */
-/* Il resto degli stili originali e eventuali personalizzazioni vanno qui */
-
-.fixed-hero {
-  /* Il vecchio stile hero statico non serve più e può essere rimosso */
-}
-
-/* Stili per la pagina Portfolio o sovrascritture specifiche, se necessarie */
-</style>

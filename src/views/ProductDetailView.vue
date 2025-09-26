@@ -36,7 +36,6 @@
         <div class="col-md-6">
           <h1>{{ product.name }}</h1>
 
-          <!-- Badge stato stock con tooltip -->
           <span
             class="badge"
             :class="{
@@ -217,7 +216,6 @@
         </div>
       </div>
 
-      <!-- RECENSIONI (full width sotto le due colonne) -->
       <div class="row mt-5">
         <div class="col-12">
           <ReviewsSection :productId="product.id" />

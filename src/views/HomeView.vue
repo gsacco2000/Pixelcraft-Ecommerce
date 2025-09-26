@@ -1,7 +1,6 @@
 <template>
   <div>
     <main>
-      <!-- Hero banner con componente HeroBanner -->
       <HeroBanner
         backgroundImage="/img.home/home.magazine.jpg"
         :title="`Costruiamo esperienze che lasciano il segno`"
@@ -137,7 +136,6 @@ export default {
   --background: #212429;
   --text: #222222;
 }
-/* Stile per il contenitore hero (modifiche per HeroBanner se usato) */
 .hero-container {
   height: 650px;
   background-size: cover;
@@ -180,14 +178,12 @@ export default {
   font-size: 1.2rem;
 }
 
-/* Portfolio section */
 .portfolio-section {
   background: var(--background);
   border-radius: 0.3rem;
   color: var(--text);
 }
 
-/* Sections container */
 .sectionsContainer {
   max-width: 1200px;
   margin: auto;
@@ -202,7 +198,6 @@ export default {
   font-size: 2rem;
 }
 
-/* Articolo list styling */
 .articoliCorrelati {
   margin-top: 0.5rem;
 }
@@ -277,7 +272,6 @@ export default {
   background-color: black;
 }
 
-/* Responsive styles */
 @media (max-width: 767px) {
   .hero-container {
     height: 450px;

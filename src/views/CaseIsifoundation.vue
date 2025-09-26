@@ -1,14 +1,12 @@
 <template>
   <div>
     <main class="container casestudy-container py-4">
-      <!-- Immagine di copertina -->
       <img
         src="/img.case_isifoundation/casestudy.isifoundation.cover.jpg"
         alt="Isi Foundation"
         class="cover-image img-fluid mb-4"
       />
 
-      <!-- Sezione case study -->
       <section class="case-study d-flex flex-column flex-md-row gap-4 mb-5">
         <div class="meta flex-shrink-0" style="width: 100%; max-width: 300px">
           <span class="year d-block fw-bold mb-2">2023</span>
@@ -57,7 +55,6 @@
         </div>
       </section>
 
-      <!-- KPI Section -->
       <section class="kpi-section mb-5">
         <h2 class="mb-4">Risultati del progetto</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-center">
@@ -88,11 +85,9 @@
         </div>
       </section>
 
-      <!-- Sezione Progetti correlati -->
       <ProjectList :projects="relatedProjects" />
     </main>
 
-    <!-- Newsletter a tutta larghezza -->
     <div class="newsletter-fullwidth" style="margin-top: 0; margin-bottom: 0">
       <AppNewsletter />
     </div>
@@ -238,7 +233,6 @@ export default {
   color: #283046;
 }
 
-/* Newsletter full width */
 :deep(.newsletter-fullwidth) {
   width: 100vw;
   position: relative;
@@ -251,7 +245,6 @@ export default {
   background: #fff;
 }
 
-/* Remove margin bottom */
 .keep-in-touch {
   margin-bottom: 0;
 }

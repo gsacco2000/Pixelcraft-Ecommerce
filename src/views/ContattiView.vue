@@ -9,7 +9,6 @@
   />
 
   <main>
-    <!-- Contatti e Form -->
     <div class="container my-5 contatti px-3 px-md-0">
       <div class="row g-4">
         <div class="col-md-5 titolo">
@@ -144,7 +143,6 @@
         </div>
       </div>
 
-      <!-- Info sedi -->
       <section class="info row text-center mt-5">
         <div class="col-md-4 blocco">
           <h2>Sede di Torino</h2>
@@ -173,7 +171,6 @@
       </section>
     </div>
 
-    <!-- Mappa sede principale -->
     <section class="mappa container mb-5">
       <h2>Trova la nostra sede principale</h2>
       <div class="ratio ratio-16x9">
@@ -240,7 +237,6 @@ export default {
 
       if (Object.keys(this.errors).length === 0) {
         alert("Messaggio inviato con successo! Grazie per averci contattato.");
-        // Qui puoi aggiungere l'invio dati al server o reset del form
       }
     },
   },
@@ -248,8 +244,6 @@ export default {
 </script>
 
 <style scoped>
-/* ====== CONTATTI CUSTOM ====== */
-
 .titolo h1 {
   font-size: 2rem;
   margin-bottom: 0.9rem;
@@ -270,7 +264,6 @@ h2 {
   margin-bottom: 0.9rem;
 }
 
-/* Form */
 .form-contatto h2 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
@@ -297,19 +290,16 @@ form button:hover {
   background-color: #333;
 }
 
-/* Info sedi */
 .info h2 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
 
-/* Mappa */
 .mappa h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-/* Bootstrap validation styles */
 .is-invalid {
   border-color: #dc3545;
 }

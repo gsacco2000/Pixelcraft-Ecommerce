@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 .catalog-root {
-  margin-bottom: 3rem; /* distanza sotto la sezione catalogo */
+  margin-bottom: 3rem;
 }
 
 .category {

@@ -14,7 +14,6 @@
         Nessun prodotto nei preferiti
       </div>
 
-      <!-- DESKTOP/TABLET -->
       <ul v-else class="list-group d-none d-md-block">
         <li
           v-for="item in favoriteProducts"
@@ -42,7 +41,6 @@
         </li>
       </ul>
 
-      <!-- MOBILE CARD -->
       <div v-if="favoriteProducts.length > 0" class="d-md-none">
         <div
           v-for="item in favoriteProducts"
@@ -130,7 +128,6 @@ li {
   color: var(--text) !important;
 }
 
-/* Card mobile simile a carrello, semplicità e coerenza */
 .cart-mobile-card {
   border-radius: 13px;
   background-color: var(--background);
@@ -139,7 +136,6 @@ li {
   padding: 1rem 0.8rem;
 }
 
-/* Bottone rimuovi tondo e variabile */
 .cart-remove-btn {
   width: 40px;
   height: 40px;
