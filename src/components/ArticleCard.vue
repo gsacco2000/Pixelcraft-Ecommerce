@@ -107,3 +107,8 @@ export default {
   },
 };
 </script>
+<style scope>
+.btn {
+  background-color: var(--skin-color);
+}
+</style>

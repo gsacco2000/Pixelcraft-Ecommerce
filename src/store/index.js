@@ -9,6 +9,7 @@ export default createStore({
     selectedCategory: "",
     cartItems: [],
     favoriteItems: [],
+    reviews: [], // nuova proprietà per memorizzare recensioni
   },
   getters: {
     filteredProducts(state) {
@@ -33,6 +34,16 @@ export default createStore({
     },
     isFavorite: (state) => (productId) => {
       return state.favoriteItems.includes(productId);
+    },
+    allReviews(state) {
+      return state.reviews;
+    },
+    avgRating(state) {
+      if (!state.reviews.length) return 0;
+      return (
+        state.reviews.reduce((acc, r) => acc + r.rating, 0) /
+        state.reviews.length
+      ).toFixed(1);
     },
   },
   mutations: {
@@ -80,6 +91,13 @@ export default createStore({
         ];
       }
     },
+    addReview(state, review) {
+      state.reviews.unshift({
+        ...review,
+        id: Date.now(),
+        createdAt: new Date().toISOString(),
+      });
+    },
   },
   actions: {
     addToCartAction({ commit }, productToAdd) {
@@ -91,11 +109,14 @@ export default createStore({
     removeFromCartAction({ commit }, productToRemove) {
       commit("removeFromCart", productToRemove);
     },
+    addReviewAction({ commit }, review) {
+      commit("addReview", review);
+    },
   },
   plugins: [
     createPersistedState({
       key: "pixelcraft-store",
-      paths: ["cartItems", "favoriteItems"],
+      paths: ["cartItems", "favoriteItems", "reviews"],
       storage: window.localStorage,
     }),
   ],

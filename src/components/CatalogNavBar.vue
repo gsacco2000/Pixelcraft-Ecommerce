@@ -76,10 +76,10 @@ export default {
       this.$router.push({ name: "FilteredCatalog" });
     },
     onFavsClick() {
-      this.$emit("show-favorites");
+      this.$router.push({ name: "Favorites" });
     },
     onCartClick() {
-      this.$emit("show-cart");
+      this.$router.push({ name: "Cart" });
     },
     handleScroll() {
       const scrollTop =
@@ -93,7 +93,6 @@ export default {
 <style scoped>
 .catalog-nav {
   background: var(--skin-color);
-  box-shadow: 0 1px 8px 0 #eee;
   padding: 1rem 0.9rem;
   margin-bottom: 1rem;
   display: flex;
@@ -111,7 +110,12 @@ export default {
   right: 0;
   z-index: 1030;
   background: var(--skin-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 699px) {
+  .catalog-nav.sticky {
+    position: static;
+  }
 }
 
 /* search bar etc. (come da codice precedente) */
@@ -154,7 +158,7 @@ export default {
 }
 .cat-btn.active,
 .cat-btn:hover {
-  background: #3733a7;
+  background: #151515;
   color: #fff;
 }
 .nav-icons {
@@ -178,13 +182,13 @@ export default {
   color: #e24e63;
 }
 .cart-icon {
-  color: #2aaf70;
+  color: #fff;
 }
 .nav-badge {
   position: absolute;
   top: -6px;
   right: -6px;
-  background: #3733a7;
+  background: #151515;
   color: #fff;
   font-size: 0.7rem;
   font-weight: 700;

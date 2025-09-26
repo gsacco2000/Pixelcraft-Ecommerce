@@ -1,15 +1,15 @@
 <template>
-  <main class="container">
-    <HeroBanner
-      backgroundImage="/img.journal/journal.hero.jpg"
-      title="Journal"
-      description="
+  <HeroBanner
+    backgroundImage="/img.journal/journal.hero.jpg"
+    title="Journal"
+    description="
       <p>Idee, ispirazioni e approfondimenti: il nostro blog è uno spazio dove condividiamo pensieri, esperienze e visioni sul mondo della comunicazione visiva e oltre.</p>
       <p>Qui raccontiamo storie di progetti, riflessioni sui trend emergenti e consigli pratici per affrontare le sfide creative di oggi.</p>
       <p>Dall’identità di brand alla sostenibilità nel design, dal web alle arti visive, esploriamo temi che ci appassionano e ci guidano nel nostro lavoro quotidiano. Un luogo di confronto e scoperta, pensato per chi vuole restare in movimento insieme a noi.</p>
       "
-    />
+  />
 
+  <main class="container">
     <div class="row g-0 align-items-stretch">
       <section class="col-lg-9 d-flex flex-column">
         <h2 class="m-3 flex-shrink-0">Articoli recenti</h2>
@@ -24,7 +24,7 @@
 
       <aside
         class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto p-3 my-4"
-        style="max-height: 450px; background-color: rgb(7, 182, 250)"
+        style="max-height: 450px; background-color: var(--skin-color)"
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-2">
@@ -89,17 +89,23 @@
       </div>
     </div>
   </main>
+
+  <div class="newsletter-container container-fluid px-0">
+    <AppNewsletter />
+  </div>
 </template>
 
 <script>
 import ArticleCard from "@/components/ArticleCard.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
+import AppNewsletter from "@/components/AppNewsletter.vue";
 
 export default {
   name: "JournalView",
   components: {
     ArticleCard,
     HeroBanner,
+    AppNewsletter,
   },
   data() {
     return {

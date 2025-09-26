@@ -75,7 +75,7 @@
       <div class="card-body text-center">
         <h6 class="card-title mb-1">{{ product.name }}</h6>
         <div class="mb-2">
-          <span class="fw-bold text-primary" style="font-size: 1.2em">
+          <span class="fw-bold price" style="font-size: 1.2em">
             €{{ product.price.toFixed(2) }}
           </span>
           <span
@@ -156,7 +156,7 @@ export default {
 }
 
 .cart-btn:hover {
-  background-color: green;
+  background-color: var(--skin-color);
   color: white;
 }
 
@@ -171,5 +171,9 @@ export default {
   object-fit: contain;
   background: #fff;
   border-radius: 1rem 1rem 0 0;
+}
+
+span.price {
+  color: var(--skin-color);
 }
 </style>

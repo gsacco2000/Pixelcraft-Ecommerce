@@ -63,7 +63,7 @@ export default {
 
 <style scoped>
 .categories-section {
-  background: white;
+  background: var(--background);
   text-align: center;
   padding: 2rem 1rem 3rem;
 }
