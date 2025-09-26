@@ -89,17 +89,23 @@
       </div>
     </div>
   </main>
+
+  <div class="newsletter-container container-fluid px-0">
+    <AppNewsletter />
+  </div>
 </template>
 
 <script>
 import ArticleCard from "@/components/ArticleCard.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
+import AppNewsletter from "@/components/AppNewsletter.vue";
 
 export default {
   name: "JournalView",
   components: {
     ArticleCard,
     HeroBanner,
+    AppNewsletter,
   },
   data() {
     return {
