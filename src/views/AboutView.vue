@@ -1,4 +1,13 @@
 <template>
+  <HeroBanner
+    backgroundImage="/img.about/about.hero.jpg"
+    title="About"
+    description="
+      <p>Siamo i ragazzi di PixelCraft. Agenzia creativa fondata da Daisy Romaniello, Giulia Sacco, Pietro Salciarini e Jessica Scano. Attivi da 15 anni in Italia e all’estero con esperienza in industria meccanica di precisione, aerospaziale, metalmeccanica ed edile.</p>
+      <p>Un team composto da project manager, copywriter, social media manager, art director, graphic designer, sviluppatori web, foto-videomaker e event producer.</p>
+      "
+  />
+
   <main>
     <TeamMemberCard
       v-for="member in team"
@@ -14,12 +23,14 @@
 <script>
 import TeamMemberCard from "@/components/TeamMemberCard.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
 
 export default {
   name: "AboutPage",
   components: {
     TeamMemberCard,
     AppNewsletter,
+    HeroBanner,
   },
   data() {
     return {
