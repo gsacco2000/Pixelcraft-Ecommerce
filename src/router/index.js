@@ -5,6 +5,8 @@ import AboutView from "@/views/AboutView.vue";
 import JournalView from "@/views/JournalView.vue";
 import ContattiView from "@/views/ContattiView.vue";
 import ArticoloMaterieprime from "@/views/ArticoloMaterieprime.vue";
+import CartPage from "@/views/CartDrawer.vue";
+import FavoritesPage from "@/views/FavoritesDrawer.vue";
 
 const routes = [
   { path: "/", name: "Home", component: HomeView },
@@ -12,6 +14,8 @@ const routes = [
   { path: "/about", name: "About", component: AboutView },
   { path: "/contatti", name: "Contatti", component: ContattiView },
   { path: "/journal", name: "Journal", component: JournalView },
+  { path: "/cart", name: "Cart", component: CartPage },
+  { path: "/favorites", name: "Favorites", component: FavoritesPage },
   {
     path: "/articolomaterieprime",
     name: "ArticoloMaterieprime",

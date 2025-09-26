@@ -76,10 +76,10 @@ export default {
       this.$router.push({ name: "FilteredCatalog" });
     },
     onFavsClick() {
-      this.$emit("show-favorites");
+      this.$router.push({ name: "Favorites" });
     },
     onCartClick() {
-      this.$emit("show-cart");
+      this.$router.push({ name: "Cart" });
     },
     handleScroll() {
       const scrollTop =
