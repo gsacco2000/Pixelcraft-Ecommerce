@@ -121,7 +121,7 @@
           </ul>
         </nav>
         <div
-          class="scrollspy-example bg-body-tertiary p-3 rounded-2"
+          class="scrollspy-example p-3 rounded-2"
           data-bs-spy="scroll"
           data-bs-target="#navbar-example2"
           data-bs-root-margin="0px 0px -40%"
