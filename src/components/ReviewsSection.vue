@@ -35,7 +35,7 @@
       <div class="col-md-6 mb-4">
         <div class="card p-4">
           <h4 class="mb-3">Aggiungi una recensione</h4>
-          <form @submit.prevent="addReview" novalidate>
+          <form @submit.prevent="addReviewHandler" novalidate>
             <div class="mb-2">
               <label class="form-label">Valutazione</label>
               <StarRating v-model:rating="newReview.rating" />
@@ -88,7 +88,9 @@
               <StarRating :rating="review.rating" :readonly="true" />
             </span>
           </div>
-          <small class="text-muted">{{ review.date }}</small>
+          <small class="text-muted">{{
+            formatTimeAgo(review.createdAt)
+          }}</small>
         </div>
         <div>{{ review.text }}</div>
       </div>
@@ -98,25 +100,14 @@
 
 <script>
 import StarRating from "@/components/StarRating.vue";
+import { mapGetters, mapActions } from "vuex";
+import { formatDistanceToNow } from "date-fns";
 
 export default {
   name: "ReviewsSection",
-  components: {
-    StarRating,
-  },
+  components: { StarRating },
   data() {
     return {
-      reviews: [
-        {
-          id: 1,
-          name: "Alice",
-          email: "",
-          rating: 5,
-          text: "Prodotto eccellente!",
-          date: "25/09/2025",
-        },
-        // altre recensioni demo
-      ],
       newReview: {
         name: "",
         email: "",
@@ -126,13 +117,13 @@ export default {
     };
   },
   computed: {
-    avgRating() {
-      if (!this.reviews.length) return 0;
-      const sum = this.reviews.reduce((acc, rev) => acc + rev.rating, 0);
-      return (sum / this.reviews.length).toFixed(1);
+    ...mapGetters(["allReviews", "avgRating"]),
+    reviews() {
+      return this.allReviews;
     },
   },
   methods: {
+    ...mapActions(["addReviewAction"]),
     countStars(star) {
       return this.reviews.filter((r) => r.rating === star).length;
     },
@@ -141,16 +132,15 @@ export default {
       if (!total) return 0;
       return ((this.countStars(star) / total) * 100).toFixed(0);
     },
-    addReview() {
+    formatTimeAgo(timestamp) {
+      return formatDistanceToNow(new Date(timestamp), { addSuffix: true });
+    },
+    addReviewHandler() {
       if (!this.newReview.name || !this.newReview.text) {
         alert("Compila campi obbligatori");
         return;
       }
-      this.reviews.unshift({
-        id: Date.now(),
-        ...this.newReview,
-        date: new Date().toLocaleDateString(),
-      });
+      this.addReviewAction(this.newReview);
       this.newReview = { name: "", email: "", rating: 5, text: "" };
     },
   },
