@@ -246,7 +246,7 @@ export default {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--bs-body-bg, #fff);
+    background-color: var(--background);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: all 0.35s ease;
@@ -254,6 +254,7 @@ export default {
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
+    font-weight: bold;
   }
 
   .navbar-collapse.show {
@@ -401,7 +402,7 @@ nav ul.nav-links li a.active::after {
 @media (max-width: 767px) {
   nav ul.nav-links li a::after {
     bottom: 5px;
-    height: 2px;
+    height: 3px;
   }
 
   nav ul.nav-links li a:hover::after,

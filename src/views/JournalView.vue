@@ -24,7 +24,7 @@
 
       <aside
         class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto p-3 my-4"
-        style="max-height: 450px; background-color: rgb(7, 182, 250)"
+        style="max-height: 450px; background-color: var(--skin-color)"
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-2">

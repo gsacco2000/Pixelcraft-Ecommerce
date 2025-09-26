@@ -5,14 +5,14 @@
       <div class="col-md-6 mb-4">
         <h6 class="text-secondary">SIAMO QUI PER AIUTARTI</h6>
         <h1 class="fw-bold mb-3">
-          <span class="text-primary">Contatta</span> il nostro servizio clienti
+          <span class="contattaci">Contatta</span> il nostro servizio clienti
         </h1>
         <p class="mb-3">
           Hai bisogno di aiuto con un ordine o più informazioni? Contattaci!
         </p>
       </div>
       <!-- Form -->
-      <div class="col-md-6">
+      <div class="col-md-6 form">
         <div class="card shadow-sm p-4 rounded-4">
           <form @submit.prevent="submitForm">
             <div class="mb-3">
@@ -60,7 +60,7 @@
               ></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-100 fw-semibold">
-              <i class="bi bi-arrow-right-circle me-2"></i>Invia richiesta
+              Invia richiesta
             </button>
           </form>
         </div>
@@ -92,5 +92,24 @@ export default {
 </script>
 
 <style scoped>
-/* Usa le classi Bootstrap per il grosso. Solo se vuoi aggiungere stilizzazioni puoi estendere qui */
+.contattaci {
+  color: var(--skin-color);
+  font-style: italic;
+}
+
+div.card {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.btn-primary {
+  background-color: var(--skin-color);
+  border: none;
+}
+
+.btn-primary:hover {
+  font-style: italic;
+  background-color: var(--skin-color);
+  border: none;
+}
 </style>

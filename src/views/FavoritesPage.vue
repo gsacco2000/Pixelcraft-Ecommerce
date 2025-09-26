@@ -1,7 +1,7 @@
 <template>
   <div>
     <CatalogNavBar />
-    <section class="container mt-4 mb-4 p-3 bg-light rounded shadow-sm">
+    <section class="container mt-4 mb-4 p-3 rounded shadow-sm">
       <button @click="goBack" class="btn btn-link p-0 mb-3">
         ← Torna a tutti i prodotti
       </button>
@@ -9,7 +9,7 @@
 
       <div
         v-if="favoriteProducts.length === 0"
-        class="text-center fst-italic text-muted py-5"
+        class="text-center fst-italic py-5"
       >
         Nessun prodotto nei preferiti
       </div>
@@ -23,7 +23,7 @@
         >
           <router-link
             :to="{ name: 'ProductDetail', params: { id: item.id } }"
-            class="d-flex align-items-center text-decoration-none text-dark w-100"
+            class="d-flex align-items-center text-decoration-none"
           >
             <img
               :src="item.images[0]"
@@ -109,6 +109,11 @@ export default {
 </script>
 
 <style scoped>
+li {
+  background-color: var(--background);
+  margin-bottom: 2rem;
+  color: var(--text);
+}
 .cart-remove-btn {
   border-radius: 50% !important;
   width: 38px;
