@@ -9,7 +9,6 @@
             <span class="display-5 me-2">{{ avgRating }}</span>
           </div>
           <small class="text-muted">{{ reviews.length }} recensioni</small>
-
           <div
             v-for="n in [5, 4, 3, 2, 1]"
             :key="n"
@@ -30,14 +29,15 @@
           </div>
         </div>
       </div>
-
       <!-- Form recensione -->
       <div class="col-md-6 mb-4">
         <div class="card p-4">
           <h4 class="mb-3">Aggiungi una recensione</h4>
           <form @submit.prevent="addReviewHandler" novalidate>
-            <div class="mb-2">
-              <label class="form-label">Valutazione</label>
+            <div class="mb-2 d-flex align-items-center" style="gap: 1.1rem">
+              <label class="form-label mb-0" style="min-width: 114px">
+                Valutazione
+              </label>
               <StarRating v-model:rating="newReview.rating" />
             </div>
             <div class="mb-2">
@@ -72,7 +72,6 @@
         </div>
       </div>
     </div>
-
     <!-- Lista recensioni -->
     <div>
       <h4 class="mb-3 mt-5">Recensioni dei clienti</h4>
@@ -82,11 +81,9 @@
         class="card p-3 mb-3 shadow-sm"
       >
         <div class="d-flex justify-content-between align-items-center mb-1">
-          <div>
+          <div class="d-flex align-items-center" style="gap: 0.7rem">
             <strong>{{ review.name }}</strong>
-            <span class="ms-2 text-warning">
-              <StarRating :rating="review.rating" :readonly="true" />
-            </span>
+            <StarRating :rating="review.rating" :readonly="true" />
           </div>
           <small class="text-muted">{{
             formatTimeAgo(review.createdAt)
@@ -108,18 +105,19 @@ export default {
   components: { StarRating },
   data() {
     return {
-      newReview: {
-        name: "",
-        email: "",
-        rating: 5,
-        text: "",
-      },
+      newReview: { name: "", email: "", rating: 5, text: "" },
     };
   },
   computed: {
-    ...mapGetters(["allReviews", "avgRating"]),
+    ...mapGetters(["allReviews"]),
     reviews() {
       return this.allReviews;
+    },
+    avgRating() {
+      if (!this.reviews.length) return 0;
+      return (
+        this.reviews.reduce((acc, r) => acc + r.rating, 0) / this.reviews.length
+      ).toFixed(1);
     },
   },
   methods: {
@@ -150,5 +148,32 @@ export default {
 <style scoped>
 .card {
   border-radius: 0.6rem;
+}
+.btn-success {
+  background-color: var(--skin-color);
+  border: none;
+  font-weight: 600;
+}
+.btn-success:hover,
+.btn-success:active {
+  background-color: var(--skin-color);
+  font-weight: 600;
+  font-style: italic;
+  border: none;
+}
+.progress-bar.bg-success {
+  background-color: var(--skin-color) !important;
+}
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+}
+@media (max-width: 600px) {
+  .star-rating {
+    width: auto;
+    min-width: 145px;
+  }
 }
 </style>

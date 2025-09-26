@@ -100,6 +100,9 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-size: 2rem;
+}
 li {
   background-color: var(--background);
   color: var(--text);
@@ -161,6 +164,9 @@ li {
 }
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: 1.7rem;
+  }
   li {
     margin-bottom: 0.75rem;
     padding: 0;

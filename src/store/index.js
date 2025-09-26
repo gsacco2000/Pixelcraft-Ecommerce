@@ -9,7 +9,7 @@ export default createStore({
     selectedCategory: "",
     cartItems: [],
     favoriteItems: [],
-    reviews: [], // nuova proprietà per memorizzare recensioni
+    reviews: [], // memorizza tutte le recensioni senza productId
   },
   getters: {
     filteredProducts(state) {
@@ -83,12 +83,9 @@ export default createStore({
     toggleFavorite(state, productId) {
       const index = state.favoriteItems.indexOf(productId);
       if (index === -1) {
-        state.favoriteItems = [...state.favoriteItems, productId];
+        state.favoriteItems.push(productId);
       } else {
-        state.favoriteItems = [
-          ...state.favoriteItems.slice(0, index),
-          ...state.favoriteItems.slice(index + 1),
-        ];
+        state.favoriteItems.splice(index, 1);
       }
     },
     addReview(state, review) {

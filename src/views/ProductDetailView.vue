@@ -1,9 +1,8 @@
 <template>
   <div>
     <CatalogNavBar />
-
-    <div class="container py-5">
-      <button class="btn btn-link mb-4" @click="goBack">
+    <div v-if="product && product.id" class="container py-5">
+      <button class="torna_indietro btn btn-link mb-4" @click="goBack">
         ← Torna a tutti i prodotti
       </button>
 
@@ -36,6 +35,10 @@
         <div class="col-md-6">
           <h1>{{ product.name }}</h1>
 
+<<<<<<< HEAD
+=======
+          <!-- Badge stock -->
+>>>>>>> 6590892863ffc555f2c9ebe01e2f0b4965ca5c70
           <span
             class="badge"
             :class="{
@@ -49,7 +52,7 @@
             {{ stockLabels[stockStatus] }}
           </span>
 
-          <p class="h4 text-primary mt-2">
+          <p class="h4 mt-2">
             €{{ product.price?.toFixed(2) }}
             <span
               v-if="product.oldPrice"
@@ -195,32 +198,45 @@
             />
           </div>
 
-          <button
-            class="btn btn-primary me-3"
-            @click="handleAddToCart"
-            :disabled="!filtersValid || stockStatus === 'out_of_stock'"
-          >
-            Aggiungi al carrello
-          </button>
-          <button
-            class="btn"
-            :class="isFavoriteComputed ? 'btn-danger' : 'btn-outline-secondary'"
-            @click="handleToggleFavorite"
-          >
-            {{
-              isFavoriteComputed
-                ? "Rimuovi dai preferiti"
-                : "Aggiungi ai preferiti"
-            }}
-          </button>
+          <!-- Pulsanti azione -->
+          <div class="action-btns">
+            <button
+              class="btn btn-primary me-3 btn-addcart"
+              @click="handleAddToCart"
+              :disabled="!filtersValid || stockStatus === 'out_of_stock'"
+            >
+              Aggiungi al carrello
+            </button>
+            <button
+              class="btn btn-favorite"
+              :class="
+                isFavoriteComputed ? 'btn-danger' : 'btn-outline-secondary'
+              "
+              @click="handleToggleFavorite"
+            >
+              {{
+                isFavoriteComputed
+                  ? "Rimuovi dai preferiti"
+                  : "Aggiungi ai preferiti"
+              }}
+            </button>
+          </div>
         </div>
       </div>
 
+<<<<<<< HEAD
+=======
+      <!-- RECENSIONI -->
+>>>>>>> 6590892863ffc555f2c9ebe01e2f0b4965ca5c70
       <div class="row mt-5">
         <div class="col-12">
-          <ReviewsSection :productId="product.id" />
+          <ReviewsSection v-if="product && product.id" :product="product" />
         </div>
       </div>
+    </div>
+    <div v-else class="text-center py-5">
+      <span class="spinner-border"></span>
+      <div class="mt-3">Caricamento prodotto...</div>
     </div>
   </div>
 </template>
@@ -275,10 +291,10 @@ export default {
     ...mapState(["products"]),
     ...mapGetters(["isFavorite"]),
     product() {
-      return this.products.find((p) => p.id === Number(this.id)) || {};
+      return this.products.find((p) => p.id === Number(this.id)) || null;
     },
     stockStatus() {
-      const qty = this.product.stockQuantity ?? 0;
+      const qty = this.product?.stockQuantity ?? 0;
       if (qty === 0) {
         return "out_of_stock";
       } else if (qty > 0 && qty <= 5) {
@@ -288,6 +304,7 @@ export default {
       }
     },
     tooltipStock() {
+      if (!this.product) return "";
       switch (this.stockStatus) {
         case "available":
           return "Il prodotto è disponibile in quantità sufficiente";
@@ -300,6 +317,7 @@ export default {
       }
     },
     filtersValid() {
+      if (!this.product) return false;
       const baseValid = this.selectedDimension && this.quantity > 0;
       if (this.product.category === "poster") return baseValid;
       if (this.product.category === "tazze")
@@ -311,14 +329,14 @@ export default {
       return this.quantity > 0;
     },
     isFavoriteComputed() {
-      return this.isFavorite(this.product.id);
+      return this.product ? this.isFavorite(this.product.id) : false;
     },
   },
   watch: {
     product: {
       immediate: true,
       handler(newProduct) {
-        if (newProduct.images && newProduct.images.length > 0) {
+        if (newProduct && newProduct.images && newProduct.images.length > 0) {
           this.selectedImage = newProduct.images[0];
         } else {
           this.selectedImage = "";
@@ -346,7 +364,7 @@ export default {
       alert("Prodotto aggiunto al carrello!");
     },
     handleToggleFavorite() {
-      this.toggleFavorite(this.product.id);
+      if (this.product) this.toggleFavorite(this.product.id);
     },
     goBack() {
       this.$router.push({ name: "FilteredCatalog" });
@@ -364,6 +382,10 @@ export default {
   cursor: pointer;
   user-select: none;
 }
+.thumbnails {
+  gap: 0.5rem; /* desktop default */
+  margin-bottom: 0.6rem;
+}
 .thumbnails img {
   width: 80px;
   height: 80px;
@@ -377,6 +399,15 @@ export default {
 .thumbnails img:hover {
   border-color: #0d6efd;
 }
+@media (max-width: 600px) {
+  .thumbnails {
+    gap: 1rem; /* più distanza tra le miniature su mobile */
+    margin-bottom: 2.3rem; /* più spazio sotto thumbnails */
+  }
+  .main-img {
+    margin-bottom: 1.5rem !important;
+  }
+}
 .size-guide table {
   width: 100%;
   border-collapse: collapse;
@@ -388,5 +419,42 @@ export default {
   padding: 0.4rem 0.75rem;
   text-align: center;
   vertical-align: middle;
+}
+
+p.h4 {
+  color: var(--skin-color);
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: var(--skin-color);
+  border: none;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background-color: var(--skin-color);
+  border: none;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.action-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .action-btns {
+    flex-direction: column;
+    gap: 1.7rem;
+    margin-top: 2.5rem;
+  }
+  .btn-addcart,
+  .btn-favorite {
+    width: 100%;
+    font-size: 1.17rem;
+    padding-top: 1.06rem;
+    padding-bottom: 1.06rem;
+  }
 }
 </style>
