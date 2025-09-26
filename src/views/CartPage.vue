@@ -1,8 +1,8 @@
 <template>
   <div>
     <CatalogNavBar />
-    <section class="container mt-4 mb-4 p-3 bg-light rounded shadow-sm">
-      <button @click="goBack" class="btn btn-link p-0 mb-3">
+    <section class="container mt-4 mb-4 p-3 rounded shadow-sm">
+      <button @click="goBack" class="torna_indietro btn p-0 mb-3">
         ← Torna a tutti i prodotti
       </button>
       <h1 class="mb-4 fw-bold">Shopping Cart ({{ cartCount }})</h1>
@@ -14,9 +14,12 @@
         Il carrello è vuoto
       </div>
 
-      <!-- DESKTOP/TABLET -->
-      <table v-else class="table align-middle mb-4 d-none d-md-table">
-        <thead class="table-light">
+      <!-- DESKTOP / TABLET: tabella dettagliata -->
+      <table
+        v-else
+        class="table align-middle mb-4 d-none d-md-table custom-table"
+      >
+        <thead>
           <tr>
             <th style="width: 40px"></th>
             <th>Prodotto</th>
@@ -39,12 +42,12 @@
             <td>
               <router-link
                 :to="{ name: 'ProductDetail', params: { id: item.id } }"
-                class="d-flex align-items-center text-decoration-none text-dark"
+                class="d-flex align-items-center text-decoration-none"
               >
                 <img
                   :src="item.images[0]"
                   alt=""
-                  class="img-fluid rounded"
+                  class="img-fluid rounded cart-product-img"
                   style="width: 60px; height: 60px; object-fit: cover"
                 />
                 <span class="fw-semibold ms-3 product-name-mobile">{{
@@ -64,10 +67,9 @@
                 >
                   −
                 </button>
-                <span
-                  class="input-group-text bg-white fw-semibold border-primary"
-                  >{{ item.quantity }}</span
-                >
+                <span class="input-group-text fw-semibold border-primary">{{
+                  item.quantity
+                }}</span>
                 <button
                   @click="increment(item)"
                   class="btn btn-outline-primary"
@@ -83,45 +85,39 @@
         </tbody>
       </table>
 
-      <!-- MOBILE -->
+      <!-- MOBILE: card ottimizzata, con variabili colore e bottone x tondo -->
       <div v-if="cartItems.length > 0" class="d-md-none mb-4">
         <div
           v-for="item in cartItems"
           :key="'m' + item.id"
-          class="card mb-4 p-3 shadow-sm"
+          class="card mb-3 p-3 shadow-sm cart-mobile-card"
         >
-          <div class="row g-0 align-items-center mb-2">
-            <div class="col-auto">
+          <div class="d-flex flex-column align-items-start">
+            <router-link
+              :to="{ name: 'ProductDetail', params: { id: item.id } }"
+              class="d-flex align-items-center text-decoration-none mb-2 w-100"
+            >
               <img
                 :src="item.images[0]"
                 alt=""
-                class="img-fluid rounded"
-                style="width: 50px; height: 50px; object-fit: cover"
+                class="img-fluid rounded me-2"
+                style="width: 45px; height: 45px; object-fit: cover"
               />
-            </div>
-            <div class="col">
-              <router-link
-                :to="{ name: 'ProductDetail', params: { id: item.id } }"
-                class="fw-semibold text-dark text-decoration-none ms-3 product-name-mobile"
-              >
+              <span class="fw-semibold product-name-mobile ms-2">
                 {{ item.name }}
-              </router-link>
-            </div>
-          </div>
-          <div class="row g-0 align-items-center mb-2">
-            <div class="col-auto">
+              </span>
+            </router-link>
+            <div class="d-flex align-items-center w-100 mt-1">
               <button
                 @click="removeFromCart(item)"
-                class="btn btn-sm btn-outline-danger rounded-circle p-1 cart-remove-btn"
+                class="btn cart-remove-btn me-3"
                 aria-label="Rimuovi prodotto"
               >
                 ×
               </button>
-            </div>
-            <div class="col-auto mx-3">
               <div
-                class="input-group input-group-sm justify-content-center"
-                style="min-width: 110px"
+                class="input-group input-group-sm justify-content-center me-3"
+                style="min-width: 90px"
               >
                 <button
                   @click="decrement(item)"
@@ -140,12 +136,12 @@
                   +
                 </button>
               </div>
-            </div>
-            <div
-              class="col text-end fw-semibold text-primary"
-              style="font-size: 1.12rem"
-            >
-              {{ (item.price * item.quantity).toFixed(2) }} €
+              <div
+                class="fw-semibold ms-auto"
+                style="min-width: 65px; text-align: right"
+              >
+                {{ (item.price * item.quantity).toFixed(2) }} €
+              </div>
             </div>
           </div>
         </div>
@@ -194,48 +190,93 @@ export default {
 </script>
 
 <style scoped>
-/* arrotondamenti supplementari e stile rimozione */
-.card {
-  border-radius: 13px;
+h1 {
+  font-size: 2rem;
 }
+
+.card,
+.cart-mobile-card {
+  border-radius: 13px;
+  background-color: var(--background);
+  color: var(--text);
+  border: none;
+}
+
 .img-fluid {
   border-radius: 8px;
 }
-.btn-outline-danger {
-  color: #e05c7e;
-  border-color: #e05c7e;
+
+.btn-success {
+  background-color: var(--skin-color);
+  border: none;
 }
-.btn-outline-danger:hover,
-.btn-outline-danger:active {
-  background: #f6d2dd;
-  color: #b22222;
+
+.btn-success:hover,
+.btn-success:active {
+  background-color: var(--skin-color);
+  font-style: italic;
+  border: none;
 }
+
+/* Desktop/tablet table styling */
+.custom-table,
+.custom-table thead,
+.custom-table tbody,
+.custom-table tr,
+.custom-table th,
+.custom-table td {
+  background-color: var(--background) !important;
+  color: var(--text) !important;
+  border: none;
+}
+
+.custom-table a {
+  color: var(--text) !important;
+}
+
+/* Bottone rimozione tondo - tutte le dimensioni */
 .cart-remove-btn {
-  border-radius: 50% !important;
-  width: 38px;
-  height: 38px;
-  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--danger, #991a1a);
+  background: var(--background);
+  color: var(--danger, #991a1a);
+  font-size: 1.4rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 !important;
-  font-size: 1.2rem;
-  line-height: 1;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cart-remove-btn:active,
+.cart-remove-btn:focus {
+  border-color: var(--skin-color);
+  color: var(--skin-color);
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1rem;
   }
-  .cart-remove-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 1.1rem;
-  }
-
   .product-name-mobile {
-    margin-left: 1rem !important;
-    display: block;
     word-break: break-word;
+    font-size: 1.05rem;
+    color: var(--text) !important;
+    line-height: 1.25;
+    margin-top: 2px;
+  }
+  .cart-mobile-card {
+    padding: 1.1rem 0.7rem;
+    background: var(--background);
+    color: var(--text);
+    border: none;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.23);
   }
 }
 </style>

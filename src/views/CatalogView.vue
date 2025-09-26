@@ -113,7 +113,6 @@ export default {
   font-weight: 700;
   border-radius: 50rem;
   border: none;
-  box-shadow: 0 1px 3px #ededed;
   cursor: pointer;
   text-decoration: none;
   text-align: center;

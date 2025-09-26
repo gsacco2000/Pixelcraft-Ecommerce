@@ -2,7 +2,7 @@
   <div>
     <CatalogNavBar />
     <section class="container mt-4 mb-4 p-3 rounded shadow-sm">
-      <button @click="goBack" class="btn btn-link p-0 mb-3">
+      <button @click="goBack" class="torna_indietro btn btn-link p-0 mb-3">
         ← Torna a tutti i prodotti
       </button>
       <h1 class="mb-4 fw-bold">Preferiti ({{ favoriteProducts.length }})</h1>
@@ -23,24 +23,18 @@
         >
           <router-link
             :to="{ name: 'ProductDetail', params: { id: item.id } }"
-            class="d-flex align-items-center text-decoration-none"
+            class="d-flex align-items-center text-decoration-none w-100 product-link"
           >
             <img
               :src="item.images[0]"
               alt=""
-              class="img-thumbnail me-3"
-              style="
-                width: 60px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 0.375rem;
-              "
+              class="img-thumbnail me-3 product-img"
             />
             <span class="fw-semibold">{{ item.name }}</span>
           </router-link>
           <button
             @click="remove(item.id)"
-            class="btn btn-sm btn-outline-danger cart-remove-btn"
+            class="btn cart-remove-btn"
             aria-label="Rimuovi dai preferiti"
           >
             ×
@@ -53,26 +47,25 @@
         <div
           v-for="item in favoriteProducts"
           :key="'m' + item.id"
-          class="card mb-4 p-3 shadow-sm"
+          class="card mb-4 p-3 shadow-sm cart-mobile-card"
         >
           <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center w-100">
               <img
                 :src="item.images[0]"
                 alt=""
-                class="img-fluid rounded"
-                style="width: 56px; height: 56px; object-fit: cover"
+                class="img-fluid rounded product-img"
               />
               <router-link
                 :to="{ name: 'ProductDetail', params: { id: item.id } }"
-                class="fw-semibold text-dark text-decoration-none ms-3 product-name-mobile"
+                class="fw-semibold text-decoration-none ms-3 product-name-mobile product-link"
               >
                 {{ item.name }}
               </router-link>
             </div>
             <button
               @click="remove(item.id)"
-              class="btn btn-sm btn-outline-danger cart-remove-btn ms-3"
+              class="btn cart-remove-btn ms-3"
               aria-label="Rimuovi dai preferiti"
             >
               ×
@@ -111,49 +104,82 @@ export default {
 <style scoped>
 li {
   background-color: var(--background);
-  margin-bottom: 2rem;
   color: var(--text);
+  border: none;
+  border-radius: 13px;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
 }
-.cart-remove-btn {
-  border-radius: 50% !important;
-  width: 38px;
-  height: 38px;
-  min-width: 38px;
-  min-height: 38px;
-  aspect-ratio: 1/1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 !important;
-  font-size: 1.15rem;
-  line-height: 1;
-  color: #e05c7e;
-  border-color: #e05c7e;
-  transition: color 0.2s;
-  box-sizing: border-box;
+
+.product-link {
+  color: var(--text) !important;
 }
-.cart-remove-btn:hover,
-.cart-remove-btn:active {
-  background: #f6d2dd;
-  color: #b22222;
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 0.375rem;
 }
 
 .product-name-mobile {
   margin-left: 1.1rem !important;
   display: block;
   word-break: break-word;
+  font-size: 1rem;
+  color: var(--text) !important;
+}
+
+/* Card mobile simile a carrello, semplicità e coerenza */
+.cart-mobile-card {
+  border-radius: 13px;
+  background-color: var(--background);
+  color: var(--text);
+  border: none;
+  padding: 1rem 0.8rem;
+}
+
+/* Bottone rimuovi tondo e variabile */
+.cart-remove-btn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--danger, #991a1a);
+  background: var(--background);
+  color: var(--danger, #991a1a);
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cart-remove-btn:active,
+.cart-remove-btn:focus {
+  border-color: var(--skin-color);
+  color: var(--skin-color);
 }
 
 @media (max-width: 600px) {
-  .cart-remove-btn {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    min-height: 34px;
-    font-size: 1.1rem;
+  li {
+    margin-bottom: 0.75rem;
+    padding: 0;
+  }
+  .product-img {
+    width: 56px;
+    height: 56px;
+  }
+  .cart-mobile-card .product-img {
+    width: 52px;
+    height: 52px;
   }
   .product-name-mobile {
-    margin-left: 1.05rem !important;
+    margin-left: 1rem !important;
+    font-size: 1.05rem;
   }
 }
 </style>
