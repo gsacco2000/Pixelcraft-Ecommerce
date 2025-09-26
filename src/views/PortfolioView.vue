@@ -1,15 +1,11 @@
 <template>
   <div>
     <main>
-      <!-- Hero banner fisso con prima foto e altezza aumentata -->
-      <section class="hero fixed-hero">
-        <img
-          src="/img.home/home.caffe.jpg"
-          class="hero-image"
-          alt="Progetto Caffè"
-        />
-        <div class="hero-content">
-          <h1>Portfolio</h1>
+      <!-- Hero banner tramite componente HeroBanner -->
+      <HeroBanner
+        backgroundImage="/img.home/home.caffe.jpg"
+        title="Portfolio"
+        :description="`
           <p>
             In ogni progetto mettiamo in campo creatività, competenze e
             strategia. Il nostro portfolio raccoglie una selezione di lavori che
@@ -24,8 +20,9 @@
             settori industriali, moda, cultura ed eventi, dimostrando
             versatilità e attenzione ai dettagli.
           </p>
-        </div>
-      </section>
+        `"
+        height="650px"
+      />
 
       <!-- Sezione Progetti riusando componente ProjectList -->
       <ProjectList :projects="projects" />
@@ -37,12 +34,17 @@
 </template>
 
 <script>
+import HeroBanner from "@/components/HeroBanner.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
 import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "PortfolioView",
-  components: { AppNewsletter, ProjectList },
+  components: {
+    HeroBanner,
+    AppNewsletter,
+    ProjectList,
+  },
   data() {
     return {
       projects: [
@@ -122,66 +124,12 @@ export default {
 </script>
 
 <style scoped>
+/* Lo stile della hero ora è gestito da HeroBanner.vue */
+/* Il resto degli stili originali e eventuali personalizzazioni vanno qui */
+
 .fixed-hero {
-  position: relative;
-  width: 100%;
-  height: 650px;
-  overflow: hidden;
-  margin-bottom: 3rem;
-  border-radius: 1rem;
+  /* Il vecchio stile hero statico non serve più e può essere rimosso */
 }
 
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.75);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-  max-width: 600px;
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 767px) {
-  .fixed-hero {
-    height: 450px; /* Altezza mobile */
-  }
-
-  .hero-content {
-    max-width: 90%;
-    padding: 2rem 1rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-}
+/* Stili per la pagina Portfolio o sovrascritture specifiche, se necessarie */
 </style>
