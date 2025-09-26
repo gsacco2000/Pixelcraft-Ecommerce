@@ -28,18 +28,6 @@
         class="banner-image"
       />
     </div>
-
-    <!-- Drawer Preferiti e Carrello -->
-    <FavoritesDrawer
-      v-if="showFavorites"
-      :style="{ top: navbarBottom + 'px' }"
-      @close="closeDrawers"
-    />
-    <CartDrawer
-      v-if="showCart"
-      :style="{ top: navbarBottom + 'px' }"
-      @close="closeDrawers"
-    />
   </div>
 </template>
 
@@ -49,8 +37,6 @@ import CatalogNavBar from "../components/CatalogNavBar.vue";
 import ProductList from "../components/productList.vue";
 import HeroCatalog from "../components/HeroCatalog.vue";
 import CategoriesSection from "../components/CategoriesSection.vue";
-import FavoritesDrawer from "../components/FavoritesDrawer.vue";
-import CartDrawer from "../components/CartDrawer.vue";
 
 export default {
   components: {
@@ -58,8 +44,6 @@ export default {
     ProductList,
     HeroCatalog,
     CategoriesSection,
-    FavoritesDrawer,
-    CartDrawer,
   },
   data() {
     return {

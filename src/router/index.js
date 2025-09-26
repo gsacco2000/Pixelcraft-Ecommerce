@@ -5,8 +5,8 @@ import AboutView from "@/views/AboutView.vue";
 import JournalView from "@/views/JournalView.vue";
 import ContattiView from "@/views/ContattiView.vue";
 import ArticoloMaterieprime from "@/views/ArticoloMaterieprime.vue";
-import CartPage from "@/views/CartDrawer.vue";
-import FavoritesPage from "@/views/FavoritesDrawer.vue";
+import CartPage from "@/views/CartPage.vue";
+import FavoritesPage from "@/views/FavoritesPage.vue";
 
 const routes = [
   { path: "/", name: "Home", component: HomeView },
