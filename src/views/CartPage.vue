@@ -262,7 +262,7 @@ h1 {
 /* Mobile */
 @media (max-width: 600px) {
   h1 {
-    font-size: 1rem;
+    font-size: 1.7rem;
   }
   .product-name-mobile {
     word-break: break-word;
