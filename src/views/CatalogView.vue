@@ -28,6 +28,9 @@
         class="banner-image"
       />
     </div>
+
+    <!-- Inserisco qui il form ShopForm -->
+    <ShopForm />
   </div>
 </template>
 
@@ -37,6 +40,7 @@ import CatalogNavBar from "../components/CatalogNavBar.vue";
 import ProductList from "../components/productList.vue";
 import HeroCatalog from "../components/HeroCatalog.vue";
 import CategoriesSection from "../components/CategoriesSection.vue";
+import ShopForm from "../components/ShopForm.vue"; // importa il form
 
 export default {
   components: {
@@ -44,6 +48,7 @@ export default {
     ProductList,
     HeroCatalog,
     CategoriesSection,
+    ShopForm, // registra il componente
   },
   data() {
     return {
@@ -114,12 +119,10 @@ export default {
   text-align: center;
   transition: background 0.2s;
 }
-
 .btn-view-all-products:hover,
 .btn-view-all-products:focus {
   background: #146c43;
 }
-
 .banner-wrapper {
   width: 100%;
   margin-top: 2rem;
@@ -130,7 +133,6 @@ export default {
   display: block;
   object-fit: contain;
 }
-
 /* Nascondi banner da mobile */
 @media (max-width: 767px) {
   .banner-wrapper {
