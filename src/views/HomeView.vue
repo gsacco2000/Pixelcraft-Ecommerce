@@ -38,66 +38,8 @@
         <ProjectList :projects="projects" />
       </section>
 
-      <div class="sectionsContainer mx-auto py-3">
-        <h2 class="journal-header fw-bold mb-3">Journal</h2>
-        <section class="articoliCorrelati row g-4">
-          <div class="col-12 col-md-4">
-            <div class="articolo">
-              <img
-                src="/img.journal/journalarticolo_identitavisiva.png"
-                alt="Montagna innevata"
-                class="img-fluid rounded mb-2"
-              />
-              <p class="genere">
-                <span class="territoriale">BRANDING TERRITORIALE</span>
-              </p>
-              <p class="info mb-2">FEBRUARY 01 2025 | GIULIA SACCO</p>
-              <h3 class="fw-bold lh-base">
-                Un'identità visiva per la montagna che cambia
-              </h3>
-              <router-link to="#" class="button mt-auto"
-                >Continua a leggere</router-link
-              >
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="articolo">
-              <img
-                src="/img.journal/journalarticolo_nuovenarrazioni.png"
-                alt="Ragazza in montagna"
-                class="img-fluid rounded mb-2"
-              />
-              <p class="genere">
-                <span class="travel">TRAVEL &amp; IDENTITY</span>
-              </p>
-              <p class="info mb-2">APRIL 18 2025 | JESSICA SCANO</p>
-              <h3 class="fw-bold lh-base">
-                Narrazioni per il turismo lento: laboratorio tra grafica e
-                territorio
-              </h3>
-              <router-link to="#" class="button mt-auto"
-                >Continua a leggere</router-link
-              >
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="articolo">
-              <img
-                src="/img.journal/journalarticolo_packaging.png"
-                alt="Packaging"
-                class="img-fluid rounded mb-2"
-              />
-              <p class="genere"><span class="design">DESIGN</span></p>
-              <p class="info mb-2">APRIL 04 2025 | JESSICA SCANO</p>
-              <h3 class="fw-bold lh-base">
-                Packaging narrativo: sperimentazione in Val Varaita
-              </h3>
-              <router-link to="#" class="button mt-auto"
-                >Continua a leggere</router-link
-              >
-            </div>
-          </div>
-        </section>
+      <div class="m-4">
+        <ArticleList :articoli="selectedArticles" />
       </div>
 
       <AppNewsletter />
@@ -109,6 +51,7 @@
 import HeroBanner from "@/components/HeroBanner.vue";
 import ProjectList from "@/components/ProjectList.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
+import ArticleList from "@/components/ArticleList.vue";
 
 export default {
   name: "HomeView",
@@ -116,6 +59,7 @@ export default {
     HeroBanner,
     ProjectList,
     AppNewsletter,
+    ArticleList,
   },
   data() {
     return {
@@ -140,6 +84,43 @@ export default {
           alt: "La Venaria Reale",
           description: "La Reggia si apre a una naturale evoluzione visiva.",
           link: null,
+        },
+      ],
+      selectedArticles: [
+        {
+          id: 7,
+          img: "/img.journal/journalarticolo_identitavisiva.png",
+          alt: "Montagna innevata",
+          categorie: ["BRANDING TERRITORIALE"],
+          titolo: "Un'identità visiva per la montagna che cambia",
+          data: "FEBRUARY 01 2025",
+          autore: "GIULIA SACCO",
+          link: "#",
+          minutiLettura: 5,
+        },
+        {
+          id: 2,
+          img: "/img.journal/journalarticolo_nuovenarrazioni.png",
+          alt: "Ragazza in montagna",
+          categorie: ["TRAVEL & IDENTITY"],
+          titolo:
+            "Nuove narrazioni per il turismo lento: un laboratorio tra grafica e territorio",
+          data: "APRIL 18 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+          minutiLettura: 5,
+        },
+        {
+          id: 3,
+          img: "/img.journal/journalarticolo_packaging.png",
+          alt: "Vari tipi di imballaggi biologici per cibo e bevande",
+          categorie: ["DESIGN"],
+          titolo:
+            "Packaging narrativo per il biologico: una sperimentazione in Val Valaita",
+          data: "APRIL 04 2025",
+          autore: "JESSICA SCANO",
+          link: "#",
+          minutiLettura: 7,
         },
       ],
     };
