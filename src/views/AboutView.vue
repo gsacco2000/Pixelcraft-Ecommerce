@@ -8,7 +8,7 @@
       "
   />
 
-  <main>
+  <main class="mt-4">
     <TeamMemberCard
       v-for="member in team"
       :key="member.name"
