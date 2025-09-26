@@ -276,7 +276,7 @@ export default {
     padding: 0.75rem 1rem !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: block;
-    color: var(--text, #333) !important;
+    color: var(--text) !important;
   }
 
   .nav-link:hover {
@@ -297,6 +297,11 @@ export default {
     box-shadow: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+
+  .nav-link {
+    color: var(--text) !important;
+    font-weight: bold;
   }
 }
 
