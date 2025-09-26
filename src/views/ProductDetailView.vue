@@ -35,10 +35,7 @@
         <div class="col-md-6">
           <h1>{{ product.name }}</h1>
 
-<<<<<<< HEAD
-=======
           <!-- Badge stock -->
->>>>>>> 6590892863ffc555f2c9ebe01e2f0b4965ca5c70
           <span
             class="badge"
             :class="{
@@ -224,10 +221,7 @@
         </div>
       </div>
 
-<<<<<<< HEAD
-=======
       <!-- RECENSIONI -->
->>>>>>> 6590892863ffc555f2c9ebe01e2f0b4965ca5c70
       <div class="row mt-5">
         <div class="col-12">
           <ReviewsSection v-if="product && product.id" :product="product" />
