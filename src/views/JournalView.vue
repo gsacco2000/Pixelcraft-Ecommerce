@@ -23,8 +23,7 @@
       </section>
 
       <aside
-        class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto p-3 my-4"
-        style="max-height: 450px; background-color: var(--skin-color)"
+        class="col-lg-3 d-none d-lg-flex flex-column rounded-start overflow-auto p-3 my-4 aside"
       >
         <h3 class="fw-bold mb-3">Potrebbe interessarti anche:</h3>
         <div class="d-flex flex-column gap-2">
@@ -68,12 +67,12 @@
               'text-center',
               'px-2',
               'bg-light',
+              'bottone',
               categoriaSelezionata === cat
                 ? 'border border-primary fw-bold'
                 : '',
               cat === 'TUTTI' ? 'py-0' : 'py-3',
             ]"
-            style="white-space: normal; cursor: pointer"
           >
             {{ cat }}
           </button>
@@ -291,3 +290,28 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.aside {
+  max-height: 450px;
+  background-color: var(--skin-color);
+}
+
+.scrollspy-example {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.portfolio-section {
+  max-width: 1200px;
+}
+
+.img-fluid {
+  max-width: 100%;
+}
+
+.bottone {
+  white-space: normal;
+  cursor: pointer;
+}
+</style>
