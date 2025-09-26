@@ -32,7 +32,6 @@
             alt="Dettaglio visual del progetto"
             class="img-fluid my-3"
           />
-
           <p>
             Questa nuova identità si esprime in modo particolarmente efficace
             sui canali social, dove la varietà di combinazioni grafiche permette
@@ -49,7 +48,6 @@
             alt="Secondo dettaglio visual del progetto"
             class="img-fluid my-3"
           />
-
           <p>
             Con questo progetto, Pixel Craft ha costruito una comunicazione che
             non solo rispecchia l’essenza di ISI Foundation, ma che è pronta a
@@ -94,17 +92,8 @@
       <ProjectList :projects="relatedProjects" />
     </main>
 
-    <!-- Wrapper con padding laterale e zero margin bottom -->
-    <div
-      class="container"
-      style="
-        max-width: 1200px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        margin-top: 0;
-        margin-bottom: 0;
-      "
-    >
+    <!-- Newsletter a tutta larghezza -->
+    <div class="newsletter-fullwidth" style="margin-top: 0; margin-bottom: 0">
       <AppNewsletter />
     </div>
   </div>
@@ -185,8 +174,99 @@ export default {
 </script>
 
 <style scoped>
-/* Con questa regola eviti margine sotto newsletter */
+.casestudy-container {
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 24px 0 rgba(50, 50, 93, 0.07),
+    0 1.5px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.cover-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.case-study .meta {
+  font-size: 1rem;
+  color: #5c5e62;
+}
+
+.case-study .tag {
+  display: inline-block;
+  background: #e9ecef;
+  padding: 0.4em 0.9em;
+  border-radius: 1em;
+  color: #444;
+  font-size: 0.95em;
+}
+
+.project-heading {
+  font-weight: 600;
+  line-height: 1.18;
+}
+
+@media (min-width: 768px) {
+  .project-heading {
+    font-size: 2.1rem;
+  }
+}
+
+.kpi-box {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.15s;
+}
+
+.kpi-box:hover {
+  box-shadow: 0 2px 16px 2px rgba(72, 84, 96, 0.13);
+}
+
+.kpi-value {
+  color: #3f79ad;
+}
+
+.kpi-label {
+  font-size: 1rem;
+  color: #283046;
+}
+
+/* Newsletter full width */
+:deep(.newsletter-fullwidth) {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
+}
+
+/* Remove margin bottom */
 .keep-in-touch {
   margin-bottom: 0;
+}
+
+@media (max-width: 575px) {
+  .casestudy-container {
+    padding: 0.5rem;
+  }
+
+  .project-heading {
+    font-size: 1.1rem;
+  }
+
+  .kpi-box {
+    min-height: 100px;
+  }
 }
 </style>
