@@ -10,7 +10,13 @@
         <div class="hero-caption blur-dark">
           <h2>Nuovi arrivi</h2>
           <h1>Scopri i nostri poster</h1>
-          <button class="btn btn-outline-light mt-3">Vedi di più</button>
+          <router-link
+            :to="{ name: 'FilteredCatalog' }"
+            class="btn-view-all-products"
+            @click="resetFiltro"
+          >
+            Vedi tutti i prodotti
+          </router-link>
         </div>
       </div>
     </div>
@@ -113,6 +119,27 @@ export default {};
 }
 .hero-caption button {
   margin-top: 2rem;
+}
+
+.btn-view-all-products {
+  display: inline-block; /* o block se vuoi linea separata */
+  margin: 2rem 0 0 0; /* rimuove automatic left margin */
+  width: 200px;
+  padding: 1rem;
+  background: var(--skin-color);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s;
+}
+.btn-view-all-products:hover,
+.btn-view-all-products:focus {
+  background: #151515;
 }
 .hero-side {
   flex: 1 1 0;
