@@ -123,11 +123,10 @@ export default {
   transition: background 0.3s, color 0.3s;
 }
 
-.btn-outline-light:hover,
-.btn-outline-light:focus {
-  background: var(--light_blue);
-  border-color: var(--light_blue);
-  color: var(--nav-bg);
+.btn:hover {
+  background-color: black;
+  color: white;
+  font-style: italic;
 }
 
 .pixel {
