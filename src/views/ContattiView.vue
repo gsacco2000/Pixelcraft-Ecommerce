@@ -10,7 +10,7 @@
 
   <main>
     <!-- Contatti e Form -->
-    <div class="container my-5 contatti">
+    <div class="container my-5 contatti px-3 px-md-0">
       <div class="row g-4">
         <div class="col-md-5 titolo">
           <h1>Restiamo in contatto</h1>
@@ -134,7 +134,12 @@
               </div>
             </div>
 
-            <button class="btn btn-dark mt-3" type="submit">Invia</button>
+            <button
+              class="btn btn-dark mt-3 d-block mx-auto mx-md-0"
+              type="submit"
+            >
+              Invia
+            </button>
           </form>
         </div>
       </div>
