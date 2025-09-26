@@ -1,53 +1,17 @@
 <template>
   <div>
     <main>
-      <section class="hero">
-        <div class="slideshow">
-          <img
-            src="/img.home/home.caffe.jpg"
-            class="slide active"
-            alt="Caffè Slide"
-          />
-          <img
-            src="/img.home/home.magazine.jpg"
-            class="slide"
-            alt="Magazine Slide"
-          />
-          <img
-            src="/img.home/home.opensound.jpg"
-            class="slide"
-            alt="OpenSound Slide"
-          />
-          <img
-            src="/img.home/home.primapower.jpg"
-            class="slide"
-            alt="PrimaPower Slide"
-          />
-          <img
-            src="/img.home/home.shampoo.jpg"
-            class="slide"
-            alt="Branding Shampoo Slide"
-          />
-        </div>
-        <div class="hero-content">
-          <h1>
-            Costruiamo esperienze che
-            <span id="linea_curva">lasciano il segno</span>
-          </h1>
-          <p>
-            Pixelcraft è l’agenzia di comunicazione che trasforma idee in
-            strategie visive vincenti. Dal branding al digital marketing, diamo
-            forma alla tua identità con creatività, precisione e passione.
-          </p>
-          <router-link
-            to="/about"
-            class="button"
-            aria-label="Vai alla pagina about"
-          >
-            Conoscici
-          </router-link>
-        </div>
-      </section>
+      <!-- Hero banner con componente HeroBanner -->
+      <HeroBanner
+        backgroundImage="/img.home/home.magazine.jpg"
+        :title="`Costruiamo esperienze che lasciano il segno`"
+        :description="`
+          <p>Pixelcraft è l’agenzia di comunicazione che trasforma idee in
+          strategie visive vincenti. Dal branding al digital marketing, diamo
+          forma alla tua identità con creatività, precisione e passione.</p>
+        `"
+        height="650px"
+      />
 
       <section class="about-section text-white py-3 py-md-5 px-3 px-md-0">
         <div class="container about-content">
@@ -142,12 +106,17 @@
 </template>
 
 <script>
+import HeroBanner from "@/components/HeroBanner.vue";
 import ProjectList from "@/components/ProjectList.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
 
 export default {
   name: "HomeView",
-  components: { ProjectList, AppNewsletter },
+  components: {
+    HeroBanner,
+    ProjectList,
+    AppNewsletter,
+  },
   data() {
     return {
       projects: [
@@ -184,70 +153,30 @@ export default {
   --background: #212429;
   --text: #222222;
 }
-
-.hero {
-  background: var(--background);
-  color: white;
-  padding: 2rem 0 1rem 0;
+/* Stile per il contenitore hero (modifiche per HeroBanner se usato) */
+.hero-container {
+  height: 650px;
+  background-size: cover;
+  background-position: center;
   position: relative;
-}
-
-.hero-content {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 2.5rem 1rem 0 1rem;
-}
-
-.pixel {
-  color: var(--skin-color);
-  font-weight: bold;
-}
-
-#linea_curva::after {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  #linea_curva {
-    display: inline-block;
-    position: relative;
-  }
-
-  #linea_curva::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    left: -10px;
-    width: calc(100% + 20px);
-    height: 10px;
-    background-color: var(--skin-color);
-    z-index: -1;
-    border-radius: 20px 10px / 10px 20px;
-  }
-}
-
-.slideshow {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.slide {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
   border-radius: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  opacity: 0.7;
-  transition: opacity 0.3s;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  box-sizing: border-box;
 }
 
-.slide.active {
-  opacity: 1;
-  border: 2px solid var(--skin-color);
+.overlay-box {
+  max-width: 700px;
+  background-color: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about-section {
@@ -267,79 +196,14 @@ export default {
   font-size: 1.2rem;
 }
 
+/* Portfolio section */
 .portfolio-section {
   background: var(--background);
   border-radius: 0.3rem;
   color: var(--text);
 }
 
-.portfolio-header {
-  font-size: 2rem;
-}
-
-@media (min-width: 768px) {
-  .portfolio-header {
-    font-size: 2.2rem;
-  }
-}
-
-.project-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.3rem;
-}
-
-.project img {
-  width: 100%;
-  display: block;
-  height: auto;
-  transition: all 0.3s ease;
-  border-radius: 0.3rem;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.4s, transform 0.4s;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.overlay div {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.project-image-wrapper:hover .overlay {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.project-image-wrapper:hover img {
-  transform: scale(1.1);
-  filter: blur(2px) brightness(0.8);
-}
-
-.project-title {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem 1rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: left;
-}
-
+/* Sections container */
 .sectionsContainer {
   max-width: 1200px;
   margin: auto;
@@ -354,19 +218,7 @@ export default {
   font-size: 2rem;
 }
 
-@media (max-width: 767px) {
-  .sectionsContainer {
-    padding: 0.8rem;
-    border-radius: 0.7rem;
-  }
-  .journal-header {
-    font-size: 1.5rem;
-  }
-  .articolo {
-    margin-bottom: 1rem;
-  }
-}
-
+/* Articolo list styling */
 .articoliCorrelati {
   margin-top: 0.5rem;
 }
@@ -441,22 +293,32 @@ export default {
   background-color: black;
 }
 
-.keep-in-touch {
-  background: var(--skin-color);
-}
-
-.project {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.project.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.text-white {
-  color: #fff !important;
+/* Responsive styles */
+@media (max-width: 767px) {
+  .hero-container {
+    height: 450px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .overlay-box {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+  .overlay-box h1 {
+    font-size: 2rem !important;
+  }
+  .overlay-box p {
+    font-size: 1rem !important;
+  }
+  .sectionsContainer {
+    padding: 0.8rem;
+    border-radius: 0.7rem;
+  }
+  .journal-header {
+    font-size: 1.5rem;
+  }
+  .articolo {
+    margin-bottom: 1rem;
+  }
 }
 </style>
