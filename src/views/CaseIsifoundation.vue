@@ -245,6 +245,16 @@ export default {
   background: #fff;
 }
 
+/* Dark mode background only, text remains unchanged */
+body.dark .casestudy-container {
+  background-color: #000000 !important;
+  box-shadow: none; /* evita ombre luminose */
+}
+
+body.dark :deep(.newsletter-fullwidth) {
+  background-color: #000000 !important;
+}
+
 .keep-in-touch {
   margin-bottom: 0;
 }
