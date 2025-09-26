@@ -59,9 +59,9 @@
           id="navbar-example2"
           class="navbar bg-body-tertiary px-3 mb-3 rounded-2"
         >
-          <a class="navbar-brand bg-danger p-3 mb-2 rounded-2" href="#"
-            >Struttura del progetto</a
-          >
+          <a class="navbar-brand bg-danger p-3 mb-2 rounded-2" href="#">
+            Struttura del progetto
+          </a>
           <ul class="nav nav-pills">
             <li class="nav-item dropdown">
               <a
@@ -212,7 +212,6 @@
             e innovative, testimoni di una nuova sensibilità ambientale nelle
             campagne piemontesi.
           </p>
-
           <p>
             Il linguaggio visivo adottato da PixelCraft è stato essenziale,
             autentico e attento alla verità dei luoghi e delle persone. Ogni
@@ -225,7 +224,6 @@
             alimentare, proponendo una narrazione contemporanea dell’identità
             rurale, capace di valorizzare il territorio e chi lo abita.
           </p>
-
           <p>
             Con questo progetto, PixelCraft conferma il proprio impegno nel
             creare progetti di comunicazione capaci di generare valore,
@@ -248,6 +246,8 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
+import { ScrollSpy } from "bootstrap";
 import ArticleList from "@/components/ArticleList.vue";
 import AppNewsletter from "@/components/AppNewsletter.vue";
 
@@ -297,6 +297,18 @@ export default {
         },
       ],
     };
+  },
+  setup() {
+    onMounted(() => {
+      const scrollSpyEl = document.querySelector("#navbar-example2");
+      if (scrollSpyEl) {
+        new ScrollSpy(document.querySelector(".scrollspy-example"), {
+          target: "#navbar-example2",
+          rootMargin: "0px 0px -40%",
+          smoothScroll: true,
+        });
+      }
+    });
   },
 };
 </script>
