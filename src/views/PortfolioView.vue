@@ -1,35 +1,13 @@
 <template>
   <div>
     <main>
-      <!-- Hero con slideshow -->
-      <section class="hero">
-        <div class="slideshow">
-          <img
-            src="/img.home/home.caffe.jpg"
-            class="slide active"
-            alt="Progetto Caffè"
-          />
-          <img
-            src="/img.home/home.magazine.jpg"
-            class="slide"
-            alt="Progetto Magazine"
-          />
-          <img
-            src="/img.home/home.opensound.jpg"
-            class="slide"
-            alt="Progetto OpenSound"
-          />
-          <img
-            src="/img.home/home.primapower.jpg"
-            class="slide"
-            alt="Progetto PrimaPower"
-          />
-          <img
-            src="/img.home/home.shampoo.jpg"
-            class="slide"
-            alt="Branding Shampoo Slide"
-          />
-        </div>
+      <!-- Hero banner fisso con prima foto e altezza aumentata -->
+      <section class="hero fixed-hero">
+        <img
+          src="/img.home/home.caffe.jpg"
+          class="hero-image"
+          alt="Progetto Caffè"
+        />
         <div class="hero-content">
           <h1>Portfolio</h1>
           <p>
@@ -140,42 +118,70 @@ export default {
       ],
     };
   },
-  mounted() {
-    // SLIDESHOW ANIMAZIONE
-    const slides = this.$el.querySelectorAll(".slide");
-    let current = 0;
-    function showNextSlide() {
-      slides[current].classList.remove("active");
-      current = (current + 1) % slides.length;
-      slides[current].classList.add("active");
-    }
-    setInterval(showNextSlide, 3000);
-  },
 };
 </script>
 
-<style>
-.slideshow {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.slide {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+<style scoped>
+.fixed-hero {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+  margin-bottom: 3rem;
   border-radius: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  opacity: 0.7;
-  transition: opacity 0.3s;
 }
 
-.slide.active {
-  opacity: 1;
-  border: 2px solid var(--skin-color);
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-/* altri stili già visti per progetti */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 600px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .fixed-hero {
+    height: 450px; /* Altezza mobile */
+  }
+
+  .hero-content {
+    max-width: 90%;
+    padding: 2rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
 </style>

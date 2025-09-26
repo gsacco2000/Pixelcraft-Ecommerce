@@ -1,7 +1,10 @@
 <template>
   <div
     class="hero-container rounded"
-    :style="{ backgroundImage: `url('${backgroundImage}')` }"
+    :style="{
+      backgroundImage: `url('${backgroundImage}')`,
+      '--hero-height': height,
+    }"
   >
     <div class="overlay-box p-4">
       <h1 class="text-white fw-bold mb-3">{{ title }}</h1>
@@ -17,13 +20,17 @@ export default {
     backgroundImage: String,
     title: String,
     description: String,
+    height: {
+      type: String,
+      default: "600px",
+    },
   },
 };
 </script>
 
 <style scoped>
 .hero-container {
-  height: 600px;
+  height: var(--hero-height);
   background-size: cover;
   background-position: center;
   position: relative;
