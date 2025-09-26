@@ -121,7 +121,7 @@ export default {
 }
 .btn-view-all-products:hover,
 .btn-view-all-products:focus {
-  background: #146c43;
+  background: #151515;
 }
 .banner-wrapper {
   width: 100%;
