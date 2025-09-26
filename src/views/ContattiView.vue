@@ -1,36 +1,14 @@
 <template>
-  <main>
-    <!-- Carosello Hero -->
-    <section class="hero">
-      <div id="heroCarousel" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="/img.contact/contact.hero.jpg"
-              alt="persone che fanno brainstorming"
-            />
-            <div class="carousel-caption custom-blur-caption">
-              <h1>Contattaci</h1>
-              <p class="text-white">
-                Hai un progetto in mente o vuoi semplicemente conoscerci meglio?
-                <br />
-                Siamo pronti ad ascoltarti e costruire insieme qualcosa di
-                straordinario.
-              </p>
-              <router-link class="button btn btn-primary" to="/portfolio">
-                Scopri i nostri lavori
-              </router-link>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-indicators">
-          <button type="button" :class="{ active: true }"></button>
-          <button type="button"></button>
-          <button type="button"></button>
-        </div>
-      </div>
-    </section>
+  <HeroBanner
+    backgroundImage="/img.contact/contact.hero.jpg"
+    title="Contattaci"
+    description="
+      <p>Hai un progetto in mente o vuoi semplicemente conoscerci meglio? </p>
+      <p> Siamo pronti ad ascoltarti e costruire insieme qualcosa di straordinario.</p>
+      "
+  />
 
+  <main>
     <!-- Contatti e Form -->
     <div class="container my-5 contatti">
       <div class="row g-4">
@@ -207,8 +185,13 @@
 </template>
 
 <script>
+import HeroBanner from "@/components/HeroBanner.vue";
+
 export default {
   name: "ContattiView",
+  components: {
+    HeroBanner,
+  },
   data() {
     return {
       form: {
