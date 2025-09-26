@@ -244,15 +244,21 @@
   <div class="portfolio-section mx-auto p-3 p-md-5" style="max-width: 1200px">
     <ArticleList :articoli="selectedArticles" />
   </div>
+
+  <div class="newsletter-container container-fluid px-0">
+    <AppNewsletter />
+  </div>
 </template>
 
 <script>
 import ArticleList from "@/components/ArticleList.vue";
+import AppNewsletter from "@/components/AppNewsletter.vue";
 
 export default {
   name: "ArticoloMaterieprime",
   components: {
     ArticleList,
+    AppNewsletter,
   },
   data() {
     return {
